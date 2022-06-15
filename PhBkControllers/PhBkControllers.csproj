@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="6.1.2" />
+    <PackageReference Include="MassTransit" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PhBkEntity\PhBkEntity.csproj" />
+    <ProjectReference Include="..\PhBkContext\PhBkContext.csproj" />
+    <ProjectReference Include="..\PhBkViews\PhBkViews.csproj" />
+    <ProjectReference Include="..\LpPhBkViews\LpPhBkViews.csproj" />
+  </ItemGroup>
+
+</Project>

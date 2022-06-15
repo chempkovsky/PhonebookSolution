@@ -1,0 +1,275 @@
+{
+    "bindings": [
+        {
+            "arguments": {},
+            "destination": "PhbkDivisionViewExtForLkUpMsg",
+            "destination_type": "exchange",
+            "routing_key": "",
+            "source": "LpPhBkViews.PhBk:IPhbkDivisionViewExtForLkUpMsg",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "PhbkEmployeeViewExtForLkUpMsg",
+            "destination_type": "exchange",
+            "routing_key": "",
+            "source": "LpPhBkViews.PhBk:IPhbkEmployeeViewExtForLkUpMsg",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "PhbkPhoneViewExtForLkUpMsg",
+            "destination_type": "exchange",
+            "routing_key": "",
+            "source": "LpPhBkViews.PhBk:IPhbkPhoneViewExtForLkUpMsg",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "MassTransit:Fault",
+            "destination_type": "exchange",
+            "routing_key": "",
+            "source": "MassTransit:Fault--LpPhBkViews.PhBk:IPhbkDivisionViewExtForLkUpMsg--",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "PhbkDivisionViewExtForLkUpMsg",
+            "destination_type": "queue",
+            "routing_key": "",
+            "source": "PhbkDivisionViewExtForLkUpMsg",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "PhbkDivisionViewExtForLkUpMsg_error",
+            "destination_type": "queue",
+            "routing_key": "",
+            "source": "PhbkDivisionViewExtForLkUpMsg_error",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "PhbkEmployeeViewExtForLkUpMsg",
+            "destination_type": "queue",
+            "routing_key": "",
+            "source": "PhbkEmployeeViewExtForLkUpMsg",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "destination": "PhbkPhoneViewExtForLkUpMsg",
+            "destination_type": "queue",
+            "routing_key": "",
+            "source": "PhbkPhoneViewExtForLkUpMsg",
+            "vhost": "phbkhost"
+        }
+    ],
+    "exchanges": [
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "MassTransit:Fault--LpPhBkViews.PhBk:IPhbkDivisionViewExtForLkUpMsg--",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "LpPhBkViews.PhBk:IPhbkDivisionViewExtForLkUpMsg",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkDivisionViewExtForLkUpMsg",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkPhoneViewExtForLkUpMsg",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkEmployeeViewExtForLkUpMsg",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "LpPhBkViews.PhBk:IPhbkEmployeeViewExtForLkUpMsg",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkDivisionViewExtForLkUpMsg_error",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "LpPhBkViews.PhBk:IPhbkPhoneViewExtForLkUpMsg",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "MassTransit:Fault",
+            "type": "fanout",
+            "vhost": "phbkhost"
+        }
+    ],
+    "global_parameters": [],
+    "parameters": [
+        {
+            "component": "vhost-limits",
+            "name": "limits",
+            "value": {
+                "max-connections": 25,
+                "max-queues": 30
+            },
+            "vhost": "phbkhost"
+        }
+    ],
+    "permissions": [
+        {
+            "configure": ".*",
+            "read": ".*",
+            "user": "admin",
+            "vhost": "phbkhost",
+            "write": ".*"
+        },
+        {
+            "configure": ".*",
+            "read": ".*",
+            "user": "guest",
+            "vhost": "/",
+            "write": ".*"
+        },
+        {
+            "configure": ".*",
+            "read": ".*",
+            "user": "admin",
+            "vhost": "/",
+            "write": ".*"
+        }
+    ],
+    "policies": [],
+    "queues": [
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkDivisionViewExtForLkUpMsg_error",
+            "type": "classic",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkPhoneViewExtForLkUpMsg",
+            "type": "classic",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkDivisionViewExtForLkUpMsg",
+            "type": "classic",
+            "vhost": "phbkhost"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "PhbkEmployeeViewExtForLkUpMsg",
+            "type": "classic",
+            "vhost": "phbkhost"
+        }
+    ],
+    "topic_permissions": [
+        {
+            "exchange": ".*",
+            "read": ".*",
+            "user": "admin",
+            "vhost": "phbkhost",
+            "write": ".*"
+        },
+        {
+            "exchange": ".*",
+            "read": ".*",
+            "user": "admin",
+            "vhost": "/",
+            "write": ".*"
+        }
+    ],
+    "users": [
+        {
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "limits": {},
+            "name": "admin",
+            "password_hash": "ZKjNeIhvkK4QBuXcxpg+Yqbn1uTC7v05vQdbFucKr2IPKnQu",
+            "tags": [
+                "administrator"
+            ]
+        },
+        {
+            "hashing_algorithm": "rabbit_password_hashing_sha256",
+            "limits": {},
+            "name": "guest",
+            "password_hash": "yYaWG9CVi8L74A2bXjfEdLbst5QCvmNrjrsojt1HyKZcCnz9",
+            "tags": [
+                "administrator"
+            ]
+        }
+    ],
+    "vhosts": [
+        {
+            "limits": [],
+            "metadata": {
+                "description": "Default virtual host",
+                "tags": []
+            },
+            "name": "/"
+        },
+        {
+            "limits": [
+                [
+                    "max-connections",
+                    25
+                ],
+                [
+                    "max-queues",
+                    30
+                ]
+            ],
+            "metadata": {
+                "description": "",
+                "tags": []
+            },
+            "name": "phbkhost"
+        }
+    ]
+}

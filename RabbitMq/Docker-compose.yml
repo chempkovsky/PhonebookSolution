@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  rabbit:
+    build: .
+    hostname: my-rabbit
+    container_name: 'rabbitmq'
+    environment:
+      RABBITMQ_CONFIG_FILE: '/etc/rabbitmq/rabbitmq.conf'
+    ports:
+      - 5672:5672
+      - 15672:15672
