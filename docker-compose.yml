@@ -1,0 +1,124 @@
+services:
+  pbdb:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    hostname: "pbdb"
+    expose:
+      - "1433"
+#    ports:
+#      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "myPss@wrd"
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$${SA_PASSWORD}" -Q "SELECT 1" -b -o /dev/null
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+  pbrabbit:
+    image: "rabbitmq-phn-bk:latest"
+    hostname: "pbrabbit"
+    environment:
+      RABBITMQ_CONFIG_FILE: '/etc/rabbitmq/rabbitmq.conf'
+    expose:
+      - "5672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 10s    
+#    ports:
+#      - 15672:15672
+  webapiphnlkup:
+    image: "webapi-phn-lkup:latest"
+    hostname: "webapiphnlkup"
+    environment:
+      ConnectionStrings:LpPhnPhBkConnection: "Data Source=pbdb;Initial Catalog=LpPhnPhBkDbDef;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
+      ConnectionStrings:LpEmpPhBkConnection: "Data Source=pbdb;Initial Catalog=LpEmpPhBkDbDef;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
+      ConnectionStrings:LpPhBkConnection: "Data Source=pbdb;Initial Catalog=LpPhBkDbDef;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
+      JWT:ValidAudience: "PhBkAudience" 
+      JWT:ValidIssuer: "PhBkIssuer" 
+      JWT:Secret": "JWTAuthenticationHIGHsecuredPasswordVVVp1OH7Xzyr" 
+      PhbkDivisionViewExtForLkUpConf:HostName: "pbrabbit" 
+      PhbkDivisionViewExtForLkUpConf:Username: "admin" 
+      PhbkDivisionViewExtForLkUpConf:Password: "admin" 
+      PhbkDivisionViewExtForLkUpConf:VirtualHostName: "phbkhost" 
+      PhbkDivisionViewExtForLkUpConf:ClusterIpAddresses: null
+      PhbkEmployeeViewExtForLkUpConf:HostName: "pbrabbit" 
+      PhbkEmployeeViewExtForLkUpConf:Username: "admin" 
+      PhbkEmployeeViewExtForLkUpConf:Password: "admin" 
+      PhbkEmployeeViewExtForLkUpConf:VirtualHostName: "phbkhost" 
+      PhbkEmployeeViewExtForLkUpConf:ClusterIpAddresses: null
+      PhbkPhoneViewExtForLkUpConf:HostName: "pbrabbit" 
+      PhbkPhoneViewExtForLkUpConf:Username: "admin" 
+      PhbkPhoneViewExtForLkUpConf:Password: "admin" 
+      PhbkPhoneViewExtForLkUpConf:VirtualHostName: "phbkhost" 
+      PhbkPhoneViewExtForLkUpConf:ClusterIpAddresses: null
+    links:
+      - pbdb
+      - pbrabbit
+    ports:
+      - 91:80
+    depends_on:
+      pbdb:
+        condition: service_healthy
+      pbrabbit:
+        condition: service_healthy
+  webapiphnbk:
+    image: "webapi-phn-bk:latest"
+    hostname: "webapiphnbk"
+    environment:
+      ConnectionStrings:PhBkConnection: "Data Source=pbdb;Initial Catalog=PhBkDbDef;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
+      ConnectionStrings:AuthConnection: "Data Source=pbdb;Initial Catalog=PhBkDbAuth;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
+      ConnectionStrings:AspNetRegConnection: "Data Source=pbdb;Initial Catalog=PhBkAspNet;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
+      JWT:ValidAudience: "PhBkAudience" 
+      JWT:ValidIssuer: "PhBkIssuer" 
+      JWT:Secret: "JWTAuthenticationHIGHsecuredPasswordVVVp1OH7Xzyr" 
+      PhbkDivisionViewExtForLkUpConf:HostName: "pbrabbit" 
+      PhbkDivisionViewExtForLkUpConf:Username: "admin" 
+      PhbkDivisionViewExtForLkUpConf:Password: "admin" 
+      PhbkDivisionViewExtForLkUpConf:VirtualHostName: "phbkhost" 
+      PhbkDivisionViewExtForLkUpConf:ClusterIpAddresses: null
+      PhbkEmployeeViewExtForLkUpConf:HostName: "pbrabbit" 
+      PhbkEmployeeViewExtForLkUpConf:Username: "admin" 
+      PhbkEmployeeViewExtForLkUpConf:Password: "admin" 
+      PhbkEmployeeViewExtForLkUpConf:VirtualHostName: "phbkhost" 
+      PhbkEmployeeViewExtForLkUpConf:ClusterIpAddresses: null
+      PhbkPhoneViewExtForLkUpConf:HostName: "pbrabbit" 
+      PhbkPhoneViewExtForLkUpConf:Username: "admin" 
+      PhbkPhoneViewExtForLkUpConf:Password: "admin" 
+      PhbkPhoneViewExtForLkUpConf:VirtualHostName: "phbkhost" 
+      PhbkPhoneViewExtForLkUpConf:ClusterIpAddresses: null
+    links:
+      - pbdb
+      - pbrabbit
+    ports:
+      - 92:80
+    depends_on:
+      pbdb:
+        condition: service_healthy
+      pbrabbit:
+        condition: service_healthy
+      webapiphnlkup:
+        condition: service_started
+  angularphnbk:
+    image: "angular-phn-bk:latest"
+    environment:
+      PHNLP_URL: "http://localhost:91/"
+      EMPLP_URL: "http://localhost:91/"
+      DIVLP_URL: "http://localhost:91/"
+      WA_URL: "http://localhost:92/" 
+      SEC_URL: "http://localhost:92/" 
+      PERM_URL: "http://localhost:92/" 
+    ports:
+      - 93:80
+    depends_on:
+      pbdb:
+        condition: service_healthy
+      pbrabbit:
+        condition: service_healthy
+      webapiphnlkup:
+        condition: service_started
+      webapiphnbk:
+        condition: service_started
