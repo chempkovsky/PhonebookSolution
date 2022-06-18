@@ -16,7 +16,7 @@ services:
       retries: 10
       start_period: 10s
   pbrabbit:
-    image: "rabbitmq-phn-bk:latest"
+    image: "chempkovsky/rabbitmq-phn-bk:latest"
     hostname: "pbrabbit"
     environment:
       RABBITMQ_CONFIG_FILE: '/etc/rabbitmq/rabbitmq.conf'
@@ -31,7 +31,7 @@ services:
 #    ports:
 #      - 15672:15672
   webapiphnlkup:
-    image: "webapi-phn-lkup:latest"
+    image: "chempkovsky/webapi-phn-lkup:latest"
     hostname: "webapiphnlkup"
     environment:
       ConnectionStrings:LpPhnPhBkConnection: "Data Source=pbdb;Initial Catalog=LpPhnPhBkDbDef;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
@@ -66,7 +66,7 @@ services:
       pbrabbit:
         condition: service_healthy
   webapiphnbk:
-    image: "webapi-phn-bk:latest"
+    image: "chempkovsky/webapi-phn-bk:latest"
     hostname: "webapiphnbk"
     environment:
       ConnectionStrings:PhBkConnection: "Data Source=pbdb;Initial Catalog=PhBkDbDef;Persist Security Info=True;User ID=sa;Password=myPss@wrd" 
@@ -103,7 +103,7 @@ services:
       webapiphnlkup:
         condition: service_started
   angularphnbk:
-    image: "angular-phn-bk:latest"
+    image: "chempkovsky/angular-phn-bk:latest"
     environment:
       PHNLP_URL: "http://localhost:91/"
       EMPLP_URL: "http://localhost:91/"
