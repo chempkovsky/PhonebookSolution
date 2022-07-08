@@ -5,13 +5,13 @@ namespace LpPhBkEntity.PhBk
 {
     public class LprPhone04
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Description = "Row id", Name = "Phone Id", Prompt = "Enter Phone Id", ShortName = "Phone Id")]
         [Required]
         public int PhoneId { get; set; }
         //public PhbkPhone Phone { get; set; } = null!;
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Description = "Row id", Name = "Id of the Row", Prompt = "Enter Row Id", ShortName = "Row Id")]
         [Required]
         public int LpdPhoneIdRef { get; set; }

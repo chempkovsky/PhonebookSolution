@@ -25,36 +25,36 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LpPhBkControllers", "LpPhBk
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LpPhBkWebApp", "LpPhBkWebApp\LpPhBkWebApp.csproj", "{33D9093C-DFD0-470B-8038-1E4CD0737BD5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{0DA23966-CEA0-4A1C-A022-8C2E01A7F22E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhBkMySqlWebApp", "PhBkMySqlWebApp\PhBkMySqlWebApp.csproj", "{FDA79FC7-FF6B-41C0-B170-4DA4B48DD514}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "src", "AngularPhonebook\src\", "{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LpPhBkMySqlWebApp", "LpPhBkMySqlWebApp\LpPhBkMySqlWebApp.csproj", "{41035B7A-5992-4419-A11F-75AD7B0D35E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LpPhBkPostgreSqlWebApp", "LpPhBkPostgreSqlWebApp\LpPhBkPostgreSqlWebApp.csproj", "{EB4421BB-4402-4382-B95C-C9F1BC9F7D61}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhBkPostgreSqlWebApp", "PhBkPostgreSqlWebApp\PhBkPostgreSqlWebApp.csproj", "{816458D1-15C1-42FA-A374-3B170AF4987C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "src(1)", "..\..\Telerik\kendo-angular-app\src\", "{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_52948"
-		Debug.AspNetCompiler.PhysicalPath = "AngularPhonebook\src\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52948\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_65383"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Telerik\kendo-angular-app\src\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65383\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_52948"
-		Release.AspNetCompiler.PhysicalPath = "AngularPhonebook\src\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52948\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_65383"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Telerik\kendo-angular-app\src\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65383\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "52948"
-		SlnRelativePath = "AngularPhonebook\src\"
+		VWDPort = "65383"
+		SlnRelativePath = "..\..\Telerik\kendo-angular-app\src\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhBkMySqlWebApp", "PhBkMySqlWebApp\PhBkMySqlWebApp.csproj", "{FDA79FC7-FF6B-41C0-B170-4DA4B48DD514}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LpPhBkMySqlWebApp", "LpPhBkMySqlWebApp\LpPhBkMySqlWebApp.csproj", "{41035B7A-5992-4419-A11F-75AD7B0D35E7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LpPhBkPostgreSqlWebApp", "LpPhBkPostgreSqlWebApp\LpPhBkPostgreSqlWebApp.csproj", "{EB4421BB-4402-4382-B95C-C9F1BC9F7D61}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhBkPostgreSqlWebApp", "PhBkPostgreSqlWebApp\PhBkPostgreSqlWebApp.csproj", "{816458D1-15C1-42FA-A374-3B170AF4987C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{B29BB7C7-3FA4-41BA-89FD-7C46FB3BD825}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -186,18 +186,6 @@ Global
 		{33D9093C-DFD0-470B-8038-1E4CD0737BD5}.Release|x64.Build.0 = Release|Any CPU
 		{33D9093C-DFD0-470B-8038-1E4CD0737BD5}.Release|x86.ActiveCfg = Release|Any CPU
 		{33D9093C-DFD0-470B-8038-1E4CD0737BD5}.Release|x86.Build.0 = Release|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Debug|x64.Build.0 = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Debug|x86.Build.0 = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Release|x64.ActiveCfg = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Release|x64.Build.0 = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Release|x86.ActiveCfg = Debug|Any CPU
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C}.Release|x86.Build.0 = Debug|Any CPU
 		{FDA79FC7-FF6B-41C0-B170-4DA4B48DD514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDA79FC7-FF6B-41C0-B170-4DA4B48DD514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDA79FC7-FF6B-41C0-B170-4DA4B48DD514}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -246,6 +234,18 @@ Global
 		{816458D1-15C1-42FA-A374-3B170AF4987C}.Release|x64.Build.0 = Release|Any CPU
 		{816458D1-15C1-42FA-A374-3B170AF4987C}.Release|x86.ActiveCfg = Release|Any CPU
 		{816458D1-15C1-42FA-A374-3B170AF4987C}.Release|x86.Build.0 = Release|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x64.Build.0 = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x86.Build.0 = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x64.ActiveCfg = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x64.Build.0 = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x86.ActiveCfg = Debug|Any CPU
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -261,11 +261,11 @@ Global
 		{CC74501C-8D56-45FC-817E-1AB0D021AAD7} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{EE9ADEF6-4C0C-4E78-B1EB-E97FC137A2D2} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{33D9093C-DFD0-470B-8038-1E4CD0737BD5} = {96259134-72D4-4092-AB64-1A2537CF008E}
-		{AEE19867-4D2D-4DC1-83B9-643071F5DA0C} = {0DA23966-CEA0-4A1C-A022-8C2E01A7F22E}
 		{FDA79FC7-FF6B-41C0-B170-4DA4B48DD514} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{41035B7A-5992-4419-A11F-75AD7B0D35E7} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{EB4421BB-4402-4382-B95C-C9F1BC9F7D61} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{816458D1-15C1-42FA-A374-3B170AF4987C} = {96259134-72D4-4092-AB64-1A2537CF008E}
+		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475} = {B29BB7C7-3FA4-41BA-89FD-7C46FB3BD825}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD63F0F1-8789-46FE-80D7-59C7A54FF165}
