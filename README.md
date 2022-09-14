@@ -6,3 +6,5 @@
 - You can find detailed step-by-step instructions for creating code in the [CS82ANGULAR](https://github.com/chempkovsky/CS82ANGULAR/wiki) project's wiki.
 
 ### Xamarin app added to the current solution
+- open solution in visual studio 2022
+- make sure you corretly define
