@@ -8,3 +8,15 @@
 ### Xamarin app added to the current solution
 - open solution in visual studio 2022
 - make sure you corretly define
+  - [appsettings.json of PhBkWebApp](https://github.com/chempkovsky/PhonebookSolution/blob/master/PhBkWebApp/appsettings.json)
+  - [appsettings.json of LpPhBkWebApp](https://github.com/chempkovsky/PhonebookSolution/blob/master/LpPhBkWebApp/appsettings.json)
+  - you do not need to setup RabbitMq 
+- start the solution (press F5)
+  - PhBkWebApp will be lanched (/LpdDivisionViewWebApi/getall)
+  - LpPhBkWebApp will be be lanched
+  - PrismPhonebook.UWP will be launched
+  
+- In the first swagger window run **/LpdDivisionViewWebApi/getall** one time (it will create databases and populate tables with data)
+- In the second swagger window run **/PhbkDivisionViewWebApi/getall** one time (it will create databases and populate tables with data)
+- After that PrismPhonebook.UWP will be ready to show data
+  - don't add/remove/update data until RabbitMq settings are set
