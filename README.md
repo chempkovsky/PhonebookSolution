@@ -12,7 +12,7 @@
   - [appsettings.json of LpPhBkWebApp](https://github.com/chempkovsky/PhonebookSolution/blob/master/LpPhBkWebApp/appsettings.json)
   - you do not need to setup RabbitMq 
 - start the solution (press F5)
-  - PhBkWebApp will be lanched (/LpdDivisionViewWebApi/getall)
+  - PhBkWebApp will be lanched
   - LpPhBkWebApp will be be lanched
   - PrismPhonebook.UWP will be launched
   
