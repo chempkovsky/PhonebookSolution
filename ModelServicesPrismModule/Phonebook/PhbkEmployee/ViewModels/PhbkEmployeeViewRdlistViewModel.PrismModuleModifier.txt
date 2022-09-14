@@ -1,0 +1,105 @@
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"PhbkEmployeeViewRdlistUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkEmployeeViewRdlistViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>();',
+    '        // According to requirements of the "PhbkEmployeeViewRdlistViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForRegionNavigation<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>("PhbkEmployeeViewRdlistUserControl");',
+    '        // According to requirements of the "PhbkEmployeeViewRdlistViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, PhbkEmployeeViewRdlistUserControl>("PhbkEmployeeViewRdlistUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls.PhbkEmployeeViewRdlistUserControl','ModelServicesPrismModule.Phonebook.PhbkEmployee.ViewModels.PhbkEmployeeViewRdlistViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForRegionNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls.PhbkEmployeeViewRdlistUserControl','ModelServicesPrismModule.Phonebook.PhbkEmployee.ViewModels.PhbkEmployeeViewRdlistViewModel'],
+    "InvocationParams": ['"PhbkEmployeeViewRdlistUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForRegionNavigation<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>("PhbkEmployeeViewRdlistUserControl");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls.PhbkEmployeeViewRdlistUserControl'],
+    "InvocationParams": ['"PhbkEmployeeViewRdlistUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PhbkEmployeeViewRdlistUserControl>("PhbkEmployeeViewRdlistUserControl");'
+    },
+    ]
+}
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkEmployeeViewRdlistUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkEmployeeViewRdlistViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>();
+        // According to requirements of the "PhbkEmployeeViewRdlistViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForRegionNavigation<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>("PhbkEmployeeViewRdlistUserControl");
+        // According to requirements of the "PhbkEmployeeViewRdlistViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, PhbkEmployeeViewRdlistUserControl>("PhbkEmployeeViewRdlistUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForRegionNavigation<PhbkEmployeeViewRdlistUserControl, PhbkEmployeeViewRdlistViewModel>("PhbkEmployeeViewRdlistUserControl");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PhbkEmployeeViewRdlistUserControl>("PhbkEmployeeViewRdlistUserControl");
+Result:
+Ok

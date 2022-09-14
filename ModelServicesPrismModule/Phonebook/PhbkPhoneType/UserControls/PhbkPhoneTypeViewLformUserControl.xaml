@@ -1,0 +1,48 @@
+
+
+<lfucbs:LformUserControlBase x:Class="ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls.PhbkPhoneTypeViewLformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:lfucbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+             xmlns:sfrm="clr-namespace:ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls" 
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference lformUsrCntrlRootNode}}"
+             x:Name="lformUsrCntrlRootNode">
+
+        <sfrm:PhbkPhoneTypeViewSformUserControl  
+            IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            Caption="{Binding Caption, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            FilterHeight="{Binding FilterHeight, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            ShowFilter="{Binding ShowFilter, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            ShowAddFilterBtn="{Binding ShowAddFilterBtn, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            GridHeight="{Binding GridHeight, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+
+            ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            ContainerMenuItemsCommand="{Binding OnContainerMenuItemsCommand, Source={x:Reference lformUsrCntrlRootNode}}"
+
+            ShowBackBtn="{Binding ShowBackBtn, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            NavigationBackCommand="{Binding OnNavigationBackCommand, Source={x:Reference lformUsrCntrlRootNode}}"                                
+
+            TableMenuItems="{Binding BindingContext.TableMenuItemsVM, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommand, Source={x:Reference lformUsrCntrlRootNode}}"
+
+            RowMenuItems="{Binding BindingContext.RowMenuItemsVM, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommand, Source={x:Reference lformUsrCntrlRootNode}}"
+
+            SelectedRowCommand="{Binding BindingContext.SelectedRowCommand, Source={x:Reference lformUsrCntrlRootNode}}"
+
+
+            HiddenFilters="{Binding BindingContext.HiddenFiltersVM, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+
+            SformAfterAddItem="{Binding BindingContext.SformAfterAddItem, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            SformAfterUpdItem="{Binding BindingContext.SformAfterUpdItem, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            SformAfterDelItem="{Binding BindingContext.SformAfterDelItem, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference lformUsrCntrlRootNode}}" 
+            />
+</lfucbs:LformUserControlBase>
+
+

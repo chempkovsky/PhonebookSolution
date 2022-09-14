@@ -1,0 +1,46 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    '"MessageDlgViewModel"  is defined in the "CommonServicesPrismModule"-project.',
+    'In the file of IModule-class of "CommonServicesPrismModule"-project the following line of code must be inserted:',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        containerRegistry.RegisterDialog<MessageDlgUserControl, MessageDlgViewModel>("MessageDlg");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'CommonServicesPrismModule\\CommonServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterDialog',
+    "InvocationGenerics": ['CommonServicesPrismModule.UserControls.MessageDlgUserControl', 'CommonServicesPrismModule.ViewModels.MessageDlgViewModel'],
+    "InvocationParams": ['"MessageDlg"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterDialog<MessageDlgUserControl, MessageDlgViewModel>("MessageDlg");'
+    },
+    ]
+}
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"MessageDlgViewModel"  is defined in the "CommonServicesPrismModule"-project.
+In the file of IModule-class of "CommonServicesPrismModule"-project the following line of code must be inserted:
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        containerRegistry.RegisterDialog<MessageDlgUserControl, MessageDlgViewModel>("MessageDlg");
+        ...
+    }
+Insertion the line : containerRegistry.RegisterDialog<MessageDlgUserControl, MessageDlgViewModel>("MessageDlg");
+Result:
+Ok

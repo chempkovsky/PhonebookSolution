@@ -1,0 +1,60 @@
+
+
+<ucwcm:UserControlWithContainerMenu x:Class="CommonServicesPrismModule.UserControls.PageNotFoundUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+             xmlns:ucwcm="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary"
+             
+
+             x:Name="accessDeniedCntrlRootNode">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0" 
+            Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+            <StackLayout Orientation="Horizontal">
+                <Button WidthRequest="45" 
+                        IsVisible="{Binding Path=BindingContext.ShowBackBtn, Mode=OneWay, Source={x:Reference accessDeniedCntrlRootNode}}"
+                        Command="{Binding Path=BindingContext.OnNavigationBackCommand, Source={x:Reference accessDeniedCntrlRootNode}}"
+                        Text="{x:Static fontIcons:IconFont.Arrow_back}" FontFamily="CustomIconFontAlias" BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                        TextColor="{DynamicResource IconButtonPrimaryColor}" 
+                        FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium}">
+                </Button>
+                <StackLayout Orientation="Horizontal" 
+                                BindableLayout.ItemsSource="{Binding ContainerMenuItems, Source={x:Reference accessDeniedCntrlRootNode}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button WidthRequest="45"
+                                Command="{Binding OnContainerMenuItemsCommand, Source={x:Reference accessDeniedCntrlRootNode}}"
+                                CommandParameter="{Binding}"
+                                IsEnabled="{Binding Enabled}"
+                                Text="{Binding IconName}" 
+                                FontFamily="CustomIconFontAlias" 
+                                BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{Binding IconColor}" 
+                                FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+
+        <StackLayout Grid.Row="1" 
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+            <Label  FontFamily="CustomIconFontAlias" HorizontalOptions="Center" FontSize="Header"
+                    Text="{x:Static fontIcons:IconFont.Unpublished}"/>
+            <Label Text="Page Not Found" HorizontalOptions="Center" FontSize="Title"/>
+        </StackLayout>
+    </Grid>
+    
+</ucwcm:UserControlWithContainerMenu>
+
+

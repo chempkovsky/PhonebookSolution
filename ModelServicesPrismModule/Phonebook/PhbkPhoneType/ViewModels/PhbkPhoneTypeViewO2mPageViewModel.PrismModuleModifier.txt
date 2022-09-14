@@ -1,0 +1,110 @@
+{
+"PrismMMMCallItems": [
+
+/////  can not find Lform User control for the view which named: LprPhone03View 
+/////  can not find Lform User control for the view which named: LprPhone04View 
+
+    {
+    "Description": [
+    '"PhbkPhoneTypeViewO2mPage" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkPhoneTypeViewO2mPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>();',
+    '        // According to requirements of the "PhbkPhoneTypeViewO2mPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForNavigation<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>("PhbkPhoneTypeViewO2mPage");',
+    '        // Only if you need to get an instance of controls, insert two lines below',
+    '        // According to requirements of the "PhbkPhoneTypeViewO2mPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        // containerRegistry.Register<ContentPage, PhbkPhoneTypeViewO2mPage>("PhbkPhoneTypeViewO2mPage");',
+    '        ...',
+    '    }',
+    ],
+
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkPhoneType.Views.PhbkPhoneTypeViewO2mPage','ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.PhbkPhoneTypeViewO2mPageViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkPhoneType.Views.PhbkPhoneTypeViewO2mPage','ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.PhbkPhoneTypeViewO2mPageViewModel'],
+    "InvocationParams": ['"PhbkPhoneTypeViewO2mPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForNavigation<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>("PhbkPhoneTypeViewO2mPage");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentPage', 'ModelServicesPrismModule.Phonebook.PhbkPhoneType.Views.PhbkPhoneTypeViewO2mPage'],
+    "InvocationParams": ['"PhbkPhoneTypeViewO2mPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentPage, PhbkPhoneTypeViewO2mPage>("PhbkPhoneTypeViewO2mPage");'
+    },
+    ]
+}
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkPhoneTypeViewO2mPage" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkPhoneTypeViewO2mPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>();
+        // According to requirements of the "PhbkPhoneTypeViewO2mPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForNavigation<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>("PhbkPhoneTypeViewO2mPage");
+        // Only if you need to get an instance of controls, insert two lines below
+        // According to requirements of the "PhbkPhoneTypeViewO2mPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        // containerRegistry.Register<ContentPage, PhbkPhoneTypeViewO2mPage>("PhbkPhoneTypeViewO2mPage");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForNavigation<PhbkPhoneTypeViewO2mPage, PhbkPhoneTypeViewO2mPageViewModel>("PhbkPhoneTypeViewO2mPage");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentPage, PhbkPhoneTypeViewO2mPage>("PhbkPhoneTypeViewO2mPage");
+Result:
+Ok

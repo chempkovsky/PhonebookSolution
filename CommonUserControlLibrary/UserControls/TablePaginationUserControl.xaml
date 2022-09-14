@@ -1,0 +1,36 @@
+<ContentView x:Class="CommonUserControlLibrary.UserControls.TablePaginationUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+             xmlns:btnDstr="clr-namespace:CommonUserControlLibrary.UserControls"
+             x:Name="tblPgntrUsrCntrlRootNode">
+    <StackLayout Orientation="Horizontal">
+        <Label VerticalOptions="Center" Text="{Binding Title, Source={x:Reference tblPgntrUsrCntrlRootNode}}"/>
+        <Picker WidthRequest="{OnPlatform iOS=50, Android=50, UWP=80}"
+                ItemsSource="{Binding RowsPerPageOptions, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                SelectedItem="{Binding RowsPerPage, Source={x:Reference tblPgntrUsrCntrlRootNode}, Mode=TwoWay}"/>
+        <Label VerticalOptions="Center" Text="{Binding CountFrom, Source={x:Reference tblPgntrUsrCntrlRootNode}}"/>
+        <Label VerticalOptions="Center" Text=" - "/>
+        <Label VerticalOptions="Center" Text="{Binding CountTo, Source={x:Reference tblPgntrUsrCntrlRootNode}}"/>
+        <Label VerticalOptions="Center" Text=" / "/>
+        <Label VerticalOptions="Center" Text="{Binding TotalCount, Source={x:Reference tblPgntrUsrCntrlRootNode}}"/>
+        <btnDstr:ButtonDestroyed VerticalOptions="Center" WidthRequest="30" HeightRequest="36" 
+                IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference tblPgntrUsrCntrlRootNode}}"
+                Command="{Binding Path=OnPreviousPageCommand, Source={x:Reference tblPgntrUsrCntrlRootNode}}"
+                Text="{Binding  PreviousButtonIconName, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                FontFamily="CustomIconFontAlias" 
+                BackgroundColor="{Binding  ButtonBackgroundColor, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                TextColor="{Binding  ButtonIconColor, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                FontSize="{OnPlatform iOS=Default, Android=Default, UWP=Default}"/>
+        <btnDstr:ButtonDestroyed VerticalOptions="Center" WidthRequest="30" HeightRequest="36" 
+                IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference tblPgntrUsrCntrlRootNode}}"
+                Command="{Binding Path=OnNextPageCommand, Source={x:Reference tblPgntrUsrCntrlRootNode}}"
+                Text="{Binding  NextButtonIconName, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                FontFamily="CustomIconFontAlias" 
+                BackgroundColor="{Binding  ButtonBackgroundColor, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                TextColor="{Binding  ButtonIconColor, Source={x:Reference tblPgntrUsrCntrlRootNode}}" 
+                FontSize="{OnPlatform iOS=Default, Android=Default, UWP=Default}"/>
+    </StackLayout> 
+</ContentView>
+
+

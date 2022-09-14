@@ -1,0 +1,19 @@
+<ContentView x:Class="CommonServicesPrismModule.UserControls.MessageDlgUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:msgusrctrl="clr-namespace:CommonServicesPrismModule.UserControls"
+             x:Name="messageDlgCntrlRootNode"
+             BackgroundColor="{DynamicResource ColumnSelectorDlgBackgroundColor}">
+    <msgusrctrl:MessageUserControl Margin="16"
+        Title="{Binding BindingContext.Title, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}" 
+        Message="{Binding BindingContext.Message, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}"
+        MessageIconName="{Binding BindingContext.MessageIconName, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}"
+        MessageIconColor="{Binding BindingContext.MessageIconColor, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}"
+        ShowOkBtn="{Binding BindingContext.ShowOkBtn, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}"
+        ShowCancelBtn="{Binding BindingContext.ShowCancelBtn, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}"
+        OkCommand="{Binding BindingContext.OkCommand, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}"
+        CancelCommand="{Binding BindingContext.CancelCommand, Mode=OneWay, Source={x:Reference messageDlgCntrlRootNode}}">
+    </msgusrctrl:MessageUserControl>
+</ContentView>
+
+

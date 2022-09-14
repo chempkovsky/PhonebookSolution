@@ -1,0 +1,19 @@
+<ContentView x:Class="CommonServicesPrismModule.UserControls.ColumnSelectorUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="clmnSlctUsrCntrlRootNode">
+    <ScrollView  Orientation="Vertical" VerticalScrollBarVisibility="Default"  Margin="8, 0, 8, 0">
+        <StackLayout BindableLayout.ItemsSource="{Binding Columns, Source={x:Reference clmnSlctUsrCntrlRootNode}}" Orientation="Vertical">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start" >
+                        <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
+                        <Label Text="{Binding Caption}"/>
+                    </FlexLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </ScrollView>
+</ContentView>
+
+

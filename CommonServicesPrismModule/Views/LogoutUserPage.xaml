@@ -1,0 +1,28 @@
+
+
+<ContentPage x:Class="CommonServicesPrismModule.Views.LogoutUserPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+
+             x:Name="logoutCntrlRootNode">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+
+        <Label FontSize="Title" Text="Logout User" HorizontalOptions="Center"/>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="10,0,10,0">
+                <Label Text="Would you like to logout" HorizontalOptions="Center"/>
+
+                <StackLayout Orientation="Horizontal" Margin="8">
+                        <Button Text=" Ok "  Command="{Binding BindingContext.OkCommand, Mode=OneWay, Source={x:Reference logoutCntrlRootNode}}"/>
+                        <Button Text=" Cancel "  Command="{Binding BindingContext.CancelCommand, Mode=OneWay, Source={x:Reference logoutCntrlRootNode}}"/>
+                </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
+
+

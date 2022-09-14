@@ -1,0 +1,48 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    'In the file of IModule-class of the project for the current service the following lines of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        containerRegistry.Register<IPhbkDivisionViewService, PhbkDivisionViewService>();',
+    '        ...',
+    '    }'
+    ],
+    
+  
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelInterfacesClassLibrary.Phonebook.PhbkDivision.IPhbkDivisionViewService','ModelServicesPrismModule.Phonebook.PhbkDivision.PhbkDivisionViewService'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<IPhbkDivisionViewService, PhbkDivisionViewService>();'
+    },
+    ]
+}
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+In the file of IModule-class of the project for the current service the following lines of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        containerRegistry.Register<IPhbkDivisionViewService, PhbkDivisionViewService>();
+        ...
+    }
+Insertion the line : containerRegistry.Register<IPhbkDivisionViewService, PhbkDivisionViewService>();
+Result:
+Ok

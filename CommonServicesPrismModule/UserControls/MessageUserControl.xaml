@@ -1,0 +1,35 @@
+<ContentView x:Class="CommonServicesPrismModule.UserControls.MessageUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="msgUsrCntrlRootNode">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" FontAttributes="Bold" Text="{Binding Title, Source={x:Reference msgUsrCntrlRootNode}}"/>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label  Grid.Column="0" 
+                    FontFamily="CustomIconFontAlias" 
+                    FontSize="Title"
+                    Text="{Binding MessageIconName, Source={x:Reference msgUsrCntrlRootNode}}"
+                    TextColor="{Binding MessageIconColor, Source={x:Reference msgUsrCntrlRootNode}}"  
+                    BackgroundColor="{DynamicResource IconMessageBackgroundColor}"/>
+            <Label  Grid.Column="1" 
+                    Text="{Binding Message, Source={x:Reference msgUsrCntrlRootNode}}"/>
+        </Grid>
+        <StackLayout Orientation="Horizontal" Grid.Row="2">
+            <Button Text="Ok"  IsVisible="{Binding ShowOkBtn, Mode=OneWay, Source={x:Reference msgUsrCntrlRootNode}}"
+                Command="{Binding OnOkCommand, Source={x:Reference msgUsrCntrlRootNode}}"/>
+            <Button Text="Cancel" IsVisible="{Binding ShowCancelBtn, Mode=OneWay, Source={x:Reference msgUsrCntrlRootNode}}" 
+                Command="{Binding OnCancelCommand, Source={x:Reference msgUsrCntrlRootNode}}"/>
+        </StackLayout>
+    </Grid>
+</ContentView>
+
+

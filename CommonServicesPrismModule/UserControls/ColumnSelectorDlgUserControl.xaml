@@ -1,0 +1,21 @@
+<ContentView x:Class="CommonServicesPrismModule.UserControls.ColumnSelectorDlgUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:csuc="clr-namespace:CommonServicesPrismModule.UserControls"
+             x:Name="columnSelectorDlgCntrlRootNode">
+    <Grid BackgroundColor="{DynamicResource ColumnSelectorDlgBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" FontAttributes="Bold" Text="{Binding BindingContext.Title, Source={x:Reference columnSelectorDlgCntrlRootNode}}"/>
+        <csuc:ColumnSelectorUserControl x:Name="ClmnSelUsrCntrl"  Grid.Row="1" Columns="{Binding BindingContext.Columns, Source={x:Reference columnSelectorDlgCntrlRootNode}}" />
+        <StackLayout Orientation="Horizontal" Grid.Row="2">
+            <Button Text=" Ok "  Command="{Binding BindingContext.OkCommand, Source={x:Reference columnSelectorDlgCntrlRootNode}}"/>
+            <Button Text=" Cancel "  Command="{Binding BindingContext.CancelCommand, Source={x:Reference columnSelectorDlgCntrlRootNode}}"/>
+        </StackLayout>
+    </Grid>
+</ContentView>
+
+

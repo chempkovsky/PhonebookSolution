@@ -1,0 +1,114 @@
+
+
+<ContentPage x:Class="FeatureServicesPrismModule.Phonebook.RdLists.RdListsFeatureFtrUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" 
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:prx="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             x:Name="fchrUsrCntrlRootNode"   
+             >
+    <ScrollView Orientation="Vertical">
+      <!-- does not work correctly
+      <StackLayout Orientation="Vertical"  Margin="8,0,16,8">
+      -->
+      <Grid    RowDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*">
+        <ActivityIndicator Grid.Row="0" Grid.Column="0" 
+                IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                IsRunning="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"/>
+        <!--<ProgressBar Grid.Row="0" Grid.Column="0" 
+                         Progress="0.75"
+                         IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"/>-->
+        <Grid Grid.Row="1" Grid.Column="0"
+            gridflex:GridFlex.HorizontalFlex="{Binding BindingContext.FlexOn, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*">
+            <prx:ProxyUserControl Grid.Row="0" Grid.Column="0"
+                    IsVisible="{Binding BindingContext.VisiblePhbkPhoneTypeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    prism:RegionManager.RegionName="PhbkPhoneTypeViewRdlistUserControlRdListsFeatureFtrUserControl" 
+                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}" 
+                    ContainerMenuItems="{Binding BindingContext.ContainerMenuItemsPhbkPhoneTypeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ContainerMenuItemsCommand="{Binding BindingContext.OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ShowAddFilterBtn="True" 
+                    ShowFilter="True" 
+                    GridHeight="{Binding BindingContext.GridHeightPhbkPhoneTypeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    FilterHeight="{Binding BindingContext.FilterHeightPhbkPhoneTypeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    CanAdd="True" 
+                    CanUpdate="True" 
+                    CanDelete="True" 
+                    />
+            <prx:ProxyUserControl Grid.Row="1" Grid.Column="0"
+                    IsVisible="{Binding BindingContext.VisiblePhbkEnterpriseViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    prism:RegionManager.RegionName="PhbkEnterpriseViewRdlistUserControlRdListsFeatureFtrUserControl" 
+                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}" 
+                    ContainerMenuItems="{Binding BindingContext.ContainerMenuItemsPhbkEnterpriseViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ContainerMenuItemsCommand="{Binding BindingContext.OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ShowAddFilterBtn="True" 
+                    ShowFilter="True" 
+                    GridHeight="{Binding BindingContext.GridHeightPhbkEnterpriseViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    FilterHeight="{Binding BindingContext.FilterHeightPhbkEnterpriseViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    CanAdd="True" 
+                    CanUpdate="True" 
+                    CanDelete="True" 
+                    />
+            </Grid>
+        <Grid Grid.Row="2" Grid.Column="0"
+            gridflex:GridFlex.HorizontalFlex="{Binding BindingContext.FlexOn, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*">
+            <prx:ProxyUserControl Grid.Row="0" Grid.Column="0"
+                    IsVisible="{Binding BindingContext.VisiblePhbkDivisionViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    prism:RegionManager.RegionName="PhbkDivisionViewRdlistUserControlRdListsFeatureFtrUserControl" 
+                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}" 
+                    ContainerMenuItems="{Binding BindingContext.ContainerMenuItemsPhbkDivisionViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ContainerMenuItemsCommand="{Binding BindingContext.OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ShowAddFilterBtn="True" 
+                    ShowFilter="True" 
+                    GridHeight="{Binding BindingContext.GridHeightPhbkDivisionViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    FilterHeight="{Binding BindingContext.FilterHeightPhbkDivisionViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    CanAdd="True" 
+                    CanUpdate="True" 
+                    CanDelete="True" 
+                    />
+            <prx:ProxyUserControl Grid.Row="1" Grid.Column="0"
+                    IsVisible="{Binding BindingContext.VisiblePhbkEmployeeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    prism:RegionManager.RegionName="PhbkEmployeeViewRdlistUserControlRdListsFeatureFtrUserControl" 
+                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}" 
+                    ContainerMenuItems="{Binding BindingContext.ContainerMenuItemsPhbkEmployeeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ContainerMenuItemsCommand="{Binding BindingContext.OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ShowAddFilterBtn="True" 
+                    ShowFilter="True" 
+                    GridHeight="{Binding BindingContext.GridHeightPhbkEmployeeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    FilterHeight="{Binding BindingContext.FilterHeightPhbkEmployeeViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    CanAdd="True" 
+                    CanUpdate="True" 
+                    CanDelete="True" 
+                    />
+            </Grid>
+        <Grid Grid.Row="3" Grid.Column="0"
+            gridflex:GridFlex.HorizontalFlex="{Binding BindingContext.FlexOn, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*">
+            <prx:ProxyUserControl Grid.Row="0" Grid.Column="0"
+                    IsVisible="{Binding BindingContext.VisiblePhbkPhoneViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    prism:RegionManager.RegionName="PhbkPhoneViewRdlistUserControlRdListsFeatureFtrUserControl" 
+                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}" 
+                    ContainerMenuItems="{Binding BindingContext.ContainerMenuItemsPhbkPhoneViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ContainerMenuItemsCommand="{Binding BindingContext.OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    ShowAddFilterBtn="True" 
+                    ShowFilter="True" 
+                    GridHeight="{Binding BindingContext.GridHeightPhbkPhoneViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    FilterHeight="{Binding BindingContext.FilterHeightPhbkPhoneViewRdlistUserControl, Mode=OneWay, Source={x:Reference fchrUsrCntrlRootNode}}"
+                    CanAdd="True" 
+                    CanUpdate="True" 
+                    CanDelete="True" 
+                    />
+        </Grid>
+  
+      <!-- does not work correctly
+      </StackLayout>
+      -->
+      </Grid>
+    </ScrollView>
+</ContentPage>
+
+

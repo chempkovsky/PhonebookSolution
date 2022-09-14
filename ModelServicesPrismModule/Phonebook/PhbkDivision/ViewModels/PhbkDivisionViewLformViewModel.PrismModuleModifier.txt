@@ -1,0 +1,80 @@
+{
+"PrismMMMCallItems": [
+
+
+
+    {
+    "Description": [
+    '"PhbkDivisionViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkDivisionViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkDivisionViewLformUserControl, PhbkDivisionViewLformViewModel>();',
+    '        // According to requirements of the "PhbkDivisionViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, PhbkDivisionViewLformUserControl>("PhbkDivisionViewLformUserControl");',
+    '        ...',
+    '    }',
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewLformUserControl','ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.PhbkDivisionViewLformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkDivisionViewLformUserControl, PhbkDivisionViewLformViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewLformUserControl'],
+    "InvocationParams": ['"PhbkDivisionViewLformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PhbkDivisionViewLformUserControl>("PhbkDivisionViewLformUserControl");'
+    },
+    ]
+}
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkDivisionViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkDivisionViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkDivisionViewLformUserControl, PhbkDivisionViewLformViewModel>();
+        // According to requirements of the "PhbkDivisionViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, PhbkDivisionViewLformUserControl>("PhbkDivisionViewLformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkDivisionViewLformUserControl, PhbkDivisionViewLformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PhbkDivisionViewLformUserControl>("PhbkDivisionViewLformUserControl");
+Result:
+Ok

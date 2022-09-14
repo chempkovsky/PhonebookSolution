@@ -1,0 +1,96 @@
+
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+
+    '"PageNotFoundViewModel" UserControl is defined in the "CommonServicesPrismModule"-project.',
+    'In the file of IModule-class of "CommonServicesPrismModule"-project the following line of code must be inserted:',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        ViewModelLocationProvider.Register<PageNotFoundUserControl, PageNotFoundViewModel>();',
+    '        containerRegistry.Register<ContentView, PageNotFoundUserControl>("PageNotFoundUserControl");',
+    '        containerRegistry.RegisterForRegionNavigation<PageNotFoundUserControl, PageNotFoundViewModel>("PageNotFoundUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'CommonServicesPrismModule\\CommonServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['CommonServicesPrismModule.UserControls.PageNotFoundUserControl','CommonServicesPrismModule.ViewModels.PageNotFoundViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PageNotFoundUserControl, PageNotFoundViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'CommonServicesPrismModule\\CommonServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForRegionNavigation',
+    "InvocationGenerics": ['CommonServicesPrismModule.UserControls.PageNotFoundUserControl','CommonServicesPrismModule.ViewModels.PageNotFoundViewModel'],
+    "InvocationParams": ['"PageNotFoundUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForRegionNavigation<PageNotFoundUserControl, PageNotFoundViewModel>("PageNotFoundUserControl");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'CommonServicesPrismModule\\CommonServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','CommonServicesPrismModule.UserControls.PageNotFoundUserControl'],
+    "InvocationParams": ['"PageNotFoundUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PageNotFoundUserControl>("PageNotFoundUserControl");'
+    },
+    ]
+}
+    
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PageNotFoundViewModel" UserControl is defined in the "CommonServicesPrismModule"-project.
+In the file of IModule-class of "CommonServicesPrismModule"-project the following line of code must be inserted:
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        ViewModelLocationProvider.Register<PageNotFoundUserControl, PageNotFoundViewModel>();
+        containerRegistry.Register<ContentView, PageNotFoundUserControl>("PageNotFoundUserControl");
+        containerRegistry.RegisterForRegionNavigation<PageNotFoundUserControl, PageNotFoundViewModel>("PageNotFoundUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PageNotFoundUserControl, PageNotFoundViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForRegionNavigation<PageNotFoundUserControl, PageNotFoundViewModel>("PageNotFoundUserControl");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PageNotFoundUserControl>("PageNotFoundUserControl");
+Result:
+Ok

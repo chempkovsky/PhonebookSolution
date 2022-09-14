@@ -1,0 +1,75 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    '"PhbkEnterpriseViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule\"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkEnterpriseViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkEnterpriseViewSformUserControl, PhbkEnterpriseViewSformViewModel>();',
+    '        // According to requirements of the "PhbkEnterpriseViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, PhbkEnterpriseViewSformUserControl>("PhbkEnterpriseViewSformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkEnterprise.UserControls.PhbkEnterpriseViewSformUserControl','ModelServicesPrismModule.Phonebook.PhbkEnterprise.ViewModels.PhbkEnterpriseViewSformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkEnterpriseViewSformUserControl, PhbkEnterpriseViewSformViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.Phonebook.PhbkEnterprise.UserControls.PhbkEnterpriseViewSformUserControl'],
+    "InvocationParams": ['"PhbkEnterpriseViewSformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PhbkEnterpriseViewSformUserControl>("PhbkEnterpriseViewSformUserControl");'
+    },
+    ]
+}
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkEnterpriseViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkEnterpriseViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkEnterpriseViewSformUserControl, PhbkEnterpriseViewSformViewModel>();
+        // According to requirements of the "PhbkEnterpriseViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, PhbkEnterpriseViewSformUserControl>("PhbkEnterpriseViewSformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkEnterpriseViewSformUserControl, PhbkEnterpriseViewSformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PhbkEnterpriseViewSformUserControl>("PhbkEnterpriseViewSformUserControl");
+Result:
+Ok

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Prism.Forms" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonInterfacesClassLibrary\CommonInterfacesClassLibrary.csproj" />
+    <ProjectReference Include="..\CommonUserControlLibrary\CommonUserControlLibrary.csproj" />
+    <ProjectReference Include="..\ModelInterfacesClassLibrary\ModelInterfacesClassLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

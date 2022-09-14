@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+
+             x:Class="PrismPhonebook.App">
+  <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="IconButtonPrimaryColor" >#FF087EFF</Color>
+            <Color x:Key="IconButtonDangerColor" >#FFD50000</Color>
+            <Color x:Key="IconButtonInfoColor" >#FFFFAB40</Color>
+            <Color x:Key="ValidationErrorColor" >#FFD0284C</Color>
+            
+            <Color x:Key="TablePaginationIconButtonTextColor">White</Color>
+            <Color x:Key="Color_NotificationBackground">#FFCDCDCD</Color>
+            <Color x:Key="IconButtonBackgroundColor" >Transparent</Color>
+            <NamedSize x:Key="IconButtonFontNamedSize">Large</NamedSize>
+            <Color x:Key="ColumnSelectorDlgBackgroundColor" >White</Color>
+            <Color x:Key="MessageDlgBackgroundColor" >White</Color>
+            <Color x:Key="IconMessageBackgroundColor">Transparent</Color>
+            <Color x:Key="SelectItemDlgBackgroundColor" >White</Color>
+            <Color x:Key="ModifyItemDlgBackgroundColor" >White</Color>
+            <Color x:Key="LformDlgBackgroundColor" >White</Color>
+
+
+
+            <Color x:Key="DataGridLineColor">Silver</Color>
+            <Color x:Key="DataGridHeaderBackGroundColor">Gray</Color>
+            <Color x:Key="DataGridHeaderTextColor">White</Color>
+            <Color x:Key="DataGridBodyBackgroundColor">WhiteSmoke</Color>
+            <Color x:Key="DataGridBodyTextColor">Black</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>
+

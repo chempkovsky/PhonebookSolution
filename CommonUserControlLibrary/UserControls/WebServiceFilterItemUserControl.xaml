@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommonUserControlLibrary.UserControls.WebServiceFilterItemUserControl"
+
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:invboolcnv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary" 
+             xmlns:nullableDatePicker="clr-namespace:CommonCustomControlLibrary.Controls;assembly=CommonCustomControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+             x:Name="fltrItmUsrCntrlRootNode">
+    <ContentView.Resources>
+        <invboolcnv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </ContentView.Resources>
+
+    <Grid gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference fltrItmUsrCntrlRootNode}}" 
+        RowDefinitions="Auto,Auto" ColumnDefinitions="*" Margin="0,0,8,0">
+        <Grid Grid.Row="0" Grid.Column="0"
+            Margin="8,0,0,0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" FontSize="Caption" >Column name</Label>
+            <Picker Grid.Row="1" ItemsSource="{Binding Path=FilterDefinitions, Source={x:Reference fltrItmUsrCntrlRootNode}}" 
+                      ItemDisplayBinding="{Binding fltrCaption}" 
+                      SelectedItem="{Binding Path=SelectedFilterDefinition, Source={x:Reference fltrItmUsrCntrlRootNode}, Mode=TwoWay}"/>
+            <Label Grid.Row="2" FontSize="Caption">Select Column name</Label>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0"
+            Margin="8,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="Caption" >Operator</Label>
+                <Picker Grid.Row="1" ItemsSource="{Binding Path=FilterOperators, Source={x:Reference fltrItmUsrCntrlRootNode}}" 
+                      ItemDisplayBinding="{Binding oCaption}" 
+                      SelectedItem="{Binding Path=SelectedFilterOperator, Source={x:Reference fltrItmUsrCntrlRootNode}, Mode=TwoWay}"/>
+                <Label Grid.Row="2" FontSize="Caption">Select operator</Label>
+            </Grid>
+            <Grid Grid.Column="1" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="Caption">Filter value</Label>
+                <Grid Grid.Row="1" ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Column="0">
+                        <ContentView.Content>
+                                        <Entry  IsReadOnly="{Binding IsFilterValueReadOnly, Mode=OneWay, Source={x:Reference fltrItmUsrCntrlRootNode}}" 
+                                                Text="{Binding FilterValue, Mode=TwoWay, Source={x:Reference fltrItmUsrCntrlRootNode}}"/>
+                        </ContentView.Content>
+                        <ContentView.Triggers>
+                            <DataTrigger TargetType="ContentView" Binding="{Binding IsDateInput, Source={x:Reference fltrItmUsrCntrlRootNode}}" Value="True">
+                                <Setter Property="Content" >
+                                    <Setter.Value>
+                                        <nullableDatePicker:NullableDatePicker Grid.Column="0" 
+                                                MinimumDate="1/1/1700"
+                                                IsEnabled="{Binding IsFilterValueReadOnly, Source={x:Reference fltrItmUsrCntrlRootNode}, Mode=OneWay, Converter={StaticResource InverseBooleanConverter}}"  
+                                                NullableDate="{Binding FilterValue, Mode=TwoWay, Source={x:Reference fltrItmUsrCntrlRootNode}}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </ContentView.Triggers>
+                    </ContentView>
+                    <Button Grid.Column="1" WidthRequest="45"
+                            Command="{Binding Path=FilterItemCommand, Source={x:Reference fltrItmUsrCntrlRootNode}}"
+                            Text="{x:Static fontIcons:IconFont.Delete_outline}" FontFamily="CustomIconFontAlias" BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                            TextColor="{DynamicResource IconButtonDangerColor}" 
+                            FontSize="{OnPlatform iOS=Default, Android=Large, UWP=Default}">
+                    </Button>
+                </Grid>
+                <Label  Grid.Row="2" FontSize="Caption" Text="{Binding Path=FilterValuePrompt, Source={x:Reference fltrItmUsrCntrlRootNode}}" TextColor="{x:DynamicResource ValidationErrorColor}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Path=FilterError, Source={x:Reference fltrItmUsrCntrlRootNode}}" Value="">
+                            <Setter Property="TextColor" Value="Default" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding Path=FilterError, Source={x:Reference fltrItmUsrCntrlRootNode}}" Value="{x:Null}">
+                            <Setter Property="TextColor" Value="Default" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentView>
+
+

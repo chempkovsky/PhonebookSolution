@@ -1,0 +1,106 @@
+
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"PhbkDivisionViewRdelUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkDivisionViewRdelViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>();',
+    '        // According to requirements of the "PhbkDivisionViewRdelViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForRegionNavigation<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>("PhbkDivisionViewRdelUserControl");',
+    '        // According to requirements of the "PhbkDivisionViewRdelViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, PhbkDivisionViewRdelUserControl>("PhbkDivisionViewRdelUserControl");',
+    '        ...',
+    '    }',
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewRdelUserControl','ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.PhbkDivisionViewRdelViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForRegionNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewRdelUserControl','ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.PhbkDivisionViewRdelViewModel'],
+    "InvocationParams": ['"PhbkDivisionViewRdelUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForRegionNavigation<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>("PhbkDivisionViewRdelUserControl");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView', 'ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewRdelUserControl'],
+    "InvocationParams": ['"PhbkDivisionViewRdelUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PhbkDivisionViewRdelUserControl>("PhbkDivisionViewRdelUserControl");'
+    },
+    ]
+}
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkDivisionViewRdelUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkDivisionViewRdelViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>();
+        // According to requirements of the "PhbkDivisionViewRdelViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForRegionNavigation<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>("PhbkDivisionViewRdelUserControl");
+        // According to requirements of the "PhbkDivisionViewRdelViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, PhbkDivisionViewRdelUserControl>("PhbkDivisionViewRdelUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForRegionNavigation<PhbkDivisionViewRdelUserControl, PhbkDivisionViewRdelViewModel>("PhbkDivisionViewRdelUserControl");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PhbkDivisionViewRdelUserControl>("PhbkDivisionViewRdelUserControl");
+Result:
+Ok

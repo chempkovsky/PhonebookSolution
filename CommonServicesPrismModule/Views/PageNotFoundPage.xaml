@@ -1,0 +1,20 @@
+
+
+<ContentPage x:Class="CommonServicesPrismModule.Views.PageNotFoundPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+             x:Name="pageNotFoundCntrlRootNode">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+        <Label  FontFamily="CustomIconFontAlias" HorizontalOptions="Center" FontSize="Header"
+                Text="{x:Static fontIcons:IconFont.Unpublished}"/>
+        <Label Text="Page Not Found" HorizontalOptions="Center" FontSize="Title"/>
+    </StackLayout>
+    
+</ContentPage>
+
+

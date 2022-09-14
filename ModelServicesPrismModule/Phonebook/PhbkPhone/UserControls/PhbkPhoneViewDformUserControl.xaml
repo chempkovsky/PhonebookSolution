@@ -1,0 +1,286 @@
+<efrmbs:EformUserControlBase x:Class="ModelServicesPrismModule.Phonebook.PhbkPhone.UserControls.PhbkPhoneViewDformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:efrmbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+             xmlns:nullableDatePicker="clr-namespace:CommonCustomControlLibrary.Controls;assembly=CommonCustomControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:invboolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:str2boolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:nullableback="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             
+
+
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"
+
+             x:Name="phbkphoneviewdformusercontrolrootnode"
+             >
+<!--
+To reset FormControlModel and(or) HiddenFilters do the following:
+set IsParentLoaded = false;
+set FormControlModel and(or) HiddenFilters
+set IsParentLoaded = true;
+
+resetting FormControlModel and(or) HiddenFilters without 
+    { IsParentLoaded = false; IsParentLoaded = true; }
+will not affect the behavior of current component
+-->
+
+    <efrmbs:EformUserControlBase.Resources>
+        <invboolconv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <str2boolconv:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter"/>
+        <nullableback:NullableBackConverter x:Key="NullableBackConverter"/>
+    </efrmbs:EformUserControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0" gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*" >
+            <Label Grid.Row="0" Grid.Column="0"
+                Margin="8, 0, 0, 0"  Text="{Binding Path=Caption, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" FontAttributes="Bold"/>
+            <ScrollView Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal" 
+                                BindableLayout.ItemsSource="{Binding ContainerMenuItems, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button WidthRequest="45"
+                                Command="{Binding OnContainerMenuItemsCommand, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"
+                                CommandParameter="{Binding}"
+                                IsEnabled="{Binding Enabled}"
+                                Text="{Binding IconName}" 
+                                FontFamily="CustomIconFontAlias" 
+                                BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{Binding IconColor}" 
+                                FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding BindingContext.IsLoading, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+        <ContentView  Grid.Row="2">
+
+                <!-- does not work correctly
+                    <StackLayout Orientation="Vertical">
+                -->
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*">    
+                    <Grid Grid.Row="0" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Phone Id" />
+                            <Entry  Grid.Row="1" x:Uid="PhoneId"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.PhoneId , Converter={StaticResource NullableBackConverter}, ConverterParameter='System.Int32', Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Phone Id"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.PhoneIdSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.PhoneIdSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Phone" />
+                            <Entry  Grid.Row="1" x:Uid="Phone"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.Phone , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Phone"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.PhoneSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.PhoneSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Phone Type Name" />
+                            <Entry  Grid.Row="1" x:Uid="PPhoneTypeName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.PPhoneTypeName , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Phone Type Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.PPhoneTypeNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.PPhoneTypeNameSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Employee Last Name" />
+                            <Entry  Grid.Row="1" x:Uid="EEmpLastName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.EEmpLastName , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee Last Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EEmpLastNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EEmpLastNameSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Employee First Name" />
+                            <Entry  Grid.Row="1" x:Uid="EEmpFirstName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.EEmpFirstName , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee First Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EEmpFirstNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EEmpFirstNameSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Employee Second Name" />
+                            <Entry  Grid.Row="1" x:Uid="EEmpSecondName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.EEmpSecondName , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee Second Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EEmpSecondNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EEmpSecondNameSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Name of the Division" />
+                            <Entry  Grid.Row="1" x:Uid="EDDivisionName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.EDDivisionName , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Division Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EDDivisionNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EDDivisionNameSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Name of the Enterprise" />
+                            <Entry  Grid.Row="1" x:Uid="EDEEntrprsName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.EDEEntrprsName , Mode=TwoWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Enterprise Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EDEEntrprsNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EDEEntrprsNameSuffixError, Mode=OneWay, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Margin="8" IsVisible="{Binding ShowSubmit, Mode=OneWay,  Source={x:Reference phbkphoneviewdformusercontrolrootnode} }">
+                    <Button Text="Submit" Command="{Binding BindingContext.SubmitCommand, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" />
+                    <Button Text="Cancel" Command="{Binding BindingContext.CancelCommand, Source={x:Reference phbkphoneviewdformusercontrolrootnode}}" />
+                </StackLayout>
+            </Grid>
+        </ContentView>
+    </Grid>
+</efrmbs:EformUserControlBase>
+
+
+
+

@@ -1,0 +1,287 @@
+
+
+<sfrmbs:SformUserControlBase 
+             x:Class="ModelServicesPrismModule.Phonebook.PhbkEnterprise.UserControls.PhbkEnterpriseViewSformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="sformUsrCntrlRootNode"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:sfrmbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+             xmlns:wsfuc="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+             xmlns:usfuc="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+             xmlns:tpgnuc="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+             xmlns:invboolcnv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:intcntxt="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:maxscrlvw="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:btnDstr="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary"
+             xmlns:rdoDstr="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary;assembly=CommonUserControlLibrary"
+
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference sformUsrCntrlRootNode}}"
+            >
+    <sfrmbs:SformUserControlBase.Resources>
+        <invboolcnv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </sfrmbs:SformUserControlBase.Resources>
+    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ContentView ControlTemplate="{StaticResource NoSearchMethod}" Grid.Row="0" >
+                <ContentView.Resources>
+                    <ResourceDictionary>
+                        <ControlTemplate x:Key="NoSearchMethod">
+                            <usfuc:UniqServiceFilterUserControl
+                                IsDestroyed="{Binding BindingContext.IsSearchDestroyed, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+
+                                Caption="{Binding Caption, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ShowBackBtn="{Binding ShowBackBtn, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                NavigationBackCommand="{Binding OnNavigationBackCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"   
+                                ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterHeight="{Binding FilterHeight, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ContainerMenuItemsCommand="{Binding OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                            />
+                        </ControlTemplate> 
+
+                        <ControlTemplate x:Key="ScanByUkEntrprsNameUK">
+                            <usfuc:UniqServiceFilterUserControl
+                                IsDestroyed="{Binding BindingContext.IsSearchDestroyed, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+
+                                Caption="{Binding Caption, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ShowBackBtn="{Binding ShowBackBtn, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                NavigationBackCommand="{Binding OnNavigationBackCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"   
+                                ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterHeight="{Binding FilterHeight, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ContainerMenuItemsCommand="{Binding OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                HiddenFilters="{Binding BindingContext.HiddenFiltersVM, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+
+                                FilterDefinitions="{Binding BindingContext.ScanByUkEntrprsNameUKFilterDefinitions, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterCommand="{Binding BindingContext.ApplyFilterCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                IsGridFlex="{Binding BindingContext.IsSearchGridFlex, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+
+                                TextChangedCommand="{Binding BindingContext.ScanByUkEntrprsNameUKTextChangedCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                QuerySubmitted="{Binding BindingContext.ScanByUkEntrprsNameUKQuerySubmitted, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                UnfocusedCommand="{Binding BindingContext.ScanByUkEntrprsNameUKUnfocusedCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+
+                                Text1="{Binding BindingContext.ScanByUkEntrprsNameUKEntrprsNameText, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                ItemsSource1="{Binding BindingContext.ScanByUkEntrprsNameUKItemsSource, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                            />
+                        </ControlTemplate> 
+                        <ControlTemplate x:Key="ScanByUkPrimary">
+                            <usfuc:UniqServiceFilterUserControl
+                                IsDestroyed="{Binding BindingContext.IsSearchDestroyed, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+
+                                Caption="{Binding Caption, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ShowBackBtn="{Binding ShowBackBtn, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                NavigationBackCommand="{Binding OnNavigationBackCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"   
+                                ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterHeight="{Binding FilterHeight, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ContainerMenuItemsCommand="{Binding OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                HiddenFilters="{Binding BindingContext.HiddenFiltersVM, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+
+                                FilterDefinitions="{Binding BindingContext.ScanByUkPrimaryFilterDefinitions, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterCommand="{Binding BindingContext.ApplyFilterCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                IsGridFlex="{Binding BindingContext.IsSearchGridFlex, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+
+                                TextChangedCommand="{Binding BindingContext.ScanByUkPrimaryTextChangedCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                QuerySubmitted="{Binding BindingContext.ScanByUkPrimaryQuerySubmitted, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                UnfocusedCommand="{Binding BindingContext.ScanByUkPrimaryUnfocusedCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+
+                                Text1="{Binding BindingContext.ScanByUkPrimaryEntrprsIdText, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                ItemsSource1="{Binding BindingContext.ScanByUkPrimaryItemsSource, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                            />
+                        </ControlTemplate> 
+                        <ControlTemplate x:Key="FullScan">
+                            <wsfuc:WebServiceFilterUserControl 
+                                IsDestroyed="{Binding BindingContext.IsSearchDestroyed, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                IsVisible="{Binding ShowFilter, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                IsEnabled="{Binding BindingContext.IsInQuery, Mode=OneWay, Converter={StaticResource InverseBooleanConverter}, Source={x:Reference sformUsrCntrlRootNode}}"
+                                Caption="{Binding Caption, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ShowBackBtn="{Binding ShowBackBtn, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ShowAddFilterBtn="{Binding ShowAddFilterBtn, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                HiddenFilters="{Binding BindingContext.HiddenFiltersVM, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterDefinitions="{Binding BindingContext.FilterDefinitions, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                FilterHeight="{Binding FilterHeight, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                ContainerMenuItemsCommand="{Binding OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                NavigationBackCommand="{Binding OnNavigationBackCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"   
+                                FilterCommand="{Binding BindingContext.ApplyFilterCommand, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode} }"
+                                />
+                        </ControlTemplate> 
+
+                    </ResourceDictionary>
+                </ContentView.Resources>
+                <ContentView.Triggers>
+
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SearchMethod, Source={x:Reference sformUsrCntrlRootNode}}" Value="FullScan"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource FullScan}" />
+                    </MultiTrigger>
+
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SearchMethod, Source={x:Reference sformUsrCntrlRootNode}}" Value="ScanByUkEntrprsNameUK"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource ScanByUkEntrprsNameUK}" />
+                    </MultiTrigger>
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SearchMethod, Source={x:Reference sformUsrCntrlRootNode}}" Value="ScanByUkPrimary"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource ScanByUkPrimary}" />
+                    </MultiTrigger>
+
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SearchMethod, Source={x:Reference sformUsrCntrlRootNode}}" Value="NoSearchMethod"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource NoSearchMethod}" />
+                    </MultiTrigger>
+                </ContentView.Triggers>
+            </ContentView>
+
+
+<!--
+            FilterOperators="{Binding FilterOperators, Source={x:Reference sformUsrCntrlRootNode}}"
+-->
+            <ActivityIndicator Grid.Row="1" IsVisible="{Binding BindingContext.IsInQuery, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                IsRunning="{Binding BindingContext.IsInQuery, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"/>
+
+            <ScrollView Orientation="Horizontal" Grid.Row="2" 
+                    intcntxt:InternalContentChanged.InternalContent="{Binding BindingContext.InternalContent, Source={x:Reference sformUsrCntrlRootNode}}"
+                    maxscrlvw:MaxScrollViewHeight.MaxHeight="{Binding GridHeight, Source={x:Reference sformUsrCntrlRootNode}}">
+                <StackLayout   Orientation="Vertical"   Margin="0, 0, 0, 12" Spacing="0">
+                    <FlexLayout Direction="Row"  HorizontalOptions="StartAndExpand" JustifyContent="Start" BackgroundColor="{DynamicResource DataGridHeaderBackGroundColor}" >
+                        <Frame  OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridHeaderBackGroundColor}"
+                                Padding="2, 2, 2, 2" FlexLayout.Basis="64" CornerRadius="0" >
+                            <Button Text="{x:Static fontIcons:IconFont.More_vert}" FontFamily="CustomIconFontAlias" BackgroundColor="Transparent" 
+                                Command="{Binding BindingContext.TableMenuItemsCommand, Source={x:Reference sformUsrCntrlRootNode}}"/>
+                        </Frame>
+                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridHeaderBackGroundColor}"
+                            Padding="8, 8, 2, 2" CornerRadius="0"
+                            IsVisible="{Binding BindingContext.SelectedColumns[0].IsChecked, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                            FlexLayout.Basis="250" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label TextColor="{DynamicResource DataGridHeaderTextColor}"
+                                    Text="Enterprise Id" />
+                                <Label Text="" FontFamily="CustomIconFontAlias" >
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding BindingContext.CurrentSortInfo, Source={x:Reference sformUsrCntrlRootNode}}" Value="EntrprsId asc">
+                                            <Setter Property="Text" Value="{x:Static fontIcons:IconFont.Expand_less}"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding BindingContext.CurrentSortInfo, Source={x:Reference sformUsrCntrlRootNode}}" Value="EntrprsId desc">
+                                            <Setter Property="Text" Value="{x:Static fontIcons:IconFont.Expand_more}"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.OnSortCommand, Source={x:Reference sformUsrCntrlRootNode}}" CommandParameter="EntrprsId"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridHeaderBackGroundColor}"
+                            Padding="8, 8, 2, 2" CornerRadius="0"
+                            IsVisible="{Binding BindingContext.SelectedColumns[1].IsChecked, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                            FlexLayout.Basis="240" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label TextColor="{DynamicResource DataGridHeaderTextColor}"
+                                    Text="Enterprise Name" />
+                                <Label Text="" FontFamily="CustomIconFontAlias" >
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding BindingContext.CurrentSortInfo, Source={x:Reference sformUsrCntrlRootNode}}" Value="EntrprsName asc">
+                                            <Setter Property="Text" Value="{x:Static fontIcons:IconFont.Expand_less}"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding BindingContext.CurrentSortInfo, Source={x:Reference sformUsrCntrlRootNode}}" Value="EntrprsName desc">
+                                            <Setter Property="Text" Value="{x:Static fontIcons:IconFont.Expand_more}"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.OnSortCommand, Source={x:Reference sformUsrCntrlRootNode}}" CommandParameter="EntrprsName"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridHeaderBackGroundColor}"
+                            Padding="8, 8, 2, 2" CornerRadius="0"
+                            IsVisible="{Binding BindingContext.SelectedColumns[2].IsChecked, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                            FlexLayout.Basis="480" >
+                            <Label TextColor="{DynamicResource DataGridHeaderTextColor}"
+                                Text="Enterprise Description" />
+                        </Frame>
+                    </FlexLayout>
+                    <ScrollView Orientation="Vertical" Margin="0">
+                        <StackLayout RadioButtonGroup.SelectedValue="{Binding BindingContext.SelectedRow, Source={x:Reference sformUsrCntrlRootNode}}" RadioButtonGroup.GroupName="{Binding RadioGroupName, Source={x:Reference sformUsrCntrlRootNode}}"
+                            BindableLayout.ItemsSource="{Binding BindingContext.DataSource, Source={x:Reference sformUsrCntrlRootNode}}" Spacing="0" BackgroundColor="{DynamicResource DataGridBodyBackgroundColor}" >
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <FlexLayout   Direction="Row"   HorizontalOptions="StartAndExpand" JustifyContent="Start">
+                                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridBodyBackgroundColor}"
+                                            
+                                            Padding="2, 0, 2, 0" FlexLayout.Basis="64" CornerRadius="0" >
+                                            <StackLayout Orientation="Horizontal" Spacing="0">
+                                                <rdoDstr:RadioDestroyed WidthRequest="20" Value="{Binding .}"/>
+<!-- Command and CommandParameter are cleared automatically without ButtonDestroyed. BindingContext plays its role here. -->
+                                                <btnDstr:ButtonDestroyed WidthRequest="45"
+                                                        IsDestroyed="{Binding BindingContext.IsDsDestroyed, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}" 
+
+                                                        Text="{x:Static fontIcons:IconFont.More_vert}" FontFamily="CustomIconFontAlias" BackgroundColor="Transparent" 
+                                                        Command="{Binding BindingContext.RowMenuItemsCommand, Source={x:Reference sformUsrCntrlRootNode}}" CommandParameter="{Binding .}"/>
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridBodyBackgroundColor}"
+                                            Padding="8, 0, 2, 0" CornerRadius="0"  
+                                            IsVisible="{Binding BindingContext.SelectedColumns[0].IsChecked, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                            FlexLayout.Basis="250">
+                                            <Label  TextColor="{DynamicResource DataGridBodyTextColor}"
+                                                Text="{Binding EntrprsId}" 
+                                                />
+                                        </Frame>
+                                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridBodyBackgroundColor}"
+                                            Padding="8, 0, 2, 0" CornerRadius="0"  
+                                            IsVisible="{Binding BindingContext.SelectedColumns[1].IsChecked, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                            FlexLayout.Basis="240">
+                                            <Label  TextColor="{DynamicResource DataGridBodyTextColor}"
+                                                Text="{Binding EntrprsName}" 
+                                                />
+                                        </Frame>
+                                        <Frame OutlineColor="{DynamicResource DataGridLineColor}" BackgroundColor="{DynamicResource DataGridBodyBackgroundColor}"
+                                            Padding="8, 0, 2, 0" CornerRadius="0"  
+                                            IsVisible="{Binding BindingContext.SelectedColumns[2].IsChecked, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                                            FlexLayout.Basis="480">
+                                            <Label  TextColor="{DynamicResource DataGridBodyTextColor}"
+                                                Text="{Binding EntrprsDesc}" 
+                                                />
+                                        </Frame>
+                                    </FlexLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </ScrollView>
+
+
+            <tpgnuc:TablePaginationUserControl Grid.Row="3"
+                IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                TotalCount="{Binding BindingContext.TotalCount, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                CurrentPage="{Binding BindingContext.CurrentPage, Mode=TwoWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                RowsPerPage="{Binding BindingContext.RowsPerPage, Mode=TwoWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                RowsPerPageOptions="{Binding BindingContext.RowsPerPageOptions, Mode=OneWay, Source={x:Reference sformUsrCntrlRootNode}}"
+                IsEnabled="{Binding BindingContext.IsInQuery, Mode=OneWay,  Converter={StaticResource InverseBooleanConverter}, Source={x:Reference sformUsrCntrlRootNode}}"
+                CurrentPageChangedCommand="{Binding BindingContext.OnCurrentPageChangedCommand, Mode=OneTime, Source={x:Reference sformUsrCntrlRootNode}}"
+                RowsPerPageChangedCommand="{Binding BindingContext.OnRowsPerPageChangedCommand, Mode=OneTime, Source={x:Reference sformUsrCntrlRootNode}}"
+                />
+        </Grid>
+    </ScrollView>
+</sfrmbs:SformUserControlBase>
+
+

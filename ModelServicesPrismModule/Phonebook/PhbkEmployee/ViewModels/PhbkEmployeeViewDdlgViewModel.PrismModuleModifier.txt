@@ -1,0 +1,56 @@
+
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"PhbkEmployeeViewDdlgUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkEmployeeViewDdlgViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterDialog<PhbkEmployeeViewDdlgUserControl, EdlgViewModelBase>("PhbkEmployeeViewDdlgViewModel");',
+    '        ...',
+    '    }',
+    ],
+ 
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterDialog',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls.PhbkEmployeeViewDdlgUserControl', 'CommonUserControlLibrary.ViewModels.EdlgViewModelBase'],
+    "InvocationParams": ['"PhbkEmployeeViewDdlgViewModel"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterDialog<PhbkEmployeeViewDdlgUserControl, EdlgViewModelBase>("PhbkEmployeeViewDdlgViewModel");'
+    },
+    ]
+}
+
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkEmployeeViewDdlgUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkEmployeeViewDdlgViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterDialog<PhbkEmployeeViewDdlgUserControl, EdlgViewModelBase>("PhbkEmployeeViewDdlgViewModel");
+        ...
+    }
+Insertion the line : containerRegistry.RegisterDialog<PhbkEmployeeViewDdlgUserControl, EdlgViewModelBase>("PhbkEmployeeViewDdlgViewModel");
+Result:
+Ok

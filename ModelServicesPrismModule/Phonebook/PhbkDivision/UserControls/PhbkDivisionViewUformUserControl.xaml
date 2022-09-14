@@ -1,0 +1,220 @@
+<efrmbs:EformUserControlBase x:Class="ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewUformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:efrmbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+             xmlns:nullableDatePicker="clr-namespace:CommonCustomControlLibrary.Controls;assembly=CommonCustomControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:invboolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:str2boolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:nullableback="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             
+
+
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"
+
+             x:Name="phbkdivisionviewuformusercontrolrootnode"
+             >
+<!--
+To reset FormControlModel and(or) HiddenFilters do the following:
+set IsParentLoaded = false;
+set FormControlModel and(or) HiddenFilters
+set IsParentLoaded = true;
+
+resetting FormControlModel and(or) HiddenFilters without 
+    { IsParentLoaded = false; IsParentLoaded = true; }
+will not affect the behavior of current component
+-->
+
+    <efrmbs:EformUserControlBase.Resources>
+        <invboolconv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <str2boolconv:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter"/>
+        <nullableback:NullableBackConverter x:Key="NullableBackConverter"/>
+    </efrmbs:EformUserControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0" gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*" >
+            <Label Grid.Row="0" Grid.Column="0"
+                Margin="8, 0, 0, 0"  Text="{Binding Path=Caption, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" FontAttributes="Bold"/>
+            <ScrollView Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal" 
+                                BindableLayout.ItemsSource="{Binding ContainerMenuItems, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button WidthRequest="45"
+                                Command="{Binding OnContainerMenuItemsCommand, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"
+                                CommandParameter="{Binding}"
+                                IsEnabled="{Binding Enabled}"
+                                Text="{Binding IconName}" 
+                                FontFamily="CustomIconFontAlias" 
+                                BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{Binding IconColor}" 
+                                FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding BindingContext.IsLoading, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+        <ContentView  Grid.Row="2">
+
+                <!-- does not work correctly
+                    <StackLayout Orientation="Vertical">
+                -->
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*">    
+                    <Grid Grid.Row="0" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Id of the Division" />
+                            <Entry  Grid.Row="1" x:Uid="DivisionId"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.DivisionId , Converter={StaticResource NullableBackConverter}, ConverterParameter='System.Int32', Mode=TwoWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Division Id"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.DivisionIdSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.DivisionIdSuffixError, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Name of the Division" />
+                            <Entry  Grid.Row="1" x:Uid="DivisionName"
+                                        IsReadOnly="{Binding BindingContext.DivisionNameEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.DivisionName , Mode=TwoWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Division Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.DivisionNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.DivisionNameSuffixError, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0" 
+                          RowDefinitions="Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Description of the Division" />
+                            <Entry  Grid.Row="1" x:Uid="DivisionDesc"
+                                        IsReadOnly="{Binding BindingContext.DivisionDescEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.DivisionDesc , Mode=TwoWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Enterprise Division Description"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.DivisionDescSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.DivisionDescSuffixError, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Id of the Enterprise" />
+                            <Entry  Grid.Row="1" x:Uid="EntrprsIdRef"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.EntrprsIdRef , Converter={StaticResource NullableBackConverter}, ConverterParameter='System.Int32', Mode=TwoWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Enterprise  Id"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EntrprsIdRefSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EntrprsIdRefSuffixError, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Name of the Enterprise" />
+                            <Picker Grid.Row="1" 
+                                      IsEnabled="{Binding BindingContext.EEntrprsNameEnabled, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"
+                                      x:Uid="EEntrprsNameCmbCntrl"
+                                      ItemsSource="{Binding BindingContext.EEntrprsNameCmbCntrlVals, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" 
+                                      ItemDisplayBinding="{Binding EntrprsName}" 
+                                      SelectedItem="{Binding BindingContext.EEntrprsNameCmbCntrl, Mode=TwoWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Enterprise Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EEntrprsNameCmbCntrlSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EEntrprsNameCmbCntrlSuffixError, Mode=OneWay, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Margin="8" IsVisible="{Binding ShowSubmit, Mode=OneWay,  Source={x:Reference phbkdivisionviewuformusercontrolrootnode} }">
+                    <Button Text="Submit" Command="{Binding BindingContext.SubmitCommand, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" />
+                    <Button Text="Cancel" Command="{Binding BindingContext.CancelCommand, Source={x:Reference phbkdivisionviewuformusercontrolrootnode}}" />
+                </StackLayout>
+            </Grid>
+        </ContentView>
+    </Grid>
+</efrmbs:EformUserControlBase>
+
+
+
+

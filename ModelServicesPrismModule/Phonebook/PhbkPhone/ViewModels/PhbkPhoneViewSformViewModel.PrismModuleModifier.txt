@@ -1,0 +1,75 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    '"PhbkPhoneViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule\"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkPhoneViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkPhoneViewSformUserControl, PhbkPhoneViewSformViewModel>();',
+    '        // According to requirements of the "PhbkPhoneViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, PhbkPhoneViewSformUserControl>("PhbkPhoneViewSformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkPhone.UserControls.PhbkPhoneViewSformUserControl','ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels.PhbkPhoneViewSformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkPhoneViewSformUserControl, PhbkPhoneViewSformViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.Phonebook.PhbkPhone.UserControls.PhbkPhoneViewSformUserControl'],
+    "InvocationParams": ['"PhbkPhoneViewSformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PhbkPhoneViewSformUserControl>("PhbkPhoneViewSformUserControl");'
+    },
+    ]
+}
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkPhoneViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkPhoneViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkPhoneViewSformUserControl, PhbkPhoneViewSformViewModel>();
+        // According to requirements of the "PhbkPhoneViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, PhbkPhoneViewSformUserControl>("PhbkPhoneViewSformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkPhoneViewSformUserControl, PhbkPhoneViewSformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PhbkPhoneViewSformUserControl>("PhbkPhoneViewSformUserControl");
+Result:
+Ok

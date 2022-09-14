@@ -1,0 +1,85 @@
+
+
+<ContentPage x:Class="CommonServicesPrismModule.Views.LoginUserPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+             xmlns:str2boolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+
+             x:Name="loginCntrlRootNode">
+    <ContentPage.Resources>
+        <str2boolconv:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter"/>
+    </ContentPage.Resources>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+
+        <Label FontSize="Title" Text="Login User" HorizontalOptions="Center"/>
+
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="10,0,10,0">
+                <StackLayout Orientation="Vertical">
+                    <Label FontSize="Caption" Text="{Binding BindingContext.UserNameCaption, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}" />
+                    <Entry Text="{Binding BindingContext.UserName, Mode=TwoWay, Source={x:Reference loginCntrlRootNode}}"/>
+                    <Label FontSize="Caption" 
+                            Text="{Binding BindingContext.UserNamePropmpt, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"
+                            Opacity="0.3"
+                            TextColor="Default">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding BindingContext.UserNameError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference loginCntrlRootNode}}" Value="False">
+                                <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                <Setter Property="Text" Value="{Binding BindingContext.UserNameError, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"/>
+                                <Setter Property="Opacity" Value="0.7" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Vertical">
+                    <Label FontSize="Caption" Text="{Binding BindingContext.PassWordCaption, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}" />
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Entry IsPassword="{Binding BindingContext.PassWordIsPassword, Mode=TwoWay, Source={x:Reference loginCntrlRootNode}}"
+                                Text="{Binding BindingContext.PassWord, Mode=TwoWay, Source={x:Reference loginCntrlRootNode}}"/>
+                        <Button Grid.Column="1" WidthRequest="45"
+                                Command="{Binding BindingContext.PassWordShowCommand, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"
+                                Text="{x:Static fontIcons:IconFont.Remove_red_eye}" FontFamily="CustomIconFontAlias" BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{DynamicResource IconButtonPrimaryColor}" 
+                                FontSize="{OnPlatform iOS=Default, Android=Large, UWP=Default}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding BindingContext.PassWordIsPassword, Source={x:Reference loginCntrlRootNode} }" Value="False">
+                                    <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+                    </Grid>
+                    <Label FontSize="Caption" 
+                            Text="{Binding BindingContext.PassWordPropmpt, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"
+                            Opacity="0.3"
+                            TextColor="Default">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding BindingContext.PassWordError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference loginCntrlRootNode}}" Value="False">
+                                <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                <Setter Property="Text" Value="{Binding BindingContext.PassWordError, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"/>
+                                <Setter Property="Opacity" Value="0.7" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal" Margin="8">
+                        <Button Text=" Ok "  Command="{Binding BindingContext.OkCommand, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"/>
+                        <Button Text=" Cancel "  Command="{Binding BindingContext.CancelCommand, Mode=OneWay, Source={x:Reference loginCntrlRootNode}}"/>
+                </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
+
+

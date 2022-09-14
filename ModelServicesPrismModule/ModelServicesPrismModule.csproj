@@ -1,0 +1,394 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Forms.Regions" Version="8.1.97" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Prism.Forms" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonInterfacesClassLibrary\CommonInterfacesClassLibrary.csproj" />
+    <ProjectReference Include="..\CommonUserControlLibrary\CommonUserControlLibrary.csproj" />
+    <ProjectReference Include="..\ModelInterfacesClassLibrary\ModelInterfacesClassLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\UserControls\PhbkPhoneViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\Views\PhbkPhoneViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\Views\PhbkPhoneViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\Views\PhbkPhoneViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\Views\PhbkPhoneViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\Views\PhbkPhoneViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhone\Views\PhbkPhoneViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

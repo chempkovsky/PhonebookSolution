@@ -1,0 +1,50 @@
+
+
+<ResourceDictionary  xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <Color x:Key="Color_023">#FF0086AF</Color>
+    <Color x:Key="Color_028">#FFD0284C</Color>
+    <Color x:Key="Color_Black">Black</Color>
+    <Color x:Key="Color_WhiteSmoke">WhiteSmoke</Color>
+    <Color x:Key="Color_White">White</Color>
+    <Color x:Key="Color_NotificationForeground">#FF303030</Color>
+    <Color x:Key="Color_NotificationBackground">#FFCDCDCD</Color>
+
+    <SolidColorBrush x:Key="ErrorForeground" Color="{StaticResource Color_028}" />
+    <SolidColorBrush x:Key="ErrorBackground" Color="{StaticResource Color_WhiteSmoke}" />
+    <SolidColorBrush x:Key="PrimaryForeground" Color="{StaticResource Color_White}" />
+    <SolidColorBrush x:Key="NotificationForeground" Color="{StaticResource Color_NotificationForeground}" />
+    <SolidColorBrush x:Key="NotificationBackground" Color="{StaticResource Color_NotificationBackground}" />
+
+    <SolidColorBrush x:Key="Primary" Color="{StaticResource Color_023}" />
+    <SolidColorBrush x:Key="Danger" Color="{StaticResource Color_028}" />
+    <SolidColorBrush x:Key="DefaultTexBlockForeground" Color="{StaticResource Color_Black}" />
+
+            <Color x:Key="IconButtonPrimaryColor" >#FF087EFF</Color>
+            <Color x:Key="IconButtonDangerColor" >#FFD50000</Color>
+            <Color x:Key="IconButtonInfoColor" >#FFFFAB40</Color>
+            <Color x:Key="ValidationErrorColor" >#FFD0284C</Color>
+            <Color x:Key="TablePaginationIconButtonTextColor">White</Color>
+            <Color x:Key="Color_NotificationBackground">#FFCDCDCD</Color>
+            <Color x:Key="IconButtonBackgroundColor" >Transparent</Color>
+            <NamedSize x:Key="IconButtonFontNamedSize">Large</NamedSize>
+            <Color x:Key="ColumnSelectorDlgBackgroundColor" >White</Color>
+            <Color x:Key="IconMessageBackgroundColor">Transparent</Color>
+            <Color x:Key="MessageDlgBackgroundColor" >White</Color>
+            <Color x:Key="SelectItemDlgBackgroundColor" >White</Color>
+            <Color x:Key="ModifyItemDlgBackgroundColor" >White</Color>
+            <Color x:Key="LformDlgBackgroundColor" >White</Color>
+
+
+            <Color x:Key="DataGridLineColor">Silver</Color>
+            <Color x:Key="DataGridHeaderBackGroundColor">Gray</Color>
+            <Color x:Key="DataGridHeaderTextColor">White</Color>
+            <Color x:Key="DataGridBodyBackgroundColor">WhiteSmoke</Color>
+            <Color x:Key="DataGridBodyTextColor">Black</Color>
+
+</ResourceDictionary>
+
+
+

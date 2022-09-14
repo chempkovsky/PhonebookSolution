@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="http://prismlibrary.com"
+            prism:ViewModelLocator.AutowireViewModel="True"
+
+            xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+            x:Class="PrismPhonebook.Views.MainFlyoutPage"
+            x:Name="chngpswdCntrlRootNode">
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu">
+            <ScrollView Orientation="Vertical">
+                <StackLayout Padding="20">
+                    <Button Text="Home"             Command="{Binding NavigateCommand}" CommandParameter="HomePage" />
+                    <Button Text="Access Denied"    Command="{Binding NavigateCommand}" CommandParameter="AccessDeniedPage" />
+                    <Button Text="Page Not Found"   Command="{Binding NavigateCommand}" CommandParameter="PageNotFoundPage" />
+                    <Button Text="Register User"    Command="{Binding NavigateCommand}" CommandParameter="RegisterUserPage" />
+                    <Button Text="Login User"       Command="{Binding NavigateCommand}" CommandParameter="LoginUserPage" />
+                    <Button Text="Logout User"      Command="{Binding NavigateCommand}" CommandParameter="LogoutUserPage" />
+                    <Button Text="Change Password"  Command="{Binding NavigateCommand}" CommandParameter="ChngpswdUserPage" />
+                    
+                    <Button Text="Show Dialog"      Command="{Binding ShowDialogCommand}" CommandParameter="MessageDlg" />
+
+          <Label Text="Phone Type"/>
+          <Button Text="L Dialog"  Command="{Binding ShowDialogCommand}" CommandParameter="PhbkPhoneTypeViewLdlgViewModel" />
+          <Button Text="R List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkPhoneTypeViewRlistPage" />
+          <Button Text="Rd List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkPhoneTypeViewRdlistPage" />
+          <Button Text="One-to-Many"  Command="{Binding NavigateCommand}" CommandParameter="PhbkPhoneTypeViewO2mPage" />
+          
+
+          <Label Text="Enterprise"/>
+          <Button Text="L Dialog"  Command="{Binding ShowDialogCommand}" CommandParameter="PhbkEnterpriseViewLdlgViewModel" />
+          <Button Text="R List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkEnterpriseViewRlistPage" />
+          <Button Text="Rd List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkEnterpriseViewRdlistPage" />
+          <Button Text="One-to-Many"  Command="{Binding NavigateCommand}" CommandParameter="PhbkEnterpriseViewO2mPage" />
+          
+
+          <Label Text="Division"/>
+          <Button Text="L Dialog"  Command="{Binding ShowDialogCommand}" CommandParameter="PhbkDivisionViewLdlgViewModel" />
+          <Button Text="R List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkDivisionViewRlistPage" />
+          <Button Text="Rd List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkDivisionViewRdlistPage" />
+          <Button Text="One-to-Many"  Command="{Binding NavigateCommand}" CommandParameter="PhbkDivisionViewO2mPage" />
+          
+
+          <Label Text="Employee"/>
+          <Button Text="L Dialog"  Command="{Binding ShowDialogCommand}" CommandParameter="PhbkEmployeeViewLdlgViewModel" />
+          <Button Text="R List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkEmployeeViewRlistPage" />
+          <Button Text="Rd List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkEmployeeViewRdlistPage" />
+          <Button Text="One-to-Many"  Command="{Binding NavigateCommand}" CommandParameter="PhbkEmployeeViewO2mPage" />
+          
+
+
+          <Label Text="Phone"/>
+          <Button Text="L Dialog"  Command="{Binding ShowDialogCommand}" CommandParameter="PhbkPhoneViewLdlgViewModel" />
+          <Button Text="R List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkPhoneViewRlistPage" />
+          <Button Text="Rd List"  Command="{Binding NavigateCommand}" CommandParameter="PhbkPhoneViewRdlistPage" />
+
+          <Label Text="Features"/>
+          <Button Text="One-to-Many forms"  Command="{Binding NavigateCommand}" CommandParameter="O2mFeatureFtrUserControl" />
+          <Button Text="RLists forms"  Command="{Binding NavigateCommand}" CommandParameter="RListsFeatureFtrUserControl" />
+          <Button Text="RdLists forms"  Command="{Binding NavigateCommand}" CommandParameter="RdListsFeatureFtrUserControl" />
+          <Button Text="Lforms"  Command="{Binding NavigateCommand}" CommandParameter="LformsFeatureFtrUserControl" />
+
+          
+        </StackLayout>
+            </ScrollView>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+</FlyoutPage>
+
+

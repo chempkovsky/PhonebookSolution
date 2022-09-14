@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Forms.Regions" Version="8.1.97" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.3.2" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonServicesPrismModule\CommonServicesPrismModule.csproj" />
+    <ProjectReference Include="..\..\CommonUserControlLibrary\CommonUserControlLibrary.csproj" />
+    <ProjectReference Include="..\..\FeatureServicesPrismModule\FeatureServicesPrismModule.csproj" />
+    <ProjectReference Include="..\..\ModelServicesPrismModule\ModelServicesPrismModule.csproj" />
+    <ProjectReference Include="..\..\O2mPrismModule\O2mPrismModule.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\MainFlyoutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

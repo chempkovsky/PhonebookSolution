@@ -1,0 +1,80 @@
+{
+"PrismMMMCallItems": [
+
+
+
+    {
+    "Description": [
+    '"PhbkPhoneTypeViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "PhbkPhoneTypeViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<PhbkPhoneTypeViewLformUserControl, PhbkPhoneTypeViewLformViewModel>();',
+    '        // According to requirements of the "PhbkPhoneTypeViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, PhbkPhoneTypeViewLformUserControl>("PhbkPhoneTypeViewLformUserControl");',
+    '        ...',
+    '    }',
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls.PhbkPhoneTypeViewLformUserControl','ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.PhbkPhoneTypeViewLformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<PhbkPhoneTypeViewLformUserControl, PhbkPhoneTypeViewLformViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls.PhbkPhoneTypeViewLformUserControl'],
+    "InvocationParams": ['"PhbkPhoneTypeViewLformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, PhbkPhoneTypeViewLformUserControl>("PhbkPhoneTypeViewLformUserControl");'
+    },
+    ]
+}
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"PhbkPhoneTypeViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "PhbkPhoneTypeViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<PhbkPhoneTypeViewLformUserControl, PhbkPhoneTypeViewLformViewModel>();
+        // According to requirements of the "PhbkPhoneTypeViewLformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, PhbkPhoneTypeViewLformUserControl>("PhbkPhoneTypeViewLformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<PhbkPhoneTypeViewLformUserControl, PhbkPhoneTypeViewLformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, PhbkPhoneTypeViewLformUserControl>("PhbkPhoneTypeViewLformUserControl");
+Result:
+Ok

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CommonUserControlLibrary.UserControls.UniqServiceFilterUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+             xmlns:intcntxt="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:maxscrlvw="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:btnDstr="clr-namespace:CommonUserControlLibrary.UserControls"
+             xmlns:acttb="clr-namespace:dotMorten.Xamarin.Forms;assembly=dotMorten.Xamarin.Forms.AutoSuggestBox"
+
+             x:Name="ufltrUsrCntrlRootNode">
+    <StackLayout Orientation="Vertical">
+        <Grid gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" 
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*" >
+            <Label Grid.Row="0" Grid.Column="0"
+                Margin="8, 0, 0, 0"  Text="{Binding Path=Caption, Source={x:Reference ufltrUsrCntrlRootNode}}" FontAttributes="Bold"/>
+            <ScrollView Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal" HeightRequest="45">
+                    <btnDstr:ButtonDestroyed WidthRequest="45" 
+                            IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            IsVisible="{Binding Path=ShowBackBtn, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Command="{Binding Path=OnNavigationBackCommand, Mode=OneTime, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{x:Static fontIcons:IconFont.Arrow_back}" FontFamily="CustomIconFontAlias" BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                            TextColor="{DynamicResource IconButtonPrimaryColor}" 
+                            FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium}"/>
+                    <btnDstr:ButtonDestroyed WidthRequest="45"
+                        IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        Command="{Binding Path=OnFilterCommand, Mode=OneTime, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        Text="{x:Static fontIcons:IconFont.Refresh}" FontFamily="CustomIconFontAlias" BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                        TextColor="{DynamicResource IconButtonPrimaryColor}" 
+                        FontSize="{OnPlatform iOS=Large, Android=Large, UWP=Medium}"/>
+                    <StackLayout Orientation="Horizontal" 
+                                 BindableLayout.ItemsSource="{Binding CurrentContainerMenuItems, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <btnDstr:ButtonDestroyed WidthRequest="45"
+                                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay}"
+                                    Command="{Binding OnContainerMenuItemsCommand, Mode=OneTime, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                                    CommandParameter="{Binding ., Mode=OneTime}"
+                                    IsEnabled="{Binding Enabled}"
+                                    Text="{Binding IconName}" 
+                                    FontFamily="CustomIconFontAlias" 
+                                    BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                    TextColor="{Binding IconColor}" 
+                                    FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Default" 
+                    intcntxt:InternalContentChanged.InternalContent="{Binding InternalContent, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                    maxscrlvw:MaxScrollViewHeight.MaxHeight="{Binding FilterHeight, Source={x:Reference ufltrUsrCntrlRootNode}}">
+            <StackLayout>
+                <Grid gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" 
+                    RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*">
+                    <Grid Grid.Row="0" RowSpacing="0" IsVisible="{Binding Path=IsVisible1, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption1, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb1" IsEnabled="True"
+                            TextChanged="TextChanged1"
+                            QuerySubmitted="QuerySubmitted1"
+                            Unfocused="Unfocused1"
+                            ItemsSource="{Binding Path=ItemsSource1, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text1, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath1, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath1, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                    <Grid Grid.Row="1" RowSpacing="0" IsVisible="{Binding Path=IsVisible2, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption2, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb2" IsEnabled="True"
+                            TextChanged="TextChanged2"
+                            QuerySubmitted="QuerySubmitted2"
+                            Unfocused="Unfocused2"
+                            ItemsSource="{Binding Path=ItemsSource2, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text2, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath2, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath2, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                    <Grid Grid.Row="2" RowSpacing="0" IsVisible="{Binding Path=IsVisible3, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption3, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb3" IsEnabled="True"
+                            TextChanged="TextChanged3"
+                            QuerySubmitted="QuerySubmitted3"
+                            Unfocused="Unfocused3"
+                            ItemsSource="{Binding Path=ItemsSource3, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text3, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath3, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath3, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                    <Grid Grid.Row="3" RowSpacing="0" IsVisible="{Binding Path=IsVisible4, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption4, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb4" IsEnabled="True"
+                            TextChanged="TextChanged4"
+                            QuerySubmitted="QuerySubmitted4"
+                            Unfocused="Unfocused4"
+                            ItemsSource="{Binding Path=ItemsSource4, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text4, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath4, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath4, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                </Grid>
+                <Grid gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" 
+                    RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*">
+                    <Grid Grid.Row="0" RowSpacing="0" IsVisible="{Binding Path=IsVisible5, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption5, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb5" IsEnabled="True"
+                            TextChanged="TextChanged5"
+                            QuerySubmitted="QuerySubmitted5"
+                            Unfocused="Unfocused5"
+                            ItemsSource="{Binding Path=ItemsSource5, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text5, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath5, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath5, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                    <Grid Grid.Row="1" RowSpacing="0" IsVisible="{Binding Path=IsVisible6, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption6, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb6" IsEnabled="True"
+                            TextChanged="TextChanged6"
+                            QuerySubmitted="QuerySubmitted6"
+                            Unfocused="Unfocused6"
+                            ItemsSource="{Binding Path=ItemsSource6, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text6, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath6, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath6, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                    <Grid Grid.Row="2" RowSpacing="0" IsVisible="{Binding Path=IsVisible7, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption7, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb7" IsEnabled="True"
+                            TextChanged="TextChanged7"
+                            QuerySubmitted="QuerySubmitted7"
+                            Unfocused="Unfocused7"
+                            ItemsSource="{Binding Path=ItemsSource7, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text7, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath7, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath7, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                    <Grid Grid.Row="3" RowSpacing="0" IsVisible="{Binding Path=IsVisible8, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" FontSize="Caption" Text="{Binding Path=Caption8, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}" />
+	                    <acttb:AutoSuggestBox Grid.Row="1"  x:Uid="Asb8" IsEnabled="True"
+                            TextChanged="TextChanged8"
+                            QuerySubmitted="QuerySubmitted8"
+                            Unfocused="Unfocused8"
+                            ItemsSource="{Binding Path=ItemsSource8, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            Text="{Binding Path=Text8, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            DisplayMemberPath="{Binding Path=DisplayMemberPath8, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                            TextMemberPath="{Binding Path=TextMemberPath8, Mode=OneWay, Source={x:Reference ufltrUsrCntrlRootNode}}"
+                        />
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentView>
+
+

@@ -1,0 +1,253 @@
+<efrmbs:EformUserControlBase x:Class="ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls.PhbkEmployeeViewAformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:efrmbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+             xmlns:nullableDatePicker="clr-namespace:CommonCustomControlLibrary.Controls;assembly=CommonCustomControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:invboolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:str2boolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:nullableback="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             
+
+             xmlns:acttb="clr-namespace:dotMorten.Xamarin.Forms;assembly=dotMorten.Xamarin.Forms.AutoSuggestBox"
+
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+
+             x:Name="phbkemployeeviewaformusercontrolrootnode"
+             >
+<!--
+To reset FormControlModel and(or) HiddenFilters do the following:
+set IsParentLoaded = false;
+set FormControlModel and(or) HiddenFilters
+set IsParentLoaded = true;
+
+resetting FormControlModel and(or) HiddenFilters without 
+    { IsParentLoaded = false; IsParentLoaded = true; }
+will not affect the behavior of current component
+-->
+
+    <efrmbs:EformUserControlBase.Resources>
+        <invboolconv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <str2boolconv:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter"/>
+        <nullableback:NullableBackConverter x:Key="NullableBackConverter"/>
+    </efrmbs:EformUserControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0" gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*" >
+            <Label Grid.Row="0" Grid.Column="0"
+                Margin="8, 0, 0, 0"  Text="{Binding Path=Caption, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" FontAttributes="Bold"/>
+            <ScrollView Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal" 
+                                BindableLayout.ItemsSource="{Binding ContainerMenuItems, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button WidthRequest="45"
+                                Command="{Binding OnContainerMenuItemsCommand, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                CommandParameter="{Binding}"
+                                IsEnabled="{Binding Enabled}"
+                                Text="{Binding IconName}" 
+                                FontFamily="CustomIconFontAlias" 
+                                BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{Binding IconColor}" 
+                                FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding BindingContext.IsLoading, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+        <ContentView  Grid.Row="2">
+
+                <!-- does not work correctly
+                    <StackLayout Orientation="Vertical">
+                -->
+            <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*">    
+                    <Grid Grid.Row="0" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Id of the Employee" />
+                            <Entry  Grid.Row="1" x:Uid="EmployeeId"
+                                        IsReadOnly="{Binding BindingContext.EmployeeIdEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.EmployeeId , Converter={StaticResource NullableBackConverter}, ConverterParameter='System.Int32', Mode=TwoWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee  Id"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EmployeeIdSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EmployeeIdSuffixError, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Employee First Name" />
+                            <Entry  Grid.Row="1" x:Uid="EmpFirstName"
+                                        IsReadOnly="{Binding BindingContext.EmpFirstNameEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.EmpFirstName , Mode=TwoWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee First Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EmpFirstNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EmpFirstNameSuffixError, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Employee Last Name" />
+                            <Entry  Grid.Row="1" x:Uid="EmpLastName"
+                                        IsReadOnly="{Binding BindingContext.EmpLastNameEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.EmpLastName , Mode=TwoWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee Last Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EmpLastNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EmpLastNameSuffixError, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Employee Second Name" />
+                            <Entry  Grid.Row="1" x:Uid="EmpSecondName"
+                                        IsReadOnly="{Binding BindingContext.EmpSecondNameEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.EmpSecondName , Mode=TwoWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Employee Second Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EmpSecondNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EmpSecondNameSuffixError, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0"
+                          RowDefinitions="Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Name of the Division" />
+	                        <acttb:AutoSuggestBox Grid.Row="1"  
+                                        x:Uid="DDivisionNameTphdCntrl"
+                                        IsEnabled="{Binding BindingContext.DDivisionNameEnabled, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        PlaceholderText="Enter Division Name" 
+
+                                        TextChanged="DDivisionNameTphdCntrlAddMode_TextChanged"
+                                        QuerySubmitted="DDivisionNameTphdCntrlAddMode_QuerySubmitted"
+
+                                        ItemsSource="{Binding BindingContext.DDivisionNameTphdCntrlItemsSource, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.DDivisionNameTphdCntrlText, Mode=TwoWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        DisplayMemberPath="DivisionName" 
+                                        TextMemberPath="DivisionName"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Division Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.DDivisionNameTphdCntrlSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.DDivisionNameTphdCntrlSuffixError, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Name of the Enterprise" />
+	                        <acttb:AutoSuggestBox Grid.Row="1"  
+                                        x:Uid="DEEntrprsNameTphdCntrl"
+                                        IsEnabled="{Binding BindingContext.DEEntrprsNameEnabled, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        PlaceholderText="Enter Enterprise Name" 
+
+                                        TextChanged="DEEntrprsNameTphdCntrlAddMode_TextChanged"
+                                        QuerySubmitted="DEEntrprsNameTphdCntrlAddMode_QuerySubmitted"
+
+                                        ItemsSource="{Binding BindingContext.DEEntrprsNameTphdCntrlItemsSource, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.DEEntrprsNameTphdCntrlText, Mode=TwoWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"
+                                        DisplayMemberPath="EntrprsName" 
+                                        TextMemberPath="EntrprsName"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Enterprise Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.DEEntrprsNameTphdCntrlSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.DEEntrprsNameTphdCntrlSuffixError, Mode=OneWay, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="8" IsVisible="{Binding ShowSubmit, Mode=OneWay,  Source={x:Reference phbkemployeeviewaformusercontrolrootnode} }">
+                    <Button Text="Submit" Command="{Binding BindingContext.SubmitCommand, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" />
+                    <Button Text="Cancel" Command="{Binding BindingContext.CancelCommand, Source={x:Reference phbkemployeeviewaformusercontrolrootnode}}" />
+                </StackLayout>
+            </Grid>
+        </ContentView>
+    </Grid>
+</efrmbs:EformUserControlBase>
+
+
