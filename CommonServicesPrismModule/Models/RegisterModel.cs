@@ -8,13 +8,13 @@ using CommonInterfacesClassLibrary.Interfaces;
 namespace CommonServicesPrismModule.Models {
     public class RegisterModel: IRegisterModel
     {
-        [JsonProperty(PropertyName = "Email")]
+        [JsonProperty(PropertyName = "email")]
         public string  Email { get; set; }
 
-        [JsonProperty(PropertyName = "Password")]
+        [JsonProperty(PropertyName = "password")]
         public string  Password { get; set; }
 
-        [JsonProperty(PropertyName = "ConfirmPassword")]
+        [JsonProperty(PropertyName = "confirmPassword")]
         public string  ConfirmPassword { get; set; }
     }
 }

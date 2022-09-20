@@ -77,10 +77,10 @@ namespace CommonServicesPrismModule.ViewModels {
                 return _OkCommand ?? (_OkCommand = new Command((param) => OkCommandAction(param), (param) => OkCommandCanExecute(param)));
             }
         }
-        protected async void OkCommandAction(object param)
+        protected void OkCommandAction(object param)
         {
-            bool model = await _GlblLoginSrv.Logout();
-            if (!model) return;
+            // bool model = await _GlblLoginSrv.Logout();
+            // if (!model) return;
             if(_GlblSettingsSrv != null) {
                 _GlblSettingsSrv.AuthInfo = null;
                 _GlblSettingsSrv.Client.DefaultRequestHeaders.Authorization = null;
@@ -88,7 +88,7 @@ namespace CommonServicesPrismModule.ViewModels {
                 _GlblSettingsSrv.UserName = null;
 
                 // this line was used at development time
-                // _GlblSettingsSrv.NavigateTo("HomePage");
+                _GlblSettingsSrv.NavigateTo("HomePage");
             }
         }
         protected bool OkCommandCanExecute(object param)

@@ -8,13 +8,13 @@ using CommonInterfacesClassLibrary.Interfaces;
 namespace CommonServicesPrismModule.Models {
     public class ChangePasswordModel: IChangePasswordModel
     {
-        [JsonProperty(PropertyName = "OldPassword")]
+        [JsonProperty(PropertyName = "oldpassword")]
         public string  OldPassword { get; set; }
 
-        [JsonProperty(PropertyName = "NewPassword")]
+        [JsonProperty(PropertyName = "newPassword")]
         public string  NewPassword { get; set; }
 
-        [JsonProperty(PropertyName = "ConfirmPassword")]
+        [JsonProperty(PropertyName = "confirmPassword")]
         public string  ConfirmPassword { get; set; }
     }
 }

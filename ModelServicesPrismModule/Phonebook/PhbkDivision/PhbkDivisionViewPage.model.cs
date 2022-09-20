@@ -12,7 +12,10 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision {
         [JsonConstructorAttribute]
         public PhbkDivisionViewPage(IList<PhbkDivisionView> items) 
         {
-            this.items = new List<IPhbkDivisionView>(items);
+            if(items is null)
+                this.items = new List<IPhbkDivisionView>();
+            else
+                this.items = new List<IPhbkDivisionView>(items);
         }
 
         [JsonProperty(PropertyName = "page")]

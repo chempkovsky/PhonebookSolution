@@ -19,10 +19,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkPhoneType;
 
 
 
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
-
-
     "PhbkPhoneTypeViewO2mUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
     In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
 
@@ -291,8 +287,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels {
        }
        #endregion
 
-
-
        #region IRegionAware
        public bool IsNavigationTarget(INavigationContext navigationContext) {
             return true;
@@ -416,11 +410,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels {
             return (CurrentNavigationContext == null) ?  false : CurrentNavigationContext.NavigationService.Journal.CanGoBack;
         }
         #endregion
-
-
-
-
-
 
         #region TableMenuItemsDetail
         protected ObservableCollection<IWebServiceFilterMenuInterface> GetDefaultTableMenuItemsDetail() {
@@ -583,9 +572,7 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels {
         #endregion
         #region DetailsList
         ObservableCollection<IO2mListItemInterface> _DetailsList = new ObservableCollection<IO2mListItemInterface>() {
-            new O2mListItemViewModel() {Caption = "Phones: PhoneType", ForeignKeyDetails = "PhbkPhoneViewLformUserControl:PhoneType",  Region = "PhbkPhoneViewLformUserControlDetailRegion" },
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
+                new O2mListItemViewModel() {Caption = "Phones: PhoneType", ForeignKeyDetails = "PhbkPhoneViewLformUserControl:PhoneType",  Region = "PhbkPhoneViewLformUserControlDetailRegion" },
         };
         public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
         #endregion
@@ -595,23 +582,21 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels {
             if(IsDestroyed) return;
             PermissionMaskDetail = 0;
             ObservableCollection<IWebServiceFilterRsltInterface> chfd = new ObservableCollection<IWebServiceFilterRsltInterface>();
+            IList<IWebServiceFilterRsltInterface> tmpFlt = null;
             IPhbkPhoneTypeView  selectedMasterRow  = SelectedRow as IPhbkPhoneTypeView;
             if((SelectedDetailsListItem != null) && (selectedMasterRow != null)) {
                 switch(SelectedDetailsListItem.ForeignKeyDetails) {
                     case "PhbkPhoneViewLformUserControl:PhoneType":
                         PermissionMaskDetail = GlblSettingsSrv.GetViewModelMask("PhbkPhoneView");
-                        chfd.Add(new WebServiceFilterRsltViewModel() {
-                            fltrName = "PhoneTypeIdRef",
-                            fltrDataType = "int32",
-                            fltrOperator = "eq",
-                            fltrValue = selectedMasterRow.PhoneTypeId,
-                            fltrError = null
-                        });
+                        tmpFlt = this.FrmSrvPhbkPhoneTypeView.getHiddenFilterAsFltRslt(this.FrmSrvPhbkPhoneTypeView.getHiddenFilterByRow(selectedMasterRow, "PhoneType"));
                         break;
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
                     default:
                         break;
+                }
+            }
+            if(tmpFlt != null) {
+                foreach(var fltItm in tmpFlt) {
+                    chfd.Add(fltItm);
                 }
             }
             HiddenFiltersDetail = chfd;

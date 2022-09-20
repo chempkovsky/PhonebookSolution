@@ -5,13 +5,13 @@ using Newtonsoft.Json.Serialization;
 namespace CommonInterfacesClassLibrary.Interfaces {
     public interface IRegisterModel
     {
-        [JsonProperty(PropertyName = "Email")]
+        [JsonProperty(PropertyName ="email")]
         string  Email { get; set; }
 
-        [JsonProperty(PropertyName = "Password")]
+        [JsonProperty(PropertyName ="password")]
         string  Password { get; set; }
 
-        [JsonProperty(PropertyName = "ConfirmPassword")]
+        [JsonProperty(PropertyName ="confirmPassword")]
         string  ConfirmPassword { get; set; }
     }
 }

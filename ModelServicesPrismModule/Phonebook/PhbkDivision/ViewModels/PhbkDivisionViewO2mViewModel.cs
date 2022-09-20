@@ -19,11 +19,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkDivision;
 
 
 
-/////  can not find Lform User control for the view which named: LprDivision01View 
-/////  can not find Lform User control for the view which named: LprDivision02View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
-
-
     "PhbkDivisionViewO2mUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
     In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
 
@@ -292,8 +287,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
        }
        #endregion
 
-
-
        #region IRegionAware
        public bool IsNavigationTarget(INavigationContext navigationContext) {
             return true;
@@ -437,11 +430,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
             return (CurrentNavigationContext == null) ?  false : CurrentNavigationContext.NavigationService.Journal.CanGoBack;
         }
         #endregion
-
-
-
-
-
 
         #region TableMenuItemsDetail
         protected ObservableCollection<IWebServiceFilterMenuInterface> GetDefaultTableMenuItemsDetail() {
@@ -604,10 +592,7 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
         #endregion
         #region DetailsList
         ObservableCollection<IO2mListItemInterface> _DetailsList = new ObservableCollection<IO2mListItemInterface>() {
-/////  can not find Lform User control for the view which named: LprDivision01View 
-/////  can not find Lform User control for the view which named: LprDivision02View 
-            new O2mListItemViewModel() {Caption = "Employees: Division", ForeignKeyDetails = "PhbkEmployeeViewLformUserControl:Division",  Region = "PhbkEmployeeViewLformUserControlDetailRegion" },
-/////  can not find Lform User control for the view which named: LprEmployee02View 
+                new O2mListItemViewModel() {Caption = "Employees: Division", ForeignKeyDetails = "PhbkEmployeeViewLformUserControl:Division",  Region = "PhbkEmployeeViewLformUserControlDetailRegion" },
         };
         public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
         #endregion
@@ -617,24 +602,21 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
             if(IsDestroyed) return;
             PermissionMaskDetail = 0;
             ObservableCollection<IWebServiceFilterRsltInterface> chfd = new ObservableCollection<IWebServiceFilterRsltInterface>();
+            IList<IWebServiceFilterRsltInterface> tmpFlt = null;
             IPhbkDivisionView  selectedMasterRow  = SelectedRow as IPhbkDivisionView;
             if((SelectedDetailsListItem != null) && (selectedMasterRow != null)) {
                 switch(SelectedDetailsListItem.ForeignKeyDetails) {
-/////  can not find Lform User control for the view which named: LprDivision01View 
-/////  can not find Lform User control for the view which named: LprDivision02View 
                     case "PhbkEmployeeViewLformUserControl:Division":
                         PermissionMaskDetail = GlblSettingsSrv.GetViewModelMask("PhbkEmployeeView");
-                        chfd.Add(new WebServiceFilterRsltViewModel() {
-                            fltrName = "DivisionIdRef",
-                            fltrDataType = "int32",
-                            fltrOperator = "eq",
-                            fltrValue = selectedMasterRow.DivisionId,
-                            fltrError = null
-                        });
+                        tmpFlt = this.FrmSrvPhbkDivisionView.getHiddenFilterAsFltRslt(this.FrmSrvPhbkDivisionView.getHiddenFilterByRow(selectedMasterRow, "Division"));
                         break;
-/////  can not find Lform User control for the view which named: LprEmployee02View 
                     default:
                         break;
+                }
+            }
+            if(tmpFlt != null) {
+                foreach(var fltItm in tmpFlt) {
+                    chfd.Add(fltItm);
                 }
             }
             HiddenFiltersDetail = chfd;

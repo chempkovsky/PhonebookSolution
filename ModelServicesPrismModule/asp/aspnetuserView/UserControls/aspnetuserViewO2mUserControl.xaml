@@ -1,0 +1,132 @@
+
+<ucwcm:RegionAwareUserControlBase x:Class="ModelServicesPrismModule.asp.aspnetuserView.UserControls.AspnetuserViewO2mUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" 
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ucwcm="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary"
+             xmlns:lfrm="clr-namespace:ModelServicesPrismModule.asp.aspnetuserView.UserControls" 
+
+             xmlns:lfrm0="clr-namespace:ModelServicesPrismModule.asp.aspnetusermaskView.UserControls" 
+             xmlns:lfrm1="clr-namespace:ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls" 
+
+             x:Name="o2mUsrCntrlRootNode"
+             >
+    <StackLayout>
+        <ActivityIndicator 
+                IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"
+                IsRunning="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>
+        <!-- <ProgressBar 
+                         Progress="0.75"
+                         IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>-->
+
+        <lfrm:AspnetuserViewLformUserControl  
+            IsDestroyed="{Binding BindingContext.IsDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            ContainerMenuItemsCommand="{Binding OnContainerMenuItemsCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"
+
+            ShowBackBtn="{Binding BindingContext.ShowBackBtn, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            NavigationBackCommand="{Binding BindingContext.OnNavigationBackCommand, Source={x:Reference o2mUsrCntrlRootNode}}"                                
+
+            Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            ShowFilter="{Binding BindingContext.ShowFilter, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            ShowAddFilterBtn="{Binding BindingContext.ShowAddFilterBtn, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            GridHeight="{Binding GridHeight, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            HiddenFilters="{Binding BindingContext.HiddenFilters, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            SelectedRowCommand="{Binding BindingContext.SelectedRowCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            TableMenuItems="{Binding BindingContext.TableMenuItems, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            CanAdd="{Binding BindingContext.CanAdd, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            CanUpdate="{Binding BindingContext.CanUpdate, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            CanDelete="{Binding BindingContext.CanDelete, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            
+            />
+
+        <StackLayout>
+            <Label Text="Selected detail"/>
+            <Picker ItemsSource="{Binding BindingContext.DetailsList, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                    ItemDisplayBinding="{Binding Caption}" 
+                    SelectedItem="{Binding BindingContext.SelectedDetailsListItem, Source={x:Reference o2mUsrCntrlRootNode}, Mode=TwoWay}">
+            </Picker>
+        </StackLayout>
+
+        <ContentView ControlTemplate="{StaticResource NoMasterRowIsSelectedView}">
+            <ContentView.Resources>
+                <ResourceDictionary>
+                    <ControlTemplate x:Key="NoMasterRowIsSelectedView">
+                            <Label Text="Master row not selected or access denied for detail" />
+                    </ControlTemplate> 
+                    <ControlTemplate x:Key="AspnetusermaskViewLformUserControlTemplateView">
+                        <lfrm0:AspnetusermaskViewLformUserControl 
+                            IsDestroyed="{Binding BindingContext.IsDetailDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            Caption="{Binding BindingContext.SelectedDetailsListItem.Caption, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            FilterHeight="{Binding BindingContext.FilterHeightDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowFilter="{Binding BindingContext.ShowFilterDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowAddFilterBtn="{Binding BindingContext.ShowAddFilterBtnDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            GridHeight="{Binding BindingContext.GridHeightDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowBackBtn="False" 
+                            HiddenFilters="{Binding BindingContext.HiddenFiltersDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            SelectedRowCommand="{Binding BindingContext.SelectedRowCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            TableMenuItems="{Binding BindingContext.TableMenuItemsDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            RowMenuItems="{Binding BindingContext.RowMenuItemsDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanAdd="{Binding BindingContext.CanAddDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanUpdate="{Binding BindingContext.CanUpdateDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanDelete="{Binding BindingContext.CanDeleteDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            IsParentLoaded="{Binding BindingContext.IsDetailReady, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            />
+                    </ControlTemplate>
+                    <ControlTemplate x:Key="AspnetuserrolesViewLformUserControlTemplateView">
+                        <lfrm1:AspnetuserrolesViewLformUserControl 
+                            IsDestroyed="{Binding BindingContext.IsDetailDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            Caption="{Binding BindingContext.SelectedDetailsListItem.Caption, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            FilterHeight="{Binding BindingContext.FilterHeightDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowFilter="{Binding BindingContext.ShowFilterDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowAddFilterBtn="{Binding BindingContext.ShowAddFilterBtnDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            GridHeight="{Binding BindingContext.GridHeightDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowBackBtn="False" 
+                            HiddenFilters="{Binding BindingContext.HiddenFiltersDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            SelectedRowCommand="{Binding BindingContext.SelectedRowCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            TableMenuItems="{Binding BindingContext.TableMenuItemsDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            RowMenuItems="{Binding BindingContext.RowMenuItemsDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanAdd="{Binding BindingContext.CanAddDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanUpdate="{Binding BindingContext.CanUpdateDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanDelete="{Binding BindingContext.CanDeleteDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            IsParentLoaded="{Binding BindingContext.IsDetailReady, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            />
+                    </ControlTemplate>
+                </ResourceDictionary>
+            </ContentView.Resources>
+            <ContentView.Triggers>
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SelectedDetailsListItem.Region, Source={x:Reference o2mUsrCntrlRootNode}}" Value="AspnetusermaskViewLformUserControlDetailRegion"/>
+                            <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="True"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource AspnetusermaskViewLformUserControlTemplateView}" />
+                    </MultiTrigger>
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SelectedDetailsListItem.Region, Source={x:Reference o2mUsrCntrlRootNode}}" Value="AspnetuserrolesViewLformUserControlDetailRegion"/>
+                            <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="True"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource AspnetuserrolesViewLformUserControlTemplateView}" />
+                    </MultiTrigger>
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="False"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource NoMasterRowIsSelectedView}" />
+                    </MultiTrigger>
+            </ContentView.Triggers>
+        </ContentView>
+    </StackLayout>
+</ucwcm:RegionAwareUserControlBase>
+

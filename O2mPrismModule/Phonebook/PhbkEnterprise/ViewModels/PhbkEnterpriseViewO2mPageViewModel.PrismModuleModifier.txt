@@ -72,7 +72,6 @@
     "InvocationParams": ['"PhbkDivisionViewLformUserControlDetailRegion"','typeof(ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.PhbkDivisionViewLformUserControl)'],
     "StepDescription": 'Insertion the line : regionManager.RegisterViewWithRegion("PhbkDivisionViewLformUserControlDetailRegion", typeof(PhbkDivisionViewLformUserControl));'
     },
-/////  can not find Lform User control for the view which named: LprDivision02View 
 
     {
     "Description": [
@@ -146,6 +145,7 @@
     },
     ]
 }
+
 
 
 ==============================================================================

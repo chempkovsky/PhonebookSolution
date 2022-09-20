@@ -19,8 +19,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkPhoneType;
 
 
 
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
 
 
     "PhbkPhoneTypeViewO2mPage" UserControl is defined in the "ModelServicesPrismModule"-project.
@@ -660,8 +658,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels {
         #region DetailsList
         ObservableCollection<IO2mListItemInterface> _DetailsList = new ObservableCollection<IO2mListItemInterface>() {
             new O2mListItemViewModel() {Caption = "Phones: PhoneType", ForeignKeyDetails = "PhbkPhoneViewLformUserControl:PhoneType",  Region = "PhbkPhoneViewLformUserControlDetailRegion" },
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
         };
         public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
         #endregion
@@ -671,23 +667,21 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels {
             if(IsDestroyed) return;
             PermissionMaskDetail = 0;
             ObservableCollection<IWebServiceFilterRsltInterface> chfd = new ObservableCollection<IWebServiceFilterRsltInterface>();
+            IList<IWebServiceFilterRsltInterface> tmpFlt = null;
             IPhbkPhoneTypeView  selectedMasterRow  = SelectedRow as IPhbkPhoneTypeView;
             if((SelectedDetailsListItem != null) && (selectedMasterRow != null)) {
                 switch(SelectedDetailsListItem.ForeignKeyDetails) {
                     case "PhbkPhoneViewLformUserControl:PhoneType":
                         PermissionMaskDetail = GlblSettingsSrv.GetViewModelMask("PhbkPhoneView");
-                        chfd.Add(new WebServiceFilterRsltViewModel() {
-                            fltrName = "PhoneTypeIdRef",
-                            fltrDataType = "int32",
-                            fltrOperator = "eq",
-                            fltrValue = selectedMasterRow.PhoneTypeId,
-                            fltrError = null
-                        });
+                        tmpFlt = this.FrmSrvPhbkPhoneTypeView.getHiddenFilterAsFltRslt(this.FrmSrvPhbkPhoneTypeView.getHiddenFilterByRow(selectedMasterRow, "PhoneType"));
                         break;
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
                     default:
                         break;
+                }
+            }
+            if(tmpFlt != null) {
+                foreach(var fltItm in tmpFlt) {
+                    chfd.Add(fltItm);
                 }
             }
             HiddenFiltersDetail = chfd;

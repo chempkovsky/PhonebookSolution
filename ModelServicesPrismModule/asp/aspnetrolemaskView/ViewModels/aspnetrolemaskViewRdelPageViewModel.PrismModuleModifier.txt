@@ -1,0 +1,110 @@
+{
+"PrismMMMCallItems": [
+
+
+    {
+    "Description": [
+    '"AspnetrolemaskViewRdelPage" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetrolemaskViewRdelPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>();',
+    '        // According to requirements of the "AspnetrolemaskViewRdelPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForNavigation<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>("AspnetrolemaskViewRdelPage");',
+    '        // Only if you need to get an instance of controls, insert two lines below',
+    '        // According to requirements of the "AspnetrolemaskViewRdelPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        // containerRegistry.Register<ContentPage, AspnetrolemaskViewRdelPage>("AspnetrolemaskViewRdelPage");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetrolemaskView.Views.AspnetrolemaskViewRdelPage','ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.AspnetrolemaskViewRdelPageViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetrolemaskView.Views.AspnetrolemaskViewRdelPage','ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.AspnetrolemaskViewRdelPageViewModel'],
+    "InvocationParams": ['"AspnetrolemaskViewRdelPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForNavigation<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>("AspnetrolemaskViewRdelPage");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentPage','ModelServicesPrismModule.asp.aspnetrolemaskView.Views.AspnetrolemaskViewRdelPage'],
+    "InvocationParams": ['"AspnetrolemaskViewRdelPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentPage, AspnetrolemaskViewRdelPage>("AspnetrolemaskViewRdelPage");'
+    },
+    ]
+}
+
+
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetrolemaskViewRdelPage" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetrolemaskViewRdelPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>();
+        // According to requirements of the "AspnetrolemaskViewRdelPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForNavigation<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>("AspnetrolemaskViewRdelPage");
+        // Only if you need to get an instance of controls, insert two lines below
+        // According to requirements of the "AspnetrolemaskViewRdelPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        // containerRegistry.Register<ContentPage, AspnetrolemaskViewRdelPage>("AspnetrolemaskViewRdelPage");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForNavigation<AspnetrolemaskViewRdelPage, AspnetrolemaskViewRdelPageViewModel>("AspnetrolemaskViewRdelPage");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentPage, AspnetrolemaskViewRdelPage>("AspnetrolemaskViewRdelPage");
+Result:
+Ok

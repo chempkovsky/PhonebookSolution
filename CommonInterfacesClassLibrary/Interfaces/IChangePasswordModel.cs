@@ -5,13 +5,13 @@ using Newtonsoft.Json.Serialization;
 namespace CommonInterfacesClassLibrary.Interfaces {
     public interface IChangePasswordModel
     {
-        [JsonProperty(PropertyName = "OldPassword")]
+        [JsonProperty(PropertyName = "oldpassword")]
         string  OldPassword { get; set; }
 
-        [JsonProperty(PropertyName = "NewPassword")]
+        [JsonProperty(PropertyName = "newPassword")]
         string  NewPassword { get; set; }
 
-        [JsonProperty(PropertyName = "ConfirmPassword")]
+        [JsonProperty(PropertyName = "confirmPassword")]
         string  ConfirmPassword { get; set; }
     }
 }

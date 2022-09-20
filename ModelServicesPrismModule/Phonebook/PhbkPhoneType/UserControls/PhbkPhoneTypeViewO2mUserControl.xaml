@@ -20,10 +20,6 @@
                          Progress="0.75"
                          IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>-->
 
-<!--  can not find Lform User control for the view which named: LprPhone03View -->
-<!--  can not find Lform User control for the view which named: LprPhone04View -->
-
-
         <lfrm:PhbkPhoneTypeViewLformUserControl  
             IsDestroyed="{Binding BindingContext.IsDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
             ContainerMenuItems="{Binding ContainerMenuItems, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
@@ -85,9 +81,6 @@
                             IsParentLoaded="{Binding BindingContext.IsDetailReady, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
                             />
                     </ControlTemplate>
-
-<!--  can not find Lform User control for the view which named: LprPhone03View -->
-<!--  can not find Lform User control for the view which named: LprPhone04View -->
                 </ResourceDictionary>
             </ContentView.Resources>
             <ContentView.Triggers>
@@ -98,8 +91,6 @@
                         </MultiTrigger.Conditions>
                         <Setter Property="ControlTemplate" Value="{StaticResource PhbkPhoneViewLformUserControlTemplateView}" />
                     </MultiTrigger>
-<!--  can not find Lform User control for the view which named: LprPhone03View -->
-<!--  can not find Lform User control for the view which named: LprPhone04View -->
                     <MultiTrigger TargetType="ContentView">
                         <MultiTrigger.Conditions>
                             <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="False"/>

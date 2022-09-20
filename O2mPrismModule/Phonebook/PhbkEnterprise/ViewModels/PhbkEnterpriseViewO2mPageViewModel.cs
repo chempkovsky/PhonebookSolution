@@ -35,7 +35,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEnterprise;
         }
 
 
-   
     "PhbkDivisionViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
     In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
 
@@ -52,8 +51,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEnterprise;
             }
             ...
         }
-/////  can not find Lform User control for the view which named: LprDivision02View 
-
 
     "PhbkEnterpriseViewO2mPage" UserControl is defined in the "O2mPrismModule"-project.
     In the file of IModule-class of "O2mPrismModule"-project the following line of code must be inserted:
@@ -72,16 +69,22 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEnterprise;
         }
 */
 
+using ModelInterfacesClassLibrary.Phonebook.PhbkDivision;
+
 namespace O2mPrismModule.Phonebook.PhbkEnterprise.ViewModels {
 
     public class PhbkEnterpriseViewO2mPageViewModel: INotifyPropertyChanged, INavigationAware, IDestructible 
     {
         protected IAppGlblSettingsService GlblSettingsSrv=null;
-        protected IPhbkEnterpriseViewService FrmSrvPhbkEnterpriseView = null;
+        protected IPhbkEnterpriseViewService FrmRootSrvPhbkEnterpriseView = null;
         protected INavigationService _navigationService;
-        public PhbkEnterpriseViewO2mPageViewModel(IPhbkEnterpriseViewService _FrmSrvPhbkEnterpriseView, IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
+        protected IPhbkDivisionViewService FrmSrvPhbkDivisionView = null;
+        public PhbkEnterpriseViewO2mPageViewModel(IPhbkEnterpriseViewService _FrmRootSrvPhbkEnterpriseView, 
+            IPhbkDivisionViewService _FrmSrvPhbkDivisionView,
+            IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
             this.GlblSettingsSrv = GlblSettingsSrv;
-            this.FrmSrvPhbkEnterpriseView = _FrmSrvPhbkEnterpriseView;
+            this.FrmRootSrvPhbkEnterpriseView = _FrmRootSrvPhbkEnterpriseView;
+            this.FrmSrvPhbkDivisionView = _FrmSrvPhbkDivisionView;
             this._navigationService = navigationService;
             PermissionMask = GlblSettingsSrv.GetViewModelMask("PhbkEnterpriseView");
             _TableMenuItems = GetDefaultTableMenuItems();
@@ -692,7 +695,6 @@ namespace O2mPrismModule.Phonebook.PhbkEnterprise.ViewModels {
         #region DetailsList
         ObservableCollection<IO2mListItemInterface> _DetailsList = new ObservableCollection<IO2mListItemInterface>() {
             new O2mListItemViewModel() {Caption = "Divisions: Enterprise", ForeignKeyDetails = "PhbkDivisionViewLformUserControl:Enterprise",  Region = "PhbkDivisionViewLformUserControlDetailRegion" },
-/////  can not find Lform User control for the view which named: LprDivision02View 
         };
         public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
         #endregion
@@ -702,22 +704,21 @@ namespace O2mPrismModule.Phonebook.PhbkEnterprise.ViewModels {
             if(IsDestroyed) return;
             PermissionMaskDetail = 0;
             ObservableCollection<IWebServiceFilterRsltInterface> chfd = new ObservableCollection<IWebServiceFilterRsltInterface>();
+            IList<IWebServiceFilterRsltInterface> tmpFlt = null;
             IPhbkEnterpriseView  selectedMasterRow  = SelectedRow as IPhbkEnterpriseView;
             if((SelectedDetailsListItem != null) && (selectedMasterRow != null)) {
                 switch(SelectedDetailsListItem.ForeignKeyDetails) {
                     case "PhbkDivisionViewLformUserControl:Enterprise":
                         PermissionMaskDetail = GlblSettingsSrv.GetViewModelMask("PhbkDivisionView");
-                        chfd.Add(new WebServiceFilterRsltViewModel() {
-                            fltrName = "EntrprsIdRef",
-                            fltrDataType = "int32",
-                            fltrOperator = "eq",
-                            fltrValue = selectedMasterRow.EntrprsId,
-                            fltrError = null
-                        });
+                        tmpFlt = this.FrmSrvPhbkDivisionView.getHiddenFilterAsFltRslt(this.FrmRootSrvPhbkEnterpriseView.getHiddenFilterByRow(selectedMasterRow, "Enterprise"));
                         break;
-/////  can not find Lform User control for the view which named: LprDivision02View 
                     default:
                         break;
+                }
+            }
+            if(tmpFlt != null) {
+                foreach(var fltItm in tmpFlt) {
+                    chfd.Add(fltItm);
                 }
             }
             HiddenFiltersDetail = chfd;
@@ -780,6 +781,7 @@ namespace O2mPrismModule.Phonebook.PhbkEnterprise.ViewModels {
 
     }
 }
+
 
 
 

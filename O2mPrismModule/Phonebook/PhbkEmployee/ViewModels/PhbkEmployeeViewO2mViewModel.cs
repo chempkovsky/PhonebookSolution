@@ -34,10 +34,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEmployee;
             ...
         }
 
-
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
-   
     "PhbkPhoneViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
     In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
 
@@ -54,9 +50,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEmployee;
             }
             ...
         }
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
-
 
     "PhbkEmployeeViewO2mUserControl" UserControl is defined in the "O2mPrismModule"-project.
     In the file of IModule-class of "O2mPrismModule"-project the following line of code must be inserted:
@@ -74,15 +67,24 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEmployee;
         }
 */
 
+using ModelInterfacesClassLibrary.Phonebook.PhbkPhone;
+
+
+
+
 namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
 
     public class PhbkEmployeeViewO2mViewModel: RegionAwareViewModelBase, IRegionAware 
     {
         protected IAppGlblSettingsService GlblSettingsSrv=null;
-        protected IPhbkEmployeeViewService FrmSrvPhbkEmployeeView = null;
-        public PhbkEmployeeViewO2mViewModel(IPhbkEmployeeViewService _FrmSrvPhbkEmployeeView, IAppGlblSettingsService GlblSettingsSrv) {
+        protected IPhbkEmployeeViewService FrmRootSrvPhbkEmployeeView = null;
+        protected IPhbkPhoneViewService FrmSrvPhbkPhoneView = null;
+        public PhbkEmployeeViewO2mViewModel(IPhbkEmployeeViewService _FrmRootSrvPhbkEmployeeView, 
+            IPhbkPhoneViewService _FrmSrvPhbkPhoneView,
+            IAppGlblSettingsService GlblSettingsSrv) {
             this.GlblSettingsSrv = GlblSettingsSrv;
-            this.FrmSrvPhbkEmployeeView = _FrmSrvPhbkEmployeeView;
+            this.FrmRootSrvPhbkEmployeeView = _FrmRootSrvPhbkEmployeeView;
+            this.FrmSrvPhbkPhoneView = _FrmSrvPhbkPhoneView;
             PermissionMask = GlblSettingsSrv.GetViewModelMask("PhbkEmployeeView");
             _TableMenuItems = GetDefaultTableMenuItems();
             _RowMenuItems = GetDefaultRowMenuItems();
@@ -326,8 +328,6 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
        }
        #endregion
 
-
-
        #region IRegionAware
        public bool IsNavigationTarget(INavigationContext navigationContext) {
             return true;
@@ -492,11 +492,6 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
         }
         #endregion
 
-
-
-
-
-
         #region TableMenuItemsDetail
         protected ObservableCollection<IWebServiceFilterMenuInterface> GetDefaultTableMenuItemsDetail() {
             return new ObservableCollection<IWebServiceFilterMenuInterface>();
@@ -658,11 +653,7 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
         #endregion
         #region DetailsList
         ObservableCollection<IO2mListItemInterface> _DetailsList = new ObservableCollection<IO2mListItemInterface>() {
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
-            new O2mListItemViewModel() {Caption = "Phones: Employee", ForeignKeyDetails = "PhbkPhoneViewLformUserControl:Employee",  Region = "PhbkPhoneViewLformUserControlDetailRegion" },
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
+                new O2mListItemViewModel() {Caption = "Phones: Employee", ForeignKeyDetails = "PhbkPhoneViewLformUserControl:Employee",  Region = "PhbkPhoneViewLformUserControlDetailRegion" },
         };
         public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
         #endregion
@@ -672,25 +663,21 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
             if(IsDestroyed) return;
             PermissionMaskDetail = 0;
             ObservableCollection<IWebServiceFilterRsltInterface> chfd = new ObservableCollection<IWebServiceFilterRsltInterface>();
+            IList<IWebServiceFilterRsltInterface> tmpFlt = null;
             IPhbkEmployeeView  selectedMasterRow  = SelectedRow as IPhbkEmployeeView;
             if((SelectedDetailsListItem != null) && (selectedMasterRow != null)) {
                 switch(SelectedDetailsListItem.ForeignKeyDetails) {
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
                     case "PhbkPhoneViewLformUserControl:Employee":
                         PermissionMaskDetail = GlblSettingsSrv.GetViewModelMask("PhbkPhoneView");
-                        chfd.Add(new WebServiceFilterRsltViewModel() {
-                            fltrName = "EmployeeIdRef",
-                            fltrDataType = "int32",
-                            fltrOperator = "eq",
-                            fltrValue = selectedMasterRow.EmployeeId,
-                            fltrError = null
-                        });
+                        tmpFlt = this.FrmSrvPhbkPhoneView.getHiddenFilterAsFltRslt(this.FrmRootSrvPhbkEmployeeView.getHiddenFilterByRow(selectedMasterRow, "Employee"));
                         break;
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
                     default:
                         break;
+                }
+            }
+            if(tmpFlt != null) {
+                foreach(var fltItm in tmpFlt) {
+                    chfd.Add(fltItm);
                 }
             }
             HiddenFiltersDetail = chfd;
@@ -728,6 +715,7 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
 
     }
 }
+
 
 
 

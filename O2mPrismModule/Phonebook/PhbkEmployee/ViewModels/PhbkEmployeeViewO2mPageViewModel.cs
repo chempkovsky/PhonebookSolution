@@ -35,9 +35,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEmployee;
         }
 
 
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
-   
     "PhbkPhoneViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
     In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
 
@@ -54,9 +51,6 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEmployee;
             }
             ...
         }
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
-
 
     "PhbkEmployeeViewO2mPage" UserControl is defined in the "O2mPrismModule"-project.
     In the file of IModule-class of "O2mPrismModule"-project the following line of code must be inserted:
@@ -75,16 +69,22 @@ using ModelInterfacesClassLibrary.Phonebook.PhbkEmployee;
         }
 */
 
+using ModelInterfacesClassLibrary.Phonebook.PhbkPhone;
+
 namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
 
     public class PhbkEmployeeViewO2mPageViewModel: INotifyPropertyChanged, INavigationAware, IDestructible 
     {
         protected IAppGlblSettingsService GlblSettingsSrv=null;
-        protected IPhbkEmployeeViewService FrmSrvPhbkEmployeeView = null;
+        protected IPhbkEmployeeViewService FrmRootSrvPhbkEmployeeView = null;
         protected INavigationService _navigationService;
-        public PhbkEmployeeViewO2mPageViewModel(IPhbkEmployeeViewService _FrmSrvPhbkEmployeeView, IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
+        protected IPhbkPhoneViewService FrmSrvPhbkPhoneView = null;
+        public PhbkEmployeeViewO2mPageViewModel(IPhbkEmployeeViewService _FrmRootSrvPhbkEmployeeView, 
+            IPhbkPhoneViewService _FrmSrvPhbkPhoneView,
+            IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
             this.GlblSettingsSrv = GlblSettingsSrv;
-            this.FrmSrvPhbkEmployeeView = _FrmSrvPhbkEmployeeView;
+            this.FrmRootSrvPhbkEmployeeView = _FrmRootSrvPhbkEmployeeView;
+            this.FrmSrvPhbkPhoneView = _FrmSrvPhbkPhoneView;
             this._navigationService = navigationService;
             PermissionMask = GlblSettingsSrv.GetViewModelMask("PhbkEmployeeView");
             _TableMenuItems = GetDefaultTableMenuItems();
@@ -734,11 +734,7 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
         #endregion
         #region DetailsList
         ObservableCollection<IO2mListItemInterface> _DetailsList = new ObservableCollection<IO2mListItemInterface>() {
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
             new O2mListItemViewModel() {Caption = "Phones: Employee", ForeignKeyDetails = "PhbkPhoneViewLformUserControl:Employee",  Region = "PhbkPhoneViewLformUserControlDetailRegion" },
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
         };
         public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
         #endregion
@@ -748,25 +744,21 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
             if(IsDestroyed) return;
             PermissionMaskDetail = 0;
             ObservableCollection<IWebServiceFilterRsltInterface> chfd = new ObservableCollection<IWebServiceFilterRsltInterface>();
+            IList<IWebServiceFilterRsltInterface> tmpFlt = null;
             IPhbkEmployeeView  selectedMasterRow  = SelectedRow as IPhbkEmployeeView;
             if((SelectedDetailsListItem != null) && (selectedMasterRow != null)) {
                 switch(SelectedDetailsListItem.ForeignKeyDetails) {
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
                     case "PhbkPhoneViewLformUserControl:Employee":
                         PermissionMaskDetail = GlblSettingsSrv.GetViewModelMask("PhbkPhoneView");
-                        chfd.Add(new WebServiceFilterRsltViewModel() {
-                            fltrName = "EmployeeIdRef",
-                            fltrDataType = "int32",
-                            fltrOperator = "eq",
-                            fltrValue = selectedMasterRow.EmployeeId,
-                            fltrError = null
-                        });
+                        tmpFlt = this.FrmSrvPhbkPhoneView.getHiddenFilterAsFltRslt(this.FrmRootSrvPhbkEmployeeView.getHiddenFilterByRow(selectedMasterRow, "Employee"));
                         break;
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
                     default:
                         break;
+                }
+            }
+            if(tmpFlt != null) {
+                foreach(var fltItm in tmpFlt) {
+                    chfd.Add(fltItm);
                 }
             }
             HiddenFiltersDetail = chfd;
@@ -829,6 +821,7 @@ namespace O2mPrismModule.Phonebook.PhbkEmployee.ViewModels {
 
     }
 }
+
 
 
 

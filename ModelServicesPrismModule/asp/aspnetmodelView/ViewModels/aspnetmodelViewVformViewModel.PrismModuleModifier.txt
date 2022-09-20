@@ -1,0 +1,84 @@
+{
+"PrismMMMCallItems": [
+
+
+    {
+    "Description": [
+
+    '"AspnetmodelViewVformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetmodelViewVformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetmodelViewVformUserControl, AspnetmodelViewVformViewModel>();',
+    '        // According to requirements of the "AspnetmodelViewVformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetmodelViewVformUserControl>("AspnetmodelViewVformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    
+
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetmodelView.UserControls.AspnetmodelViewVformUserControl','ModelServicesPrismModule.asp.aspnetmodelView.ViewModels.AspnetmodelViewVformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetmodelViewVformUserControl, AspnetmodelViewVformViewModel>();'
+    },
+
+
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.asp.aspnetmodelView.UserControls.AspnetmodelViewVformUserControl'],
+    "InvocationParams": ['"AspnetmodelViewVformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetmodelViewVformUserControl>("AspnetmodelViewVformUserControl");'
+    },
+    ]
+}
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetmodelViewVformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetmodelViewVformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetmodelViewVformUserControl, AspnetmodelViewVformViewModel>();
+        // According to requirements of the "AspnetmodelViewVformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetmodelViewVformUserControl>("AspnetmodelViewVformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetmodelViewVformUserControl, AspnetmodelViewVformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetmodelViewVformUserControl>("AspnetmodelViewVformUserControl");
+Result:
+Ok

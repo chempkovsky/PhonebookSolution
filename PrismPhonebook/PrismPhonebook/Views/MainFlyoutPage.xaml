@@ -62,7 +62,21 @@
           <Button Text="RdLists forms"  Command="{Binding NavigateCommand}" CommandParameter="RdListsFeatureFtrUserControl" />
           <Button Text="Lforms"  Command="{Binding NavigateCommand}" CommandParameter="LformsFeatureFtrUserControl" />
 
+          <Label Text="Authorization"/>
+          <Button Text="Rd Models"  Command="{Binding NavigateCommand}" CommandParameter="AspnetmodelViewRdlistPage" />
+          <Button Text="Rd Roles"  Command="{Binding NavigateCommand}" CommandParameter="AspnetroleViewRdlistPage" />
+          <Button Text="Rd Users"  Command="{Binding NavigateCommand}" CommandParameter="AspnetuserViewRdlistPage" />
+
+          <Button Text="R Models"  Command="{Binding NavigateCommand}" CommandParameter="AspnetmodelViewRlistPage" />
+          <Button Text="R Roles"  Command="{Binding NavigateCommand}" CommandParameter="AspnetroleViewRlistPage" />
+          <Button Text="R Users"  Command="{Binding NavigateCommand}" CommandParameter="AspnetuserViewRlistPage" />
+
+          <Button Text="One-to-Many Models"  Command="{Binding NavigateCommand}" CommandParameter="AspnetmodelViewO2mPage" />
+          <Button Text="One-to-Many Roles"  Command="{Binding NavigateCommand}" CommandParameter="AspnetroleViewO2mPage" />
+          <Button Text="One-to-Many Users"  Command="{Binding NavigateCommand}" CommandParameter="AspnetuserViewO2mPage" />
           
+
+
         </StackLayout>
             </ScrollView>
         </ContentPage>

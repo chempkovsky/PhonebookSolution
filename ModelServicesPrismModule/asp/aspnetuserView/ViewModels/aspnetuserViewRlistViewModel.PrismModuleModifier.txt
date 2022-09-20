@@ -1,0 +1,106 @@
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"AspnetuserViewRlistUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetuserViewRlistViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>();',
+    '        // According to requirements of the "AspnetuserViewRlistViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForRegionNavigation<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>("AspnetuserViewRlistUserControl");',
+    '        // According to requirements of the "AspnetuserViewRlistViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetuserViewRlistUserControl>("AspnetuserViewRlistUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserView.UserControls.AspnetuserViewRlistUserControl','ModelServicesPrismModule.asp.aspnetuserView.ViewModels.AspnetuserViewRlistViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForRegionNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserView.UserControls.AspnetuserViewRlistUserControl','ModelServicesPrismModule.asp.aspnetuserView.ViewModels.AspnetuserViewRlistViewModel'],
+    "InvocationParams": ['"AspnetuserViewRlistUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>("AspnetuserViewRlistUserControl");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.asp.aspnetuserView.UserControls.AspnetuserViewRlistUserControl'],
+    "InvocationParams": ['"AspnetuserViewRlistUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewRlistUserControl>("AspnetuserViewRlistUserControl");'
+    },
+    ]
+}
+
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetuserViewRlistUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetuserViewRlistViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>();
+        // According to requirements of the "AspnetuserViewRlistViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForRegionNavigation<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>("AspnetuserViewRlistUserControl");
+        // According to requirements of the "AspnetuserViewRlistViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetuserViewRlistUserControl>("AspnetuserViewRlistUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetuserViewRlistUserControl, AspnetuserViewRlistViewModel>("AspnetuserViewRlistUserControl");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewRlistUserControl>("AspnetuserViewRlistUserControl");
+Result:
+Ok

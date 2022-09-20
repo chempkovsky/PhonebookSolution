@@ -38,13 +38,10 @@ namespace CommonServicesPrismModule.AppGlblLoginSrvc {
 
         public async Task<IBearerTokenModel> Login(string Email, string Password)
         {
+            ILoginModel model = GetLoginModel(Email, Password, "password");
             try
             {
-                var stringContent = new StringContent(
-                    Uri.EscapeDataString("username") + "=" + Uri.EscapeDataString(Email) + "&" +
-                    Uri.EscapeDataString("password") + "=" + Uri.EscapeDataString(Password) + "&" +
-                    Uri.EscapeDataString("grant_type") + "=" + Uri.EscapeDataString("password") , 
-                    Encoding.UTF8, "application/json");
+                var stringContent = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(serviceUrl + "token", stringContent);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
@@ -150,6 +147,13 @@ namespace CommonServicesPrismModule.AppGlblLoginSrvc {
                 Email = Email,
                 Password = Password,
                 ConfirmPassword = ConfirmPassword
+            };
+        }
+        public ILoginModel GetLoginModel(string Email, string Password, string GrantType) {
+            return new LoginModel() {
+                UserName = Email,
+                Password = Password,
+                GrantType = GrantType
             };
         }
     }

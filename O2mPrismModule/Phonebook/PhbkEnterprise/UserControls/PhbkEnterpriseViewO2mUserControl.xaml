@@ -1,5 +1,4 @@
 
-
 <ucwcm:RegionAwareUserControlBase x:Class="O2mPrismModule.Phonebook.PhbkEnterprise.UserControls.PhbkEnterpriseViewO2mUserControl"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -18,9 +17,6 @@
         <!-- <ProgressBar 
                          Progress="0.75"
                          IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>-->
-
-<!--  can not find Lform User control for the view which named: LprDivision02View -->
-
 
         <prx:ProxyUserControl 
             prism:RegionManager.RegionName="PhbkEnterpriseViewLformUserControlMasterRegion"
@@ -85,8 +81,6 @@
                             IsParentLoaded="{Binding BindingContext.IsDetailReady, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
                             />
                     </ControlTemplate>
-
-<!--  can not find Lform User control for the view which named: LprDivision02View -->
                 </ResourceDictionary>
             </ContentView.Resources>
             <ContentView.Triggers>
@@ -97,7 +91,6 @@
                         </MultiTrigger.Conditions>
                         <Setter Property="ControlTemplate" Value="{StaticResource PhbkDivisionViewLformUserControlTemplateView}" />
                     </MultiTrigger>
-<!--  can not find Lform User control for the view which named: LprDivision02View -->
                     <MultiTrigger TargetType="ContentView">
                         <MultiTrigger.Conditions>
                             <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="False"/>
@@ -108,5 +101,4 @@
         </ContentView>
     </StackLayout>
 </ucwcm:RegionAwareUserControlBase>
-
 

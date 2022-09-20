@@ -1,0 +1,84 @@
+{
+"PrismMMMCallItems": [
+
+
+    {
+    "Description": [
+
+    '"AspnetuserViewUformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetuserViewUformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetuserViewUformUserControl, AspnetuserViewUformViewModel>();',
+    '        // According to requirements of the "AspnetuserViewUformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetuserViewUformUserControl>("AspnetuserViewUformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    
+
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserView.UserControls.AspnetuserViewUformUserControl','ModelServicesPrismModule.asp.aspnetuserView.ViewModels.AspnetuserViewUformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewUformUserControl, AspnetuserViewUformViewModel>();'
+    },
+
+
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.asp.aspnetuserView.UserControls.AspnetuserViewUformUserControl'],
+    "InvocationParams": ['"AspnetuserViewUformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewUformUserControl>("AspnetuserViewUformUserControl");'
+    },
+    ]
+}
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetuserViewUformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetuserViewUformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetuserViewUformUserControl, AspnetuserViewUformViewModel>();
+        // According to requirements of the "AspnetuserViewUformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetuserViewUformUserControl>("AspnetuserViewUformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewUformUserControl, AspnetuserViewUformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewUformUserControl>("AspnetuserViewUformUserControl");
+Result:
+Ok

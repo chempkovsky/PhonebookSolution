@@ -1,0 +1,107 @@
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"AspnetuserrolesViewRdlistPage" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetuserrolesViewRdlistPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>();',
+    '        // According to requirements of the "AspnetuserrolesViewRdlistPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForNavigation<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>("AspnetuserrolesViewRdlistPage");',
+    '        // Only if you need to get an instance of controls, insert two lines below',
+    '        // According to requirements of the "AspnetuserrolesViewRdlistPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        // containerRegistry.Register<ContentPage, AspnetuserrolesViewRdlistPage>("AspnetuserrolesViewRdlistPage");',
+    '        ...',
+    '    }',
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserrolesView.Views.AspnetuserrolesViewRdlistPage','ModelServicesPrismModule.asp.aspnetuserrolesView.ViewModels.AspnetuserrolesViewRdlistPageViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserrolesView.Views.AspnetuserrolesViewRdlistPage','ModelServicesPrismModule.asp.aspnetuserrolesView.ViewModels.AspnetuserrolesViewRdlistPageViewModel'],
+    "InvocationParams": ['"AspnetuserrolesViewRdlistPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForNavigation<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>("AspnetuserrolesViewRdlistPage");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentPage','ModelServicesPrismModule.asp.aspnetuserrolesView.Views.AspnetuserrolesViewRdlistPage'],
+    "InvocationParams": ['"AspnetuserrolesViewRdlistPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentPage, AspnetuserrolesViewRdlistPage>("AspnetuserrolesViewRdlistPage");'
+    },
+    ]
+}
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetuserrolesViewRdlistPage" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetuserrolesViewRdlistPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>();
+        // According to requirements of the "AspnetuserrolesViewRdlistPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForNavigation<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>("AspnetuserrolesViewRdlistPage");
+        // Only if you need to get an instance of controls, insert two lines below
+        // According to requirements of the "AspnetuserrolesViewRdlistPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        // containerRegistry.Register<ContentPage, AspnetuserrolesViewRdlistPage>("AspnetuserrolesViewRdlistPage");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForNavigation<AspnetuserrolesViewRdlistPage, AspnetuserrolesViewRdlistPageViewModel>("AspnetuserrolesViewRdlistPage");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentPage, AspnetuserrolesViewRdlistPage>("AspnetuserrolesViewRdlistPage");
+Result:
+Ok

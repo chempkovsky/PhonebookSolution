@@ -10,7 +10,6 @@
 
              xmlns:lfrm2="clr-namespace:ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls" 
 
-
              x:Name="o2mUsrCntrlRootNode"
              >
   <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
@@ -21,11 +20,6 @@
         <!-- <ProgressBar 
                          Progress="0.75"
                          IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>-->
-
-<!--  can not find Lform User control for the view which named: LprDivision01View -->
-<!--  can not find Lform User control for the view which named: LprDivision02View -->
-<!--  can not find Lform User control for the view which named: LprEmployee02View -->
-
 
         <lfrm:PhbkDivisionViewLformUserControl  
             IsDestroyed="{Binding BindingContext.IsDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
@@ -62,8 +56,6 @@
                     <ControlTemplate x:Key="NoMasterRowIsSelectedView">
                             <Label Text="Master row not selected or access denied for detail" />
                     </ControlTemplate> 
-<!--  can not find Lform User control for the view which named: LprDivision01View -->
-<!--  can not find Lform User control for the view which named: LprDivision02View -->
                     <ControlTemplate x:Key="PhbkEmployeeViewLformUserControlTemplateView">
                         <lfrm2:PhbkEmployeeViewLformUserControl 
                             IsDestroyed="{Binding BindingContext.IsDetailDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
@@ -85,13 +77,9 @@
                             IsParentLoaded="{Binding BindingContext.IsDetailReady, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
                             />
                     </ControlTemplate>
-
-<!--  can not find Lform User control for the view which named: LprEmployee02View -->
                 </ResourceDictionary>
             </ContentView.Resources>
             <ContentView.Triggers>
-<!--  can not find Lform User control for the view which named: LprDivision01View -->
-<!--  can not find Lform User control for the view which named: LprDivision02View -->
                     <MultiTrigger TargetType="ContentView">
                         <MultiTrigger.Conditions>
                             <BindingCondition Binding="{Binding BindingContext.SelectedDetailsListItem.Region, Source={x:Reference o2mUsrCntrlRootNode}}" Value="PhbkEmployeeViewLformUserControlDetailRegion"/>
@@ -99,7 +87,6 @@
                         </MultiTrigger.Conditions>
                         <Setter Property="ControlTemplate" Value="{StaticResource PhbkEmployeeViewLformUserControlTemplateView}" />
                     </MultiTrigger>
-<!--  can not find Lform User control for the view which named: LprEmployee02View -->
                     <MultiTrigger TargetType="ContentView">
                         <MultiTrigger.Conditions>
                             <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="False"/>

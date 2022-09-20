@@ -17,6 +17,405 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\UserControls\aspnetmodelViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetmodelView\Views\aspnetmodelViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\UserControls\aspnetrolemaskViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\Views\aspnetrolemaskViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\Views\aspnetrolemaskViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\Views\aspnetrolemaskViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\Views\aspnetrolemaskViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\Views\aspnetrolemaskViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetrolemaskView\Views\aspnetrolemaskViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\UserControls\aspnetroleViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetroleView\Views\aspnetroleViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\UserControls\aspnetusermaskViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\UserControls\aspnetusermaskViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\UserControls\aspnetusermaskViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\UserControls\aspnetusermaskViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\UserControls\aspnetusermaskViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\Views\aspnetusermaskViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetusermaskView\Views\aspnetusermaskViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\UserControls\aspnetuserrolesViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\Views\aspnetuserrolesViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\Views\aspnetuserrolesViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\Views\aspnetuserrolesViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\Views\aspnetuserrolesViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\Views\aspnetuserrolesViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserrolesView\Views\aspnetuserrolesViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewAdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewAformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewDdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewDformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewLdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewLformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewRaddUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewRdelUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewRdlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewRlistUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewRupdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewRviewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewSdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewSformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewUdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewUformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewVdlgUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\UserControls\aspnetuserViewVformUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewO2mPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewRaddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewRdelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewRdlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewRlistPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewRupdPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\aspnetuserView\Views\aspnetuserViewRviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewAdlgUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

@@ -227,12 +227,20 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision {
                     return Convert.ToDecimal(src) == Convert.ToDecimal(dest);
                 case "single":
                     return Convert.ToSingle(src) == Convert.ToSingle(dest);
+                case "datetimeoffset":
+                    DateTimeOffset ds,dd;
+                    if (DateTimeOffset.TryParse(src.ToString(), out ds) && DateTimeOffset.TryParse(dest.ToString(), out dd)) {
+                        return ds.EqualsExact(dd);
+                    }
+                    return false;
                 case "guid":
                     Guid gs,gd;
-                    if (Guid.TryParse(Convert.ToString(src), out gs) && Guid.TryParse(Convert.ToString(dest), out gd)) {
+                    if (Guid.TryParse(src.ToString(), out gs) && Guid.TryParse(dest.ToString(), out gd)) {
                         return (gs == gd);
                     }
                     return false;
+                case "boolean":
+                    return Convert.ToBoolean(src) == Convert.ToBoolean(dest);
                 case "date":
                 case "datetime":
                     return Convert.ToDateTime(src) == Convert.ToDateTime(dest);
@@ -745,8 +753,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision {
                 this.Interface2Values(data, false);
                 this.OnDelete?.Invoke(this,new EventArgs());
             }
-
-
         }
         protected void setUnderHiddenFilterFields() {
             this._UnderHiddenFilterFields = new List<string>();

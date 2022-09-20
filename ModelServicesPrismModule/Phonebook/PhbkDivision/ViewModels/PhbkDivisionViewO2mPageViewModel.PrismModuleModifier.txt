@@ -1,9 +1,6 @@
 {
 "PrismMMMCallItems": [
 
-/////  can not find Lform User control for the view which named: LprDivision01View 
-/////  can not find Lform User control for the view which named: LprDivision02View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
 
     {
     "Description": [

@@ -811,7 +811,7 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels {
                     }
                 }
                 IPhbkPhoneViewPage rslt = await this.FrmRootSrv.getwithfilter(flt);
-                if(rslt != null) {
+                if (rslt != null) {
                     // RowsPerPage resets CurrentPage 
                     // so the order is important: ActualRowsPerPage must be the first one and ActualCurrentPage must be the second
                     ActualRowsPerPage = rslt.pagesize;
@@ -819,17 +819,20 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels {
                     TotalCount = rslt.total; 
                     SelectedRow = null;
                     ObservableCollection<IPhbkPhoneView> ds = DataSource as ObservableCollection<IPhbkPhoneView>;
-                    IsDsDestroyed = true;
-                    if (ds == null) { ds = new ObservableCollection<IPhbkPhoneView>(); } else { ds.Clear(); }
-                    IsDsDestroyed = false;
-                    DataSource = null; 
-                    if(rslt.items != null) {
-                        foreach(IPhbkPhoneView itm in rslt.items) {
-                            ds.Add(FrmRootSrv.CopyToModelNotify(itm, null));
+                        IsDsDestroyed = true;
+                        if (ds == null) { ds = new ObservableCollection<IPhbkPhoneView>(); } else { ds.Clear(); }
+                        IsDsDestroyed = false;
+                        DataSource = null;
+                        if (rslt.items != null)
+                        {
+                            foreach (IPhbkPhoneView itm in rslt.items)
+                            {
+                                ds.Add(FrmRootSrv.CopyToModelNotify(itm, null));
+                            }
                         }
-                    }
-                    DataSource = ds;
-                    SelectedRow = DataSource?.FirstOrDefault();
+                        DataSource = ds;
+                        SelectedRow = DataSource?.FirstOrDefault();
+
                     // InternalContentChanged();
                 }
                 IsInQuery = false;

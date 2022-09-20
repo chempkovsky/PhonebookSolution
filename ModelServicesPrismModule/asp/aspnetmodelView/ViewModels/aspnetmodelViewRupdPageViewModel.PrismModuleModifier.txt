@@ -1,0 +1,110 @@
+{
+"PrismMMMCallItems": [
+
+
+    {
+    "Description": [
+    '"AspnetmodelViewRupdPage" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetmodelViewRupdPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>();',
+    '        // According to requirements of the "AspnetmodelViewRupdPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForNavigation<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>("AspnetmodelViewRupdPage");',
+    '        // Only if you need to get an instance of controls, insert two lines below',
+    '        // According to requirements of the "AspnetmodelViewRupdPageViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        // containerRegistry.Register<ContentPage, AspnetmodelViewRupdPage>("AspnetmodelViewRupdPage");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetmodelView.Views.AspnetmodelViewRupdPage','ModelServicesPrismModule.asp.aspnetmodelView.ViewModels.AspnetmodelViewRupdPageViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetmodelView.Views.AspnetmodelViewRupdPage','ModelServicesPrismModule.asp.aspnetmodelView.ViewModels.AspnetmodelViewRupdPageViewModel'],
+    "InvocationParams": ['"AspnetmodelViewRupdPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForNavigation<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>("AspnetmodelViewRupdPage");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentPage','ModelServicesPrismModule.asp.aspnetmodelView.Views.AspnetmodelViewRupdPage'],
+    "InvocationParams": ['"AspnetmodelViewRupdPage"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentPage, AspnetmodelViewRupdPage>("AspnetmodelViewRupdPage");'
+    },
+    ]
+}
+
+
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetmodelViewRupdPage" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetmodelViewRupdPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>();
+        // According to requirements of the "AspnetmodelViewRupdPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForNavigation<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>("AspnetmodelViewRupdPage");
+        // Only if you need to get an instance of controls, insert two lines below
+        // According to requirements of the "AspnetmodelViewRupdPageViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        // containerRegistry.Register<ContentPage, AspnetmodelViewRupdPage>("AspnetmodelViewRupdPage");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForNavigation<AspnetmodelViewRupdPage, AspnetmodelViewRupdPageViewModel>("AspnetmodelViewRupdPage");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentPage, AspnetmodelViewRupdPage>("AspnetmodelViewRupdPage");
+Result:
+Ok

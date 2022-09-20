@@ -112,7 +112,6 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels {
         }
         #endregion
 
-
         #region NavigateToDetailCommand
         public void NavigateToDetailCommand(IPhbkPhoneView selected, string detailVwNm, string fkNvNm, string detailVwClNm) { 
             if (IsDestroyed) return;
@@ -133,22 +132,7 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels {
                 new WebServiceFilterMenuViewModel() { Id = "RowUpdMI", Caption="Update item", IconName="TableEdit", IconColor=Color.Default, Enabled=true, Data=null, Command = RowMenuItemsCommand},
                 new WebServiceFilterMenuViewModel() { Id = "RowDelMI", Caption="Delete item", IconName="TableRemove", IconColor=Color.Default, Enabled=true, Data=null, Command = RowMenuItemsCommand},
                 new WebServiceFilterMenuViewModel() { Id = "RowViewMI", Caption="View item", IconName="TableEdit", IconColor=Color.Default, Enabled=true, Data=null, Command = RowMenuItemsCommand},
-//
-//  Warning:
-//  "01916-RlistUserControl.xaml.cs" type has not been generated for LprPhone01View
-//
-//
-//  Warning:
-//  "01916-RlistUserControl.xaml.cs" type has not been generated for LprPhone02View
-//
-//
-//  Warning:
-//  "01916-RlistUserControl.xaml.cs" type has not been generated for LprPhone03View
-//
-//
-//  Warning:
-//  "01916-RlistUserControl.xaml.cs" type has not been generated for LprPhone04View
-//
+
             };
         }
         protected IEnumerable<IWebServiceFilterMenuInterface> _RowMenuItems = null;
@@ -590,15 +574,14 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels {
                 } 
                 if (resetHF) { HiddenFilters = hf; }
             }
-          
             if (prms.ContainsKey("EformModeEnum")) {
                 EformModeEnum mode = prms.GetValue<EformModeEnum>("EformModeEnum");
                 System.Int32 pkpPhoneId = default(System.Int32);
                 if(prms.ContainsKey("pkpPhoneId")) {
                     pkpPhoneId = prms.GetValue<System.Int32>("pkpPhoneId");
                 }
-            
                 if ((mode == EformModeEnum.AddMode) || (mode == EformModeEnum.UpdateMode)) {
+          
                     // IPhbkPhoneView tdata 
                     _ = FrmSrvPhbkPhoneView.getone(
                             pkpPhoneId
@@ -620,6 +603,7 @@ namespace ModelServicesPrismModule.Phonebook.PhbkPhone.ViewModels {
                             IsNavigatedBack = false;
                         });
                     });
+          
                 } else {
                     IPhbkPhoneView data = FrmSrvPhbkPhoneView.CopyToModel(null,null);
                     data.PhoneId = pkpPhoneId;

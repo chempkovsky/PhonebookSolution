@@ -1,0 +1,48 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    'In the file of IModule-class of the project for the current service the following lines of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        containerRegistry.Register<IAspnetrolemaskViewService, AspnetrolemaskViewService>();',
+    '        ...',
+    '    }'
+    ],
+    
+  
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelInterfacesClassLibrary.interfaces.asp.aspnetrolemaskView.IAspnetrolemaskViewService','ModelServicesPrismModule.asp.aspnetrolemaskView.AspnetrolemaskViewService'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<IAspnetrolemaskViewService, AspnetrolemaskViewService>();'
+    },
+    ]
+}
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+In the file of IModule-class of the project for the current service the following lines of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        containerRegistry.Register<IAspnetrolemaskViewService, AspnetrolemaskViewService>();
+        ...
+    }
+Insertion the line : containerRegistry.Register<IAspnetrolemaskViewService, AspnetrolemaskViewService>();
+Result:
+Ok

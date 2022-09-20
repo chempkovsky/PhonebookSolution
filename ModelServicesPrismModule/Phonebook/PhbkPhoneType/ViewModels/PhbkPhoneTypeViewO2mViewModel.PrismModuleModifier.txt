@@ -2,8 +2,6 @@
 {
 "PrismMMMCallItems": [
 
-/////  can not find Lform User control for the view which named: LprPhone03View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
     {
     "Description": [
     '"PhbkPhoneTypeViewO2mUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',

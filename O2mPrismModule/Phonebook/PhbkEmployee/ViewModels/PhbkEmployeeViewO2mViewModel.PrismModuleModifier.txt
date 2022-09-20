@@ -36,8 +36,6 @@
     "InvocationParams": ['"PhbkEmployeeViewLformUserControlMasterRegion"','typeof(ModelServicesPrismModule.Phonebook.PhbkEmployee.UserControls.PhbkEmployeeViewLformUserControl)'],
     "StepDescription": 'Insertion the line : regionManager.RegisterViewWithRegion("PhbkEmployeeViewLformUserControlMasterRegion", typeof(PhbkEmployeeViewLformUserControl));'
     },
-/////  can not find Lform User control for the view which named: LprEmployee01View 
-/////  can not find Lform User control for the view which named: LprEmployee02View 
     {
     "Description": [
     '"PhbkPhoneViewLformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
@@ -72,8 +70,6 @@
     "InvocationParams": ['"PhbkPhoneViewLformUserControlDetailRegion"','typeof(ModelServicesPrismModule.Phonebook.PhbkPhone.UserControls.PhbkPhoneViewLformUserControl)'],
     "StepDescription": 'Insertion the line : regionManager.RegisterViewWithRegion("PhbkPhoneViewLformUserControlDetailRegion", typeof(PhbkPhoneViewLformUserControl));'
     },
-/////  can not find Lform User control for the view which named: LprPhone02View 
-/////  can not find Lform User control for the view which named: LprPhone04View 
     {
     "Description": [
     '"PhbkEmployeeViewO2mUserControl" UserControl is defined in the "O2mPrismModule"-project.',
@@ -145,6 +141,7 @@
     },
     ]
 }
+
 
 
 ==============================================================================
