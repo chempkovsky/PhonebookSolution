@@ -74,8 +74,11 @@
           <Button Text="One-to-Many Models"  Command="{Binding NavigateCommand}" CommandParameter="AspnetmodelViewO2mPage" />
           <Button Text="One-to-Many Roles"  Command="{Binding NavigateCommand}" CommandParameter="AspnetroleViewO2mPage" />
           <Button Text="One-to-Many Users"  Command="{Binding NavigateCommand}" CommandParameter="AspnetuserViewO2mPage" />
-          
 
+          <Label Text="Authorization Features"/>
+          <Button Text="Rforms"  Command="{Binding NavigateCommand}" CommandParameter="AspRformsFeatureFtrUserControl" />
+          <Button Text="O2mforms"  Command="{Binding NavigateCommand}" CommandParameter="O2mFeatureFtrUserControl" />
+          
 
         </StackLayout>
             </ScrollView>

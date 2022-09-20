@@ -1,0 +1,325 @@
+<efrmbs:EformUserControlBase x:Class="ModelServicesPrismModule.asp.aspnetuserView.UserControls.Dform.AspnetuserViewDformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:efrmbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+             xmlns:nullableDatePicker="clr-namespace:CommonCustomControlLibrary.Controls;assembly=CommonCustomControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:invboolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:str2boolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:nullableback="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             
+
+
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+
+             x:Name="aspnetuserviewdformusercontrolrootnode"
+             >
+<!--
+To reset FormControlModel and(or) HiddenFilters do the following:
+set IsParentLoaded = false;
+set FormControlModel and(or) HiddenFilters
+set IsParentLoaded = true;
+
+resetting FormControlModel and(or) HiddenFilters without 
+    { IsParentLoaded = false; IsParentLoaded = true; }
+will not affect the behavior of current component
+-->
+
+    <efrmbs:EformUserControlBase.Resources>
+        <invboolconv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <str2boolconv:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter"/>
+        <nullableback:NullableBackConverter x:Key="NullableBackConverter"/>
+    </efrmbs:EformUserControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0" gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*" >
+            <Label Grid.Row="0" Grid.Column="0"
+                Margin="8, 0, 0, 0"  Text="{Binding Path=Caption, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" FontAttributes="Bold"/>
+            <ScrollView Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal" 
+                                BindableLayout.ItemsSource="{Binding ContainerMenuItems, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button WidthRequest="45"
+                                Command="{Binding OnContainerMenuItemsCommand, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+                                CommandParameter="{Binding}"
+                                IsEnabled="{Binding Enabled}"
+                                Text="{Binding IconName}" 
+                                FontFamily="CustomIconFontAlias" 
+                                BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{Binding IconColor}" 
+                                FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding BindingContext.IsLoading, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+        <ContentView  Grid.Row="2">
+
+                <!-- does not work correctly
+                    <StackLayout Orientation="Vertical">
+                -->
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*">    
+                    <Grid Grid.Row="0" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="User Id" />
+                            <Entry  Grid.Row="1" x:Uid="Id"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.Id , Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Id"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.IdSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.IdSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="User Name" />
+                            <Entry  Grid.Row="1" x:Uid="UserName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.UserName , Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter User Name"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.UserNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.UserNameSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="User Email" />
+                            <Entry  Grid.Row="1" x:Uid="Email"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.Email , Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Email"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EmailSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EmailSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="EmailConfirmed"
+                                IsEnabled="False"
+                                IsChecked="{Binding BindingContext.EmailConfirmed, Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+                                />
+                                <Label Text="Email Confirmed" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Email Confirmed"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.EmailConfirmedSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.EmailConfirmedSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0"
+                          RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Phone Number" />
+                            <Editor  Grid.Row="1" x:Uid="PhoneNumber"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.PhoneNumber , Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Phone Number"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.PhoneNumberSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.PhoneNumberSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="PhoneNumberConfirmed"
+                                IsEnabled="False"
+                                IsChecked="{Binding BindingContext.PhoneNumberConfirmed, Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+                                />
+                                <Label Text="Phone Number Confirmed" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Phone Number Confirmed"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.PhoneNumberConfirmedSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.PhoneNumberConfirmedSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="TwoFactorEnabled"
+                                IsEnabled="False"
+                                IsChecked="{Binding BindingContext.TwoFactorEnabled, Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+                                />
+                                <Label Text="Two Factor Enabled" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Two Factor Enabled"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.TwoFactorEnabledSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.TwoFactorEnabledSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0"
+                          RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="LockoutEnabled"
+                                IsEnabled="False"
+                                IsChecked="{Binding BindingContext.LockoutEnabled, Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"
+                                />
+                                <Label Text="Lockout Enabled" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Lockout Enabled"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.LockoutEnabledSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.LockoutEnabledSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Access Failed Count" />
+                            <Entry  Grid.Row="1" x:Uid="AccessFailedCount"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.AccessFailedCount , Converter={StaticResource NullableBackConverter}, ConverterParameter='System.Int32', Mode=TwoWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Access Failed Count"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.AccessFailedCountSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.AccessFailedCountSuffixError, Mode=OneWay, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Margin="8" IsVisible="{Binding ShowSubmit, Mode=OneWay,  Source={x:Reference aspnetuserviewdformusercontrolrootnode} }">
+                    <Button Text="Submit" Command="{Binding BindingContext.SubmitCommand, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" />
+                    <Button Text="Cancel" Command="{Binding BindingContext.CancelCommand, Source={x:Reference aspnetuserviewdformusercontrolrootnode}}" />
+                </StackLayout>
+            </Grid>
+        </ContentView>
+    </Grid>
+</efrmbs:EformUserControlBase>
+
+
+
+

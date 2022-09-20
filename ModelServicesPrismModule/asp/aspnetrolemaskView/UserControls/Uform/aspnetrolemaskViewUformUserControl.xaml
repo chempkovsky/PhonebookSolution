@@ -1,0 +1,325 @@
+<efrmbs:EformUserControlBase x:Class="ModelServicesPrismModule.asp.aspnetrolemaskView.UserControls.Uform.AspnetrolemaskViewUformUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:efrmbs="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+             xmlns:nullableDatePicker="clr-namespace:CommonCustomControlLibrary.Controls;assembly=CommonCustomControlLibrary" 
+             xmlns:fontIcons="clr-namespace:CommonCustomControlLibrary.Fonts;assembly=CommonCustomControlLibrary"
+
+
+             xmlns:gridflex="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:invboolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:str2boolconv="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             xmlns:nullableback="clr-namespace:CommonCustomControlLibrary.Helpers;assembly=CommonCustomControlLibrary"
+             
+
+
+             BindingContextFeedbackRef="{Binding BindingContext.BindingContextFeedbackRef, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+
+             x:Name="aspnetrolemaskviewuformusercontrolrootnode"
+             >
+<!--
+To reset FormControlModel and(or) HiddenFilters do the following:
+set IsParentLoaded = false;
+set FormControlModel and(or) HiddenFilters
+set IsParentLoaded = true;
+
+resetting FormControlModel and(or) HiddenFilters without 
+    { IsParentLoaded = false; IsParentLoaded = true; }
+will not affect the behavior of current component
+-->
+
+    <efrmbs:EformUserControlBase.Resources>
+        <invboolconv:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <str2boolconv:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter"/>
+        <nullableback:NullableBackConverter x:Key="NullableBackConverter"/>
+    </efrmbs:EformUserControlBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0" gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+            RowDefinitions="Auto,Auto" ColumnDefinitions="*" >
+            <Label Grid.Row="0" Grid.Column="0"
+                Margin="8, 0, 0, 0"  Text="{Binding Path=Caption, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" FontAttributes="Bold"/>
+            <ScrollView Grid.Row="1" Grid.Column="0"
+                Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Default" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal" 
+                                BindableLayout.ItemsSource="{Binding ContainerMenuItems, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button WidthRequest="45"
+                                Command="{Binding OnContainerMenuItemsCommand, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                CommandParameter="{Binding}"
+                                IsEnabled="{Binding Enabled}"
+                                Text="{Binding IconName}" 
+                                FontFamily="CustomIconFontAlias" 
+                                BackgroundColor="{DynamicResource IconButtonBackgroundColor}" 
+                                TextColor="{Binding IconColor}" 
+                                FontSize="{OnPlatform iOS=Large, Android=Medium, UWP=Medium }"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding BindingContext.IsLoading, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+        <ContentView  Grid.Row="2">
+
+                <!-- does not work correctly
+                    <StackLayout Orientation="Vertical">
+                -->
+            <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*">    
+                    <Grid Grid.Row="0" Grid.Column="0" 
+                          RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Role Name" />
+                            <Entry  Grid.Row="1" x:Uid="RName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.RName , Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter RoleName"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.RNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.RNameSuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Role Description" />
+                            <Entry  Grid.Row="1" x:Uid="RoleDescription"
+                                        IsReadOnly="{Binding BindingContext.RoleDescriptionEnabled, Converter={StaticResource InverseBooleanConverter}, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                        Text="{Binding BindingContext.RoleDescription , Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Role Description"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.RoleDescriptionSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.RoleDescriptionSuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Model Id" />
+                            <Entry  Grid.Row="1" x:Uid="ModelPkRef"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.ModelPkRef , Converter={StaticResource NullableBackConverter}, ConverterParameter='System.Int32', Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Model Id"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.ModelPkRefSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.ModelPkRefSuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text="Model Name" />
+                            <Entry  Grid.Row="1" x:Uid="MModelName"
+                                        IsReadOnly="True"
+                                        Text="{Binding BindingContext.MModelName , Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter ModelName"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.MModelNameSuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.MModelNameSuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0"
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*"
+                          gridflex:GridFlex.HorizontalFlex="{Binding Path=IsGridFlex, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Margin="0 0 8 0">
+                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="Mask1"
+                                IsEnabled="{Binding BindingContext.Mask1Enabled, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                IsChecked="{Binding BindingContext.Mask1, Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                />
+                                <Label Text="Permission to Sel" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter permission to Sel"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.Mask1SuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.Mask1SuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="Mask2"
+                                IsEnabled="{Binding BindingContext.Mask2Enabled, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                IsChecked="{Binding BindingContext.Mask2, Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                />
+                                <Label Text="Permission to Del" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter permission to Del"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.Mask2SuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.Mask2SuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="Mask3"
+                                IsEnabled="{Binding BindingContext.Mask3Enabled, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                IsChecked="{Binding BindingContext.Mask3, Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                />
+                                <Label Text="Permission to Upd" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter permission to Upd"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.Mask3SuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.Mask3SuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="Mask4"
+                                IsEnabled="{Binding BindingContext.Mask4Enabled, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                IsChecked="{Binding BindingContext.Mask4, Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                />
+                                <Label Text="Permission to Add" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter permission to Add"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.Mask4SuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.Mask4SuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="Caption" Text=" " />
+                            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                <CheckBox  x:Uid="Mask5"
+                                IsEnabled="{Binding BindingContext.Mask5Enabled, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                IsChecked="{Binding BindingContext.Mask5, Mode=TwoWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"
+                                />
+                                <Label Text="Full scan permission" />
+                            </StackLayout>
+                            <Label Grid.Row="2" FontSize="Caption" 
+                                    Text="Enter Full scan permission"
+                                    Opacity="0.3"
+                                    TextColor="Default">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding BindingContext.Mask5SuffixError, Converter={StaticResource StringNullOrEmptyToBoolConverter}, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" Value="False">
+                                        <Setter Property="TextColor" Value="{x:DynamicResource ValidationErrorColor}" />
+                                        <Setter Property="Text" Value="{Binding BindingContext.Mask5SuffixError, Mode=OneWay, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}"/>
+                                        <Setter Property="Opacity" Value="0.7" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="8" IsVisible="{Binding ShowSubmit, Mode=OneWay,  Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode} }">
+                    <Button Text="Submit" Command="{Binding BindingContext.SubmitCommand, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" />
+                    <Button Text="Cancel" Command="{Binding BindingContext.CancelCommand, Source={x:Reference aspnetrolemaskviewuformusercontrolrootnode}}" />
+                </StackLayout>
+            </Grid>
+        </ContentView>
+    </Grid>
+</efrmbs:EformUserControlBase>
+
+
+
+

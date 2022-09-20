@@ -1,0 +1,75 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    '"AspnetuserViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule\"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetuserViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetuserViewSformUserControl, AspnetuserViewSformViewModel>();',
+    '        // According to requirements of the "AspnetuserViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetuserViewSformUserControl>("AspnetuserViewSformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserView.UserControls.Sform.AspnetuserViewSformUserControl','ModelServicesPrismModule.asp.aspnetuserView.ViewModels.Sform.AspnetuserViewSformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewSformUserControl, AspnetuserViewSformViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.asp.aspnetuserView.UserControls.Sform.AspnetuserViewSformUserControl'],
+    "InvocationParams": ['"AspnetuserViewSformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewSformUserControl>("AspnetuserViewSformUserControl");'
+    },
+    ]
+}
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetuserViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetuserViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetuserViewSformUserControl, AspnetuserViewSformViewModel>();
+        // According to requirements of the "AspnetuserViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetuserViewSformUserControl>("AspnetuserViewSformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewSformUserControl, AspnetuserViewSformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewSformUserControl>("AspnetuserViewSformUserControl");
+Result:
+Ok

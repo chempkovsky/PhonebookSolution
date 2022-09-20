@@ -1,0 +1,84 @@
+{
+"PrismMMMCallItems": [
+
+
+    {
+    "Description": [
+
+    '"AspnetuserViewAformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetuserViewAformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetuserViewAformUserControl, AspnetuserViewAformViewModel>();',
+    '        // According to requirements of the "AspnetuserViewAformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetuserViewAformUserControl>("AspnetuserViewAformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    
+
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserView.UserControls.Aform.AspnetuserViewAformUserControl','ModelServicesPrismModule.asp.aspnetuserView.ViewModels.Aform.AspnetuserViewAformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewAformUserControl, AspnetuserViewAformViewModel>();'
+    },
+
+
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.asp.aspnetuserView.UserControls.Aform.AspnetuserViewAformUserControl'],
+    "InvocationParams": ['"AspnetuserViewAformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewAformUserControl>("AspnetuserViewAformUserControl");'
+    },
+    ]
+}
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetuserViewAformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetuserViewAformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetuserViewAformUserControl, AspnetuserViewAformViewModel>();
+        // According to requirements of the "AspnetuserViewAformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetuserViewAformUserControl>("AspnetuserViewAformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetuserViewAformUserControl, AspnetuserViewAformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewAformUserControl>("AspnetuserViewAformUserControl");
+Result:
+Ok

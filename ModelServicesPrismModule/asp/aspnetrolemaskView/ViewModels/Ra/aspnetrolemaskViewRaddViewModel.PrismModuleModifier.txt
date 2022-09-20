@@ -1,0 +1,106 @@
+
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"AspnetrolemaskViewRaddUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetrolemaskViewRaddViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>();',
+    '        // According to requirements of the "AspnetrolemaskViewRaddViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForRegionNavigation<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>("AspnetrolemaskViewRaddUserControl");',
+    '        // According to requirements of the "AspnetrolemaskViewRaddViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetrolemaskViewRaddUserControl>("AspnetrolemaskViewRaddUserControl");',
+    '        ...',
+    '    }',
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetrolemaskView.UserControls.Ra.AspnetrolemaskViewRaddUserControl','ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.Ra.AspnetrolemaskViewRaddViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForRegionNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetrolemaskView.UserControls.Ra.AspnetrolemaskViewRaddUserControl','ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.Ra.AspnetrolemaskViewRaddViewModel'],
+    "InvocationParams": ['"AspnetrolemaskViewRaddUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>("AspnetrolemaskViewRaddUserControl");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView', 'ModelServicesPrismModule.asp.aspnetrolemaskView.UserControls.Ra.AspnetrolemaskViewRaddUserControl'],
+    "InvocationParams": ['"AspnetrolemaskViewRaddUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetrolemaskViewRaddUserControl>("AspnetrolemaskViewRaddUserControl");'
+    },
+    ]
+}
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetrolemaskViewRaddUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetrolemaskViewRaddViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>();
+        // According to requirements of the "AspnetrolemaskViewRaddViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForRegionNavigation<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>("AspnetrolemaskViewRaddUserControl");
+        // According to requirements of the "AspnetrolemaskViewRaddViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetrolemaskViewRaddUserControl>("AspnetrolemaskViewRaddUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetrolemaskViewRaddUserControl, AspnetrolemaskViewRaddViewModel>("AspnetrolemaskViewRaddUserControl");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetrolemaskViewRaddUserControl>("AspnetrolemaskViewRaddUserControl");
+Result:
+Ok

@@ -1,0 +1,30 @@
+
+<ContentView x:Class="ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls.Dform.AspnetuserrolesViewDdlgUserControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             prism:DialogLayout.RelativeHeightRequest="0.99"
+             xmlns:efrm="clr-namespace:ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls.Dform" 
+             BackgroundColor="{DynamicResource ModifyItemDlgBackgroundColor}"
+             x:Name="edlgUserControlRoot">
+    <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
+        <efrm:AspnetuserrolesViewDformUserControl VerticalOptions="FillAndExpand"
+
+            IsDestroyed="{Binding BindingContext.IsDestroyed, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            HiddenFilters="{Binding BindingContext.HiddenFilters, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            ShowSubmit="{Binding BindingContext.ShowSubmit, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            FormControlModel="{Binding BindingContext.FormControlModel, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            EformMode="{Binding BindingContext.EformMode, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            SubmitCommand="{Binding BindingContext.SubmitCommand, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            CancelCommand="{Binding BindingContext.CancelCommand, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference edlgUserControlRoot}}" 
+            />
+    </ScrollView>
+</ContentView>
+
+
+
+

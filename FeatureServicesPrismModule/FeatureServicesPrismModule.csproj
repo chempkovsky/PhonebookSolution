@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="asp\AspO2ms\o2m-feature-ftr-user-control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="asp\AspRforms\asp-rforms-feature-ftr-user-control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\Lforms\lforms-feature-ftr-user-control.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

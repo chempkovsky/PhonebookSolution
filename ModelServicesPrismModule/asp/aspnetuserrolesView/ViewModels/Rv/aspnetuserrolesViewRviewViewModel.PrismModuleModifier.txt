@@ -1,0 +1,106 @@
+
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"AspnetuserrolesViewRviewUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetuserrolesViewRviewViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>();',
+    '        // According to requirements of the "AspnetuserrolesViewRviewViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterForRegionNavigation<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>("AspnetuserrolesViewRviewUserControl");',
+    '        // According to requirements of the "AspnetuserrolesViewRviewViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetuserrolesViewRviewUserControl>("AspnetuserrolesViewRviewUserControl");',
+    '        ...',
+    '    }',
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls.Rv.AspnetuserrolesViewRviewUserControl','ModelServicesPrismModule.asp.aspnetuserrolesView.ViewModels.Rv.AspnetuserrolesViewRviewViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterForRegionNavigation',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls.Rv.AspnetuserrolesViewRviewUserControl','ModelServicesPrismModule.asp.aspnetuserrolesView.ViewModels.Rv.AspnetuserrolesViewRviewViewModel'],
+    "InvocationParams": ['"AspnetuserrolesViewRviewUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>("AspnetuserrolesViewRviewUserControl");'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView', 'ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls.Rv.AspnetuserrolesViewRviewUserControl'],
+    "InvocationParams": ['"AspnetuserrolesViewRviewUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetuserrolesViewRviewUserControl>("AspnetuserrolesViewRviewUserControl");'
+    },
+    ]
+}
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetuserrolesViewRviewUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetuserrolesViewRviewViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>();
+        // According to requirements of the "AspnetuserrolesViewRviewViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterForRegionNavigation<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>("AspnetuserrolesViewRviewUserControl");
+        // According to requirements of the "AspnetuserrolesViewRviewViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetuserrolesViewRviewUserControl>("AspnetuserrolesViewRviewUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetuserrolesViewRviewUserControl, AspnetuserrolesViewRviewViewModel>("AspnetuserrolesViewRviewUserControl");
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetuserrolesViewRviewUserControl>("AspnetuserrolesViewRviewUserControl");
+Result:
+Ok

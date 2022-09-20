@@ -1,0 +1,37 @@
+
+
+<ContentPage x:Class="ModelServicesPrismModule.asp.aspnetuserrolesView.Views.RldPage.AspnetuserrolesViewRdlistPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" 
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:lfrm="clr-namespace:ModelServicesPrismModule.asp.aspnetuserrolesView.UserControls.Lform" 
+
+             x:Name="rdlistUsrCntrlRootNode"
+             >
+  <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
+        <lfrm:AspnetuserrolesViewLformUserControl  
+            IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            ShowFilter="True" 
+            ShowAddFilterBtn="True" 
+            GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            ShowBackBtn="False" 
+            HiddenFilters="{Binding BindingContext.HiddenFilters, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            SelectedRowCommand="{Binding BindingContext.SelectedRowCommand, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommand, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommand, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            TableMenuItems="{Binding BindingContext.TableMenuItems, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            CanAdd="{Binding BindingContext.CanAdd, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            CanUpdate="{Binding BindingContext.CanUpdate, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            CanDelete="{Binding BindingContext.CanDelete, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+            IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference rdlistUsrCntrlRootNode}}" 
+
+            />
+  </ScrollView>
+</ContentPage>
+
+

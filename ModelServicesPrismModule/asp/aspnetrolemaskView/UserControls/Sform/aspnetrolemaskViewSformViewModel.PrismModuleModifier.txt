@@ -1,0 +1,75 @@
+{
+"PrismMMMCallItems": [
+    {
+    "Description": [
+    '"AspnetrolemaskViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule\"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetrolemaskViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        ViewModelLocationProvider.Register<AspnetrolemaskViewSformUserControl, AspnetrolemaskViewSformViewModel>();',
+    '        // According to requirements of the "AspnetrolemaskViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.Register<ContentView, AspnetrolemaskViewSformUserControl>("AspnetrolemaskViewSformUserControl");',
+    '        ...',
+    '    }'
+    ],
+    "MethodName": 'UpdateMethodWithClassIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": '',
+    "InvocationClassType": 'Prism.Mvvm.ViewModelLocationProvider',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetrolemaskView.UserControls.Sform.AspnetrolemaskViewSformUserControl','ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.Sform.AspnetrolemaskViewSformViewModel'],
+    "InvocationParams": [],
+    "StepDescription": 'Insertion the line : ViewModelLocationProvider.Register<AspnetrolemaskViewSformUserControl, AspnetrolemaskViewSformViewModel>();'
+    },
+  
+   {
+    "Description": [],
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'Register',
+    "InvocationGenerics": ['Xamarin.Forms.ContentView','ModelServicesPrismModule.asp.aspnetrolemaskView.UserControls.Sform.AspnetrolemaskViewSformUserControl'],
+    "InvocationParams": ['"AspnetrolemaskViewSformUserControl"'],
+    "StepDescription": 'Insertion the line : containerRegistry.Register<ContentView, AspnetrolemaskViewSformUserControl>("AspnetrolemaskViewSformUserControl");'
+    },
+    ]
+}
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetrolemaskViewSformUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetrolemaskViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        ViewModelLocationProvider.Register<AspnetrolemaskViewSformUserControl, AspnetrolemaskViewSformViewModel>();
+        // According to requirements of the "AspnetrolemaskViewSformViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.Register<ContentView, AspnetrolemaskViewSformUserControl>("AspnetrolemaskViewSformUserControl");
+        ...
+    }
+Insertion the line : ViewModelLocationProvider.Register<AspnetrolemaskViewSformUserControl, AspnetrolemaskViewSformViewModel>();
+Result:
+Ok
+
+Insertion the line : containerRegistry.Register<ContentView, AspnetrolemaskViewSformUserControl>("AspnetrolemaskViewSformUserControl");
+Result:
+Ok

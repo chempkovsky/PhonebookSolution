@@ -21,6 +21,10 @@ namespace FeatureServicesPrismModule
             containerRegistry.RegisterForNavigation<FeatureServicesPrismModule.Phonebook.RdLists.RdListsFeatureFtrUserControl, FeatureServicesPrismModule.Phonebook.RdLists.RdListsFeatureFtrViewModel>("RdListsFeatureFtrUserControl");
             Prism.Mvvm.ViewModelLocationProvider.Register<FeatureServicesPrismModule.Phonebook.Lforms.LformsFeatureFtrUserControl, FeatureServicesPrismModule.Phonebook.Lforms.LformsFeatureFtrViewModel>();
             containerRegistry.RegisterForNavigation<FeatureServicesPrismModule.Phonebook.Lforms.LformsFeatureFtrUserControl, FeatureServicesPrismModule.Phonebook.Lforms.LformsFeatureFtrViewModel>("LformsFeatureFtrUserControl");
+            Prism.Mvvm.ViewModelLocationProvider.Register<FeatureServicesPrismModule.asp.AspRforms.AspRformsFeatureFtrUserControl, FeatureServicesPrismModule.asp.AspRforms.AspRformsFeatureFtrViewModel>();
+            containerRegistry.RegisterForNavigation<FeatureServicesPrismModule.asp.AspRforms.AspRformsFeatureFtrUserControl, FeatureServicesPrismModule.asp.AspRforms.AspRformsFeatureFtrViewModel>("AspRformsFeatureFtrUserControl");
+            Prism.Mvvm.ViewModelLocationProvider.Register<FeatureServicesPrismModule.asp.AspO2ms.O2mFeatureFtrUserControl, FeatureServicesPrismModule.asp.AspO2ms.O2mFeatureFtrViewModel>();
+            containerRegistry.RegisterForNavigation<FeatureServicesPrismModule.asp.AspO2ms.O2mFeatureFtrUserControl, FeatureServicesPrismModule.asp.AspO2ms.O2mFeatureFtrViewModel>("O2mFeatureFtrUserControl");
         }
     }
 }

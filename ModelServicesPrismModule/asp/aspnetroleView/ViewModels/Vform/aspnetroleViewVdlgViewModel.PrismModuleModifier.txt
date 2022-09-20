@@ -1,0 +1,56 @@
+
+{
+"PrismMMMCallItems": [
+
+    {
+    "Description": [
+    '"AspnetroleViewVdlgUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.',
+    'In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:',
+    ' ',
+    '    public void RegisterTypes(IContainerRegistry containerRegistry)',
+    '    {',
+    '        ...',
+    '        // According to requirements of the "AspnetroleViewVdlgViewModel.cs"-file of "ModelServicesPrismModule"-project. ',
+    '        containerRegistry.RegisterDialog<AspnetroleViewVdlgUserControl, EdlgViewModelBase>("AspnetroleViewVdlgViewModel");',
+    '        ...',
+    '    }',
+    ],
+ 
+    "MethodName": 'UpdateMethodWithParamIdentifier',
+    "DestProjectName": 'ModelServicesPrismModule\\ModelServicesPrismModule.csproj',
+    "DestImplementedInterface": 'Prism.Modularity.IModule',
+    "DestMethodName": 'RegisterTypes',
+    "DestMethodParamTypes": ['Prism.Ioc.IContainerRegistry'],
+    "DestMethodAccessType": 'public',
+    "DestMethodParamTypeForVar": '',
+    "InvocationVarType": '',
+    "InvocationParamType": 'Prism.Ioc.IContainerRegistry',
+    "InvocationClassType": '',
+    "InvocationMethodName": 'RegisterDialog',
+    "InvocationGenerics": ['ModelServicesPrismModule.asp.aspnetroleView.UserControls.Vform.AspnetroleViewVdlgUserControl', 'CommonUserControlLibrary.ViewModels.EdlgViewModelBase'],
+    "InvocationParams": ['"AspnetroleViewVdlgViewModel"'],
+    "StepDescription": 'Insertion the line : containerRegistry.RegisterDialog<AspnetroleViewVdlgUserControl, EdlgViewModelBase>("AspnetroleViewVdlgViewModel");'
+    },
+    ]
+}
+
+
+
+
+==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+
+"AspnetroleViewVdlgUserControl" UserControl is defined in the "ModelServicesPrismModule"-project.
+In the file of IModule-class of "ModelServicesPrismModule"-project the following line of code must be inserted:
+ 
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+        ...
+        // According to requirements of the "AspnetroleViewVdlgViewModel.cs"-file of "ModelServicesPrismModule"-project. 
+        containerRegistry.RegisterDialog<AspnetroleViewVdlgUserControl, EdlgViewModelBase>("AspnetroleViewVdlgViewModel");
+        ...
+    }
+Insertion the line : containerRegistry.RegisterDialog<AspnetroleViewVdlgUserControl, EdlgViewModelBase>("AspnetroleViewVdlgViewModel");
+Result:
+Ok
