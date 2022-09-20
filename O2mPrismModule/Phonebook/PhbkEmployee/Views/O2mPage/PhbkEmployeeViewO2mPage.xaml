@@ -1,0 +1,103 @@
+
+<ContentPage x:Class="O2mPrismModule.Phonebook.PhbkEmployee.Views.O2mPage.PhbkEmployeeViewO2mPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" 
+             prism:ViewModelLocator.AutowireViewModel="True"
+
+             xmlns:prx="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
+
+
+             x:Name="o2mUsrCntrlRootNode"
+             >
+  <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
+    <StackLayout>
+        <ActivityIndicator 
+                IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"
+                IsRunning="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>
+        <!-- <ProgressBar 
+                         Progress="0.75"
+                         IsVisible="{Binding BindingContext.IsSwitching, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}"/>-->
+
+        <prx:ProxyUserControl 
+            prism:RegionManager.RegionName="PhbkEmployeeViewLformUserControlMasterRegion"
+            IsDestroyed="{Binding BindingContext.IsDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            ShowFilter="True" 
+            ShowAddFilterBtn="True" 
+            GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            ShowBackBtn="False" 
+            HiddenFilters="{Binding BindingContext.HiddenFilters, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            SelectedRowCommand="{Binding BindingContext.SelectedRowCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommand, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            TableMenuItems="{Binding BindingContext.TableMenuItems, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            CanAdd="{Binding BindingContext.CanAdd, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            CanUpdate="{Binding BindingContext.CanUpdate, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            CanDelete="{Binding BindingContext.CanDelete, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+            
+            />
+
+        <StackLayout>
+            <Label Text="Selected detail"/>
+            <Picker ItemsSource="{Binding BindingContext.DetailsList, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                    ItemDisplayBinding="{Binding Caption}" 
+                    SelectedItem="{Binding BindingContext.SelectedDetailsListItem, Source={x:Reference o2mUsrCntrlRootNode}, Mode=TwoWay}">
+            </Picker>
+        </StackLayout>
+
+        <ContentView ControlTemplate="{StaticResource NoMasterRowIsSelectedView}">
+            <ContentView.Resources>
+                <ResourceDictionary>
+                    <ControlTemplate x:Key="NoMasterRowIsSelectedView">
+                            <Label Text="Master row not selected or access denied for detail" />
+                    </ControlTemplate> 
+                    <ControlTemplate x:Key="PhbkPhoneViewLformUserControlTemplateView">
+                        <prx:ProxyUserControl 
+                            prism:RegionManager.RegionName="PhbkPhoneViewLformUserControlDetailRegion"
+                            IsDestroyed="{Binding BindingContext.IsDetailDestroyed, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            Caption="{Binding BindingContext.SelectedDetailsListItem.Caption, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            FilterHeight="{Binding BindingContext.FilterHeightDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowFilter="True" 
+                            ShowAddFilterBtn="True" 
+                            GridHeight="{Binding BindingContext.GridHeightDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            ShowBackBtn="False" 
+                            HiddenFilters="{Binding BindingContext.HiddenFiltersDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            SelectedRowCommand="{Binding BindingContext.SelectedRowCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommandDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            TableMenuItems="{Binding BindingContext.TableMenuItemsDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            RowMenuItems="{Binding BindingContext.RowMenuItemsDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanAdd="{Binding BindingContext.CanAddDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanUpdate="{Binding BindingContext.CanUpdateDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            CanDelete="{Binding BindingContext.CanDeleteDetail, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            IsParentLoaded="{Binding BindingContext.IsDetailReady, Mode=OneWay, Source={x:Reference o2mUsrCntrlRootNode}}" 
+                            />
+                    </ControlTemplate>
+                </ResourceDictionary>
+            </ContentView.Resources>
+            <ContentView.Triggers>
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.SelectedDetailsListItem.Region, Source={x:Reference o2mUsrCntrlRootNode}}" Value="PhbkPhoneViewLformUserControlDetailRegion"/>
+                            <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="True"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource PhbkPhoneViewLformUserControlTemplateView}" />
+                    </MultiTrigger>
+                    <MultiTrigger TargetType="ContentView">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding BindingContext.IsDetailReady, Source={x:Reference o2mUsrCntrlRootNode}}" Value="False"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="ControlTemplate" Value="{StaticResource NoMasterRowIsSelectedView}" />
+                    </MultiTrigger>
+            </ContentView.Triggers>
+        </ContentView>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
+
+
+

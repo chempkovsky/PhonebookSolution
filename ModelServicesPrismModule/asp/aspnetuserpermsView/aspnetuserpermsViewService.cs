@@ -51,7 +51,7 @@ namespace ModelServicesPrismModule.asp.aspnetuserpermsView {
         protected HttpClient client = null;
         public AspnetuserpermsViewService(IAppGlblSettingsService agstt) {
             this.appGlblSettings = agstt;
-            this.serviceUrl = this.appGlblSettings.GetWebApiPrefix("aspnetuserpermsView") + "aspnetuserpermsviewwebapi";
+            this.serviceUrl = this.appGlblSettings.GetWebApiPrefix("aspnetuserpermsView") + "api/" + "aspnetuserpermsviewwebapi";
             this.client = this.appGlblSettings.Client;
         }
 

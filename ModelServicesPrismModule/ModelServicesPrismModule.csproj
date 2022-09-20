@@ -416,6 +416,9 @@
     <EmbeddedResource Update="asp\aspnetuserView\Views\RvPage\aspnetuserViewRviewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\O2m\PhbkDivisionViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewAdlgUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -432,9 +435,6 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewLformUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewO2mUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewRaddUserControl.xaml">
@@ -473,7 +473,7 @@
     <EmbeddedResource Update="Phonebook\PhbkDivision\UserControls\PhbkDivisionViewVformUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewO2mPage.xaml">
+    <EmbeddedResource Update="Phonebook\PhbkDivision\Views\O2mPage\PhbkDivisionViewO2mPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkDivision\Views\PhbkDivisionViewRaddPage.xaml">
@@ -638,6 +638,9 @@
     <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewRviewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\O2m\PhbkPhoneTypeViewO2mUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewAdlgUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -654,9 +657,6 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewLformUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewO2mUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewRaddUserControl.xaml">
@@ -695,7 +695,7 @@
     <EmbeddedResource Update="Phonebook\PhbkPhoneType\UserControls\PhbkPhoneTypeViewVformUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewO2mPage.xaml">
+    <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\O2mPage\PhbkPhoneTypeViewO2mPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Phonebook\PhbkPhoneType\Views\PhbkPhoneTypeViewRaddPage.xaml">

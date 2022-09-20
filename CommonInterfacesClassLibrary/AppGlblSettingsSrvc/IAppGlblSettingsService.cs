@@ -20,10 +20,10 @@ namespace CommonInterfacesClassLibrary.AppGlblSettingsSrvc {
         string UserName { get; set; }
         IBearerTokenModel AuthInfo { get; set; }
         List<KeyValuePair<string, string>> GetAuthInfoHeader();
-        int[] Permissions { get; set; }
-        int[] GetEmptyPermissions();
+        Dictionary<string, int> Permissions { get; set; }
+        Dictionary<string, int> GetEmptyPermissions();
         int GetViewModelMask(string vwModel);
-        int GetDashBrdMask(string dshBrd);
+        // int GetDashBrdMask(string dshBrd);
         HttpClient Client  { get; }
         void ShowErrorMessage(string errorType, string errorMsg);
         void NavigateTo(string navigationPath);

@@ -20,9 +20,8 @@ using CommonInterfacesClassLibrary.Interfaces;
         }
 */
 
-namespace CommonServicesPrismModule.AppGlblSettingsSrvc
-{
-    public class AppGlblSettingsService : IAppGlblSettingsService
+namespace CommonServicesPrismModule.AppGlblSettingsSrvc {
+    public class AppGlblSettingsService: IAppGlblSettingsService
     {
         public string CurrNavPath { get; set; } = "";
         double _FilterHeightAddition = 0;
@@ -31,17 +30,13 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
         double _TableHeightFactor = 33.6;
         double _DeviceHeight = 1080;
 
-
-        public AppGlblSettingsService()
-        {
+        public AppGlblSettingsService() {
             DisplayInfo mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
             _DeviceHeight = mainDisplayInfo.Height / mainDisplayInfo.Density;
         }
 
-        public double DefaultGridRows(string fileType)
-        {
-            switch (fileType)
-            {
+        public double DefaultGridRows(string fileType) {
+            switch(fileType) {
                 case "01698-O2mUserControl.xaml":
                 case "01699-O2mPage.xaml":
                     return 5d;
@@ -49,10 +44,8 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                     return 6d;
             }
         }
-        public double DefaultFilterRows(string fileType)
-        {
-            switch (fileType)
-            {
+        public double DefaultFilterRows(string fileType) {
+            switch(fileType) {
                 case "01698-O2mUserControl.xaml":
                 case "01699-O2mPage.xaml":
                     return 1d;
@@ -60,10 +53,8 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                     return 1d;
             }
         }
-        public double ExpandedGridRows(string fileType)
-        {
-            switch (fileType)
-            {
+        public double ExpandedGridRows(string fileType) {
+            switch(fileType) {
                 case "01698-O2mUserControl.xaml":
                 case "01699-O2mPage.xaml":
                     return 5d;
@@ -71,17 +62,14 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                     if (_DeviceHeight < 1080d)
                     {
                         return 8d;
-                    }
-                    else
+                    } else
                     {
                         return 18d;
                     }
             }
         }
-        public double ExpandedFilterRows(string fileType)
-        {
-            switch (fileType)
-            {
+        public double ExpandedFilterRows(string fileType) {
+            switch(fileType) {
                 case "01698-O2mUserControl.xaml":
                 case "01699-O2mPage.xaml":
                     return 1d;
@@ -89,52 +77,60 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                     return 2d;
             }
         }
-        public double DefaultGridHeight(string fileType)
-        {
+        public double DefaultGridHeight(string fileType) {
             return DefaultGridRows(fileType) * TableHeightFactor + TableHeightAddition;
         }
-        public double DefaultFilterHeight(string fileType)
-        {
+        public double DefaultFilterHeight(string fileType) {
             return DefaultFilterRows(fileType) * FilterHeightFactor + FilterHeightAddition;
         }
-        public double ExpandedGridHeight(string fileType)
-        {
+        public double ExpandedGridHeight(string fileType) {
             return ExpandedGridRows(fileType) * TableHeightFactor + TableHeightAddition;
         }
-        public double ExpandedFilterHeight(string fileType)
-        {
+        public double ExpandedFilterHeight(string fileType) {
             return ExpandedFilterRows(fileType) * FilterHeightFactor + FilterHeightAddition;
         }
 
-        public double FilterHeightAddition {
-            get {
+        public double FilterHeightAddition
+        {
+            get
+            {
                 return _FilterHeightAddition;
             }
-            set {
+            set
+            {
                 _FilterHeightAddition = value;
             }
         }
-        public double FilterHeightFactor {
-            get {
+        public double FilterHeightFactor
+        {
+            get
+            {
                 return _FilterHeightFactor;
             }
-            set {
+            set
+            {
                 _FilterHeightFactor = value;
             }
         }
-        public double TableHeightAddition {
-            get {
+        public double TableHeightAddition
+        {
+            get
+            {
                 return _TableHeightAddition;
             }
-            set {
+            set
+            {
                 _TableHeightAddition = value;
             }
         }
-        public double TableHeightFactor {
-            get {
+        public double TableHeightFactor
+        {
+            get
+            {
                 return _TableHeightFactor;
             }
-            set {
+            set
+            {
                 _TableHeightFactor = value;
             }
         }
@@ -185,25 +181,27 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                 return "http://localhost:5165/";
             }
         }
-        public double getDialogWidth(string ViewName)
-        {
+        public double getDialogWidth(string ViewName)  {
             double rslt = 90;
-            if (!string.IsNullOrEmpty(ViewName))
+            if(!string.IsNullOrEmpty(ViewName))
             {
                 rslt = 90;
             }
             return rslt;
         }
         protected string _UserName = string.Empty;
-        public string UserName {
-            get {
+        public string UserName
+        {
+            get
+            {
                 return _UserName;
             }
-            set {
+            set
+            {
                 if (_UserName != value)
                 {
                     _UserName = value;
-                    if (OnUserChangedNotification != null)
+                    if(OnUserChangedNotification != null)
                     {
                         OnUserChangedNotification(this, _UserName);
                     }
@@ -211,23 +209,24 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
             }
         }
         protected IBearerTokenModel _AuthInfo = null;
-        public IBearerTokenModel AuthInfo {
-            get {
+        public IBearerTokenModel AuthInfo
+        {
+            get
+            {
                 return _AuthInfo;
             }
-            set {
-                if (_AuthInfo != value)
+            set
+            {
+                if(_AuthInfo != value)
                 {
                     _AuthInfo = value;
-                    if (_AuthInfo == null)
+                    if(_AuthInfo == null)
                     {
                         Client.DefaultRequestHeaders.Authorization = null;
-                    }
-                    else if ((AuthInfo.token_type == null) || (AuthInfo.access_token == null))
+                    } else if ((AuthInfo.token_type == null) || (AuthInfo.access_token == null))
                     {
                         Client.DefaultRequestHeaders.Authorization = null;
-                    }
-                    else
+                    } else
                     {
                         Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(AuthInfo.token_type, AuthInfo.access_token);
                     }
@@ -236,7 +235,7 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
         }
         public List<KeyValuePair<string, string>> GetAuthInfoHeader()
         {
-            List<KeyValuePair<string, string>> rslt = new List<KeyValuePair<string, string>>() {
+            List<KeyValuePair<string, string>> rslt = new List<KeyValuePair<string, string>>() { 
                 new KeyValuePair<string, string>("content-type","application/json"),
                 new KeyValuePair<string, string>("accept","application/json"),
                 new KeyValuePair<string, string>("accept","text/plain"),
@@ -244,35 +243,37 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
             };
             if (AuthInfo != null)
             {
-                rslt.Add(new KeyValuePair<string, string>("Authorization", (AuthInfo.token_type as string) + " " + (AuthInfo.access_token as string)));
+                rslt.Add(new KeyValuePair<string, string>("Authorization", (AuthInfo.token_type as string) +" "+ (AuthInfo.access_token as string)));
             }
             return rslt;
         }
-        Dictionary<string, int> Views = new Dictionary<string, int>()
+        Dictionary<string, int> _Permissions = new Dictionary<string, int>();
+        public Dictionary<string, int> Permissions
         {
-            { "LitAuthorView", 0 },
-            { "LitBookView", 1 },
-        };
-        Dictionary<string, int> Dashboards = new Dictionary<string, int>()
-        {
-            { "ManuscriptDFeatureFtrComponent", 0 },
-            { "ManuscriptRFeatureFtrComponent", 1 },
-        };
-        int[] _Permissions = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        public int[] Permissions {
-            get {
+            get 
+            {
                 return _Permissions;
             }
-            set {
+            set
+            {
                 _Permissions = value;
             }
         }
-        public int[] GetEmptyPermissions()
-        {
-            return new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        public Dictionary<string, int> GetEmptyPermissions() {
+            return new Dictionary<string, int>();
         }
-        public int GetViewModelMask(string vwModel)
-        {
+        public int GetViewModelMask(string vwModel) {
+
+          //  return 31; // delete this line when vwModels is ready
+            if ((Permissions == null) || (string.IsNullOrEmpty(vwModel))) return 0;
+            if(Permissions.ContainsKey(vwModel)) {
+                return Permissions[vwModel];
+            }
+            return 0;
+        }
+
+/*
+        public int GetViewModelMask(string vwModel) {
 
             return 31; // delete this line when vwModels is ready
             if (Permissions == null) return 0;
@@ -281,7 +282,7 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
             int rid = pk / 7;
             if (rid >= (Permissions.Count() - 3)) return 0;
             int sft = (pk - rid * 7) * 4;
-            int rslt = Permissions[rid];
+            int  rslt = Permissions[rid];
             if (sft > 0)
             {
                 rslt >>= sft;
@@ -290,7 +291,7 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
         }
         public int GetDashBrdMask(string dshBrd)
         {
-            return 31; // delete this line when dshBrds is ready
+            return 1; // delete this line when dshBrds is ready
             if (Dashboards == null) return 0;
             int pk = 0;
             if (!Dashboards.TryGetValue(dshBrd, out pk)) return 0;
@@ -304,9 +305,12 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
             }
             return rslt;
         }
+*/
         protected HttpClient _Client = null;
-        public HttpClient Client {
-            get {
+        public HttpClient Client 
+        { 
+            get
+            {
                 if (_Client == null)
                 {
                     _Client = new HttpClient();
@@ -314,7 +318,7 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                     _Client.DefaultRequestHeaders.Add("Accept", "text/plain");
                     _Client.DefaultRequestHeaders.Add("Accept", "*/*");
                     _Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    if (AuthInfo != null)
+                    if(AuthInfo != null)
                     {
                         if ((AuthInfo.token_type != null) || (AuthInfo.access_token != null))
                         {
@@ -325,15 +329,13 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc
                 return _Client;
             }
         }
-        public void ShowErrorMessage(string errorType, string errorMsg)
-        {
+        public void ShowErrorMessage(string errorType, string errorMsg) {
             OnMessageNotification?.Invoke(this, errorType + ": " + errorMsg);
         }
-        public void NavigateTo(string navigationPath)
-        {
+        public void NavigateTo(string navigationPath) {
             OnNavigateToNotification?.Invoke(this, navigationPath);
         }
         public bool DelayActivated { get; set; } = false;
-    }
+   }
 }
 

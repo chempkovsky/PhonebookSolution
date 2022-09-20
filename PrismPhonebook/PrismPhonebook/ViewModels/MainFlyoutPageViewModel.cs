@@ -9,7 +9,8 @@ using System.Runtime.CompilerServices;
 using Prism.Ioc;
 
 using CommonInterfacesClassLibrary.AppGlblSettingsSrvc;
-
+using ModelInterfacesClassLibrary.interfaces.asp.aspnetuserpermsView;
+using System.Collections.Generic;
 
 namespace PrismPhonebook.ViewModels {
     public class MainFlyoutPageViewModel: INotifyPropertyChanged, IDestructible  
@@ -148,7 +149,7 @@ namespace PrismPhonebook.ViewModels {
         private async void OnUserChangedNotification(object sender, string uname)
         {
             
-            /* Uncomment to turn ON Authorization 
+            // Uncomment to turn ON Authorization 
             if (string.IsNullOrEmpty(uname))
             {
                 (sender as IAppGlblSettingsService).Permissions = (sender as IAppGlblSettingsService).GetEmptyPermissions();
@@ -157,16 +158,24 @@ namespace PrismPhonebook.ViewModels {
             }
             else
             {
-                IAspnetusermaskViewServicePermission ServicePermission = _containerProvider.Resolve<IAspnetusermaskViewServicePermission>();
+                IAspnetuserpermsViewService ServicePermission = _containerProvider.Resolve<IAspnetuserpermsViewService>();
                 await MainThread.InvokeOnMainThreadAsync(async () => 
                 {
-                    IaspnetusermaskViewPage rslt = await ServicePermission.getcurrusermasks();
-                    (sender as IAppGlblSettingsService).Permissions = ServicePermission.src2array(rslt);
+                    IList<IAspnetuserpermsView> rslt = await ServicePermission.getall();
+                    var Permissions = (sender as IAppGlblSettingsService).GetEmptyPermissions();
+                    if (rslt != null)
+                    {
+                        foreach (var itm in rslt)
+                        {
+                            Permissions.Add(itm.ModelName, itm.UserPerms);
+                        }
+                    }
+                    (sender as IAppGlblSettingsService).Permissions = Permissions;
                     (sender as IAppGlblSettingsService).NavigateTo("HomePage");
                 });
                 return;
             }
-            */ 
+             
             (sender as IAppGlblSettingsService).NavigateTo("HomePage");
         }
     }

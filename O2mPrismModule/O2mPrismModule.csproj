@@ -16,16 +16,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\PhbkEmployeeViewO2mUserControl.xaml">
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\UserControls\O2m\PhbkEmployeeViewO2mUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\PhbkEmployeeViewO2mPage.xaml">
+    <EmbeddedResource Update="Phonebook\PhbkEmployee\Views\O2mPage\PhbkEmployeeViewO2mPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\PhbkEnterpriseViewO2mUserControl.xaml">
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\UserControls\O2m\PhbkEnterpriseViewO2mUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\PhbkEnterpriseViewO2mPage.xaml">
+    <EmbeddedResource Update="Phonebook\PhbkEnterprise\Views\O2mPage\PhbkEnterpriseViewO2mPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
