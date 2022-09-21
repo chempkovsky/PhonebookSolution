@@ -16,6 +16,7 @@ using CommonUserControlLibrary.ViewModels;
 using CommonInterfacesClassLibrary.AppGlblSettingsSrvc;
 using CommonInterfacesClassLibrary.Enums;
 using ModelInterfacesClassLibrary.Phonebook.PhbkDivision;
+using Prism.Regions;
 /*
 
 
@@ -43,7 +44,12 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
         protected IAppGlblSettingsService GlblSettingsSrv=null;
         protected IPhbkDivisionViewService FrmSrvPhbkDivisionView = null;
         protected INavigationService _navigationService;
-        public PhbkDivisionViewRlistPageViewModel(IPhbkDivisionViewService _FrmSrvPhbkDivisionView, IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
+        protected IRegionManager _regionManager;
+
+        public PhbkDivisionViewRlistPageViewModel(IPhbkDivisionViewService _FrmSrvPhbkDivisionView,
+            IRegionManager regionManager,
+            IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
+            
             this.GlblSettingsSrv = GlblSettingsSrv;
             this.FrmSrvPhbkDivisionView = _FrmSrvPhbkDivisionView;
             this._navigationService = navigationService;
@@ -52,6 +58,8 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
             _RowMenuItems = GetDefaultRowMenuItems();
             _GridHeight = this.GlblSettingsSrv.ExpandedGridHeight("01919-RlistPage.xaml");
             _FilterHeight = this.GlblSettingsSrv.ExpandedFilterHeight("01919-RlistPage.xaml");
+            _regionManager = regionManager;
+
         }
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -501,9 +509,10 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
        }
        protected void SelectedRowCommandExecute(object prm)
        {
-           // SelectedRow = prm;
-       }
-       protected bool SelectedRowCommandCanExecute(object prm)
+            _regionManager.RequestNavigate("MyRegion", "PhbkPhoneTypeViewRlistUserControl");
+            // SelectedRow = prm;
+        }
+        protected bool SelectedRowCommandCanExecute(object prm)
        {
            return true; 
        }

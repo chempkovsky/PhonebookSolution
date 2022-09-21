@@ -2,6 +2,7 @@ using System;
 using Xamarin.Forms;
 using System.Linq;
 using System.ComponentModel;
+using Prism.Regions;
 using Prism.Regions.Navigation;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
@@ -43,7 +44,8 @@ namespace ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.RlPage {
         protected IAppGlblSettingsService GlblSettingsSrv=null;
         protected IAspnetrolemaskViewService FrmSrvaspnetrolemaskView = null;
         protected INavigationService _navigationService;
-        public AspnetrolemaskViewRlistPageViewModel(IAspnetrolemaskViewService _FrmSrvaspnetrolemaskView, IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
+        public AspnetrolemaskViewRlistPageViewModel(IAspnetrolemaskViewService _FrmSrvaspnetrolemaskView, 
+            IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
             this.GlblSettingsSrv = GlblSettingsSrv;
             this.FrmSrvaspnetrolemaskView = _FrmSrvaspnetrolemaskView;
             this._navigationService = navigationService;
@@ -434,17 +436,6 @@ namespace ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.RlPage {
         #endregion
 
         #region SelectedRow
-        //protected object _SelectedRow = null;
-        //public object SelectedRow {
-        //    get {
-        //    }
-        //    set {
-        //        if(_SelectedRow != value) {
-        //            _SelectedRow = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
         #endregion
 
        #region SelectedRowCommand
@@ -458,7 +449,6 @@ namespace ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.RlPage {
        }
        protected void SelectedRowCommandExecute(object prm)
        {
-           // SelectedRow = prm;
        }
        protected bool SelectedRowCommandCanExecute(object prm)
        {
@@ -599,6 +589,8 @@ namespace ModelServicesPrismModule.asp.aspnetrolemaskView.ViewModels.RlPage {
             _SformAfterDelItem = null;
         }
         #endregion
+
+
 
     }
 }

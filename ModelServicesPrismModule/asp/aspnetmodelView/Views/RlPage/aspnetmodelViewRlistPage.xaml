@@ -1,5 +1,4 @@
 
-
 <ContentPage x:Class="ModelServicesPrismModule.asp.aspnetmodelView.Views.RlPage.AspnetmodelViewRlistPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,30 +6,54 @@
              prism:ViewModelLocator.AutowireViewModel="True"
 
              xmlns:sfrm="clr-namespace:ModelServicesPrismModule.asp.aspnetmodelView.UserControls.Sform" 
+             xmlns:prx="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
 
              x:Name="rlistUsrCntrlRootNode"
              >
-  <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
-        <sfrm:AspnetmodelViewSformUserControl  
-            IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            ShowFilter="True" 
-            ShowAddFilterBtn="True" 
-            GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            ShowBackBtn="False" 
-            HiddenFilters="{Binding BindingContext.HiddenFilters, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            SelectedRowCommand="{Binding BindingContext.SelectedRowCommand, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            SformAfterAddItem="{Binding BindingContext.SformAfterAddItem, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            SformAfterUpdItem="{Binding BindingContext.SformAfterUpdItem, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            SformAfterDelItem="{Binding BindingContext.SformAfterDelItem, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommand, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommand, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            TableMenuItems="{Binding BindingContext.TableMenuItems, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-            IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+    <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
+        <Grid    RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*">
+            <sfrm:AspnetmodelViewSformUserControl Grid.Row="0" Grid.Column="0"
+                IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                ShowFilter="True" 
+                ShowAddFilterBtn="True" 
+                GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                ShowBackBtn="False" 
+                HiddenFilters="{Binding BindingContext.HiddenFilters, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                SelectedRowCommand="{Binding BindingContext.SelectedRowCommand, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                SformAfterAddItem="{Binding BindingContext.SformAfterAddItem, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                SformAfterUpdItem="{Binding BindingContext.SformAfterUpdItem, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                SformAfterDelItem="{Binding BindingContext.SformAfterDelItem, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                TableMenuItemsCommand="{Binding BindingContext.TableMenuItemsCommand, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                RowMenuItemsCommand="{Binding BindingContext.RowMenuItemsCommand, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                TableMenuItems="{Binding BindingContext.TableMenuItems, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                />
+            <StackLayout Grid.Row="1" Grid.Column="0">
+                <Label Text="Selected detail"/>
+                <Picker ItemsSource="{Binding BindingContext.DetailsList, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                        ItemDisplayBinding="{Binding Caption}" 
+                        SelectedItem="{Binding BindingContext.SelectedDetailsListItem, Source={x:Reference rlistUsrCntrlRootNode}, Mode=TwoWay}">
+                </Picker>
+            </StackLayout>
+
+            <prx:ProxyUserControl Grid.Row="2" Grid.Column="0"
+                prism:RegionManager.RegionName="AspnetmodelViewRlistPageDetailRegion"
+                IsVisible="{Binding BindingContext.IsDetailVisible, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
+                IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                ShowAddFilterBtn="True" 
+                ShowFilter="True" 
+                GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
+                FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
+                CanAdd="True" 
+                CanUpdate="True" 
+                CanDelete="True" 
             />
-  </ScrollView>
+        </Grid>
+    </ScrollView>
 </ContentPage>
+
 
 

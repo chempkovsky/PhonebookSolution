@@ -264,7 +264,7 @@ namespace CommonServicesPrismModule.AppGlblSettingsSrvc {
         }
         public int GetViewModelMask(string vwModel) {
 
-          //  return 31; // delete this line when vwModels is ready
+            //return 31; // delete this line when vwModels is ready
             if ((Permissions == null) || (string.IsNullOrEmpty(vwModel))) return 0;
             if(Permissions.ContainsKey(vwModel)) {
                 return Permissions[vwModel];

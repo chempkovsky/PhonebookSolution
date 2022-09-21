@@ -103,7 +103,7 @@ Ok
 
 Insertion the line : containerRegistry.RegisterForNavigation<AspnetroleViewRupdPage, AspnetroleViewRupdPageViewModel>("AspnetroleViewRupdPage");
 Result:
-Exception thrown: The process cannot access the file 'E:\Development\PhonebookSolution\ModelServicesPrismModule\ModelServicesPrismModuleModule.cs' because it is being used by another process.
+Ok
 
 Insertion the line : containerRegistry.Register<ContentPage, AspnetroleViewRupdPage>("AspnetroleViewRupdPage");
 Result:

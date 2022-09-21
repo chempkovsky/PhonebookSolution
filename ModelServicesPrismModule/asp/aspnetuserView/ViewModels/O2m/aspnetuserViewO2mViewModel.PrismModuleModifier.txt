@@ -100,7 +100,7 @@ Ok
 
 Insertion the line : containerRegistry.RegisterForRegionNavigation<AspnetuserViewO2mUserControl, AspnetuserViewO2mViewModel>("AspnetuserViewO2mUserControl");
 Result:
-Exception thrown: The process cannot access the file 'E:\Development\PhonebookSolution\ModelServicesPrismModule\ModelServicesPrismModuleModule.cs' because it is being used by another process.
+Ok
 
 Insertion the line : containerRegistry.Register<ContentView, AspnetuserViewO2mUserControl>("AspnetuserViewO2mUserControl");
 Result:

@@ -7,11 +7,13 @@
              prism:ViewModelLocator.AutowireViewModel="True"
 
              xmlns:sfrm="clr-namespace:ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls" 
+             xmlns:prx="clr-namespace:CommonUserControlLibrary.UserControls;assembly=CommonUserControlLibrary" 
 
              x:Name="rlistUsrCntrlRootNode"
              >
   <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
-        <sfrm:PhbkDivisionViewSformUserControl  
+        <Grid    RowDefinitions="Auto, Auto" ColumnDefinitions="*">
+            <sfrm:PhbkDivisionViewSformUserControl  Grid.Row="0"
             IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
             Caption="{Binding BindingContext.Caption, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
             FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
@@ -30,7 +32,21 @@
             RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
             IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
             />
-  </ScrollView>
+            <prx:ProxyUserControl Grid.Row="1"
+                    prism:RegionManager.RegionName="MyRegion"
+                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
+                    ShowAddFilterBtn="True" 
+                    ShowFilter="True" 
+                    GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
+                    FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
+                    CanAdd="True" 
+                    CanUpdate="True" 
+                    CanDelete="True" 
+                    />
+
+        </Grid>
+
+    </ScrollView>
 </ContentPage>
 
 

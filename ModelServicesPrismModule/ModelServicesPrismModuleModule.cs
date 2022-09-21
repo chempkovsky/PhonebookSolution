@@ -640,18 +640,6 @@ namespace ModelServicesPrismModule
             Prism.Mvvm.ViewModelLocationProvider.Register<ModelServicesPrismModule.asp.aspnetusermaskView.Views.RldPage.AspnetusermaskViewRdlistPage, ModelServicesPrismModule.asp.aspnetusermaskView.ViewModels.RldPage.AspnetusermaskViewRdlistPageViewModel>();
             containerRegistry.RegisterForNavigation<ModelServicesPrismModule.asp.aspnetusermaskView.Views.RldPage.AspnetusermaskViewRdlistPage, ModelServicesPrismModule.asp.aspnetusermaskView.ViewModels.RldPage.AspnetusermaskViewRdlistPageViewModel>("AspnetusermaskViewRdlistPage");
             containerRegistry.Register<Xamarin.Forms.ContentPage, ModelServicesPrismModule.asp.aspnetusermaskView.Views.RldPage.AspnetusermaskViewRdlistPage>("AspnetusermaskViewRdlistPage");
-            Prism.Mvvm.ViewModelLocationProvider.Register<ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.O2m.PhbkDivisionViewO2mUserControl, ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.O2m.PhbkDivisionViewO2mViewModel>();
-            containerRegistry.RegisterForRegionNavigation<ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.O2m.PhbkDivisionViewO2mUserControl, ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.O2m.PhbkDivisionViewO2mViewModel>("PhbkDivisionViewO2mUserControl");
-            containerRegistry.Register<Xamarin.Forms.ContentView, ModelServicesPrismModule.Phonebook.PhbkDivision.UserControls.O2m.PhbkDivisionViewO2mUserControl>("PhbkDivisionViewO2mUserControl");
-            Prism.Mvvm.ViewModelLocationProvider.Register<ModelServicesPrismModule.Phonebook.PhbkDivision.Views.O2mPage.PhbkDivisionViewO2mPage, ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.O2mPage.PhbkDivisionViewO2mPageViewModel>();
-            containerRegistry.RegisterForNavigation<ModelServicesPrismModule.Phonebook.PhbkDivision.Views.O2mPage.PhbkDivisionViewO2mPage, ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels.O2mPage.PhbkDivisionViewO2mPageViewModel>("PhbkDivisionViewO2mPage");
-            containerRegistry.Register<Xamarin.Forms.ContentPage, ModelServicesPrismModule.Phonebook.PhbkDivision.Views.O2mPage.PhbkDivisionViewO2mPage>("PhbkDivisionViewO2mPage");
-            Prism.Mvvm.ViewModelLocationProvider.Register<ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls.O2m.PhbkPhoneTypeViewO2mUserControl, ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.O2m.PhbkPhoneTypeViewO2mViewModel>();
-            containerRegistry.RegisterForRegionNavigation<ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls.O2m.PhbkPhoneTypeViewO2mUserControl, ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.O2m.PhbkPhoneTypeViewO2mViewModel>("PhbkPhoneTypeViewO2mUserControl");
-            containerRegistry.Register<Xamarin.Forms.ContentView, ModelServicesPrismModule.Phonebook.PhbkPhoneType.UserControls.O2m.PhbkPhoneTypeViewO2mUserControl>("PhbkPhoneTypeViewO2mUserControl");
-            Prism.Mvvm.ViewModelLocationProvider.Register<ModelServicesPrismModule.Phonebook.PhbkPhoneType.Views.O2mPage.PhbkPhoneTypeViewO2mPage, ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.O2mPage.PhbkPhoneTypeViewO2mPageViewModel>();
-            containerRegistry.RegisterForNavigation<ModelServicesPrismModule.Phonebook.PhbkPhoneType.Views.O2mPage.PhbkPhoneTypeViewO2mPage, ModelServicesPrismModule.Phonebook.PhbkPhoneType.ViewModels.O2mPage.PhbkPhoneTypeViewO2mPageViewModel>("PhbkPhoneTypeViewO2mPage");
-            containerRegistry.Register<Xamarin.Forms.ContentPage, ModelServicesPrismModule.Phonebook.PhbkPhoneType.Views.O2mPage.PhbkPhoneTypeViewO2mPage>("PhbkPhoneTypeViewO2mPage");
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Xamarin.Forms;
 using System.Linq;
 using System.ComponentModel;
+using Prism.Regions;
 using Prism.Regions.Navigation;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
@@ -42,15 +43,20 @@ namespace ModelServicesPrismModule.asp.aspnetroleView.ViewModels.RldPage {
         protected IAppGlblSettingsService GlblSettingsSrv=null;
         protected IAspnetroleViewService FrmSrvaspnetroleView = null;
         protected INavigationService _navigationService;
-        public AspnetroleViewRdlistPageViewModel(IAspnetroleViewService _FrmSrvaspnetroleView, IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
+        protected IRegionManager regionManager;
+        public AspnetroleViewRdlistPageViewModel(IRegionManager _regionManager, IAspnetroleViewService _FrmSrvaspnetroleView, 
+            IAppGlblSettingsService GlblSettingsSrv, INavigationService navigationService) {
             this.GlblSettingsSrv = GlblSettingsSrv;
             this.FrmSrvaspnetroleView = _FrmSrvaspnetroleView;
             this._navigationService = navigationService;
             PermissionMask = GlblSettingsSrv.GetViewModelMask("aspnetroleView");
             _TableMenuItems = GetDefaultTableMenuItems();
             _RowMenuItems = GetDefaultRowMenuItems();
-            _GridHeight = this.GlblSettingsSrv.ExpandedGridHeight("02019-RdlistPage.xaml");
-            _FilterHeight = this.GlblSettingsSrv.ExpandedFilterHeight("02019-RdlistPage.xaml");
+            this.regionManager = _regionManager;
+            this._DetailsList = this.getDetailsList();
+            this._SelectedDetailsListItem = this._DetailsList[0];
+            _GridHeight = this.GlblSettingsSrv.DefaultGridHeight("02019-RdlistPage.xaml");
+            _FilterHeight = this.GlblSettingsSrv.DefaultFilterHeight("02019-RdlistPage.xaml");
         }
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -327,17 +333,19 @@ namespace ModelServicesPrismModule.asp.aspnetroleView.ViewModels.RldPage {
         #endregion
 
         #region SelectedRow
-        //protected object _SelectedRow = null;
-        //public object SelectedRow {
-        //    get {
-        //    }
-        //    set {
-        //        if(_SelectedRow != value) {
-        //            _SelectedRow = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
+        protected object _SelectedRow = null;
+        public object SelectedRow {
+            get {
+                return _SelectedRow;
+            }
+            set {
+                if(_SelectedRow != value) {
+                    _SelectedRow = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged("IsDetailVisible");
+                }
+            }
+        }
         #endregion
 
        #region SelectedRowCommand
@@ -351,7 +359,8 @@ namespace ModelServicesPrismModule.asp.aspnetroleView.ViewModels.RldPage {
        }
        protected void SelectedRowCommandExecute(object prm)
        {
-           // SelectedRow = prm;
+           SelectedRow = prm;
+           NavigateToO2m();
        }
        protected bool SelectedRowCommandCanExecute(object prm)
        {
@@ -447,6 +456,87 @@ namespace ModelServicesPrismModule.asp.aspnetroleView.ViewModels.RldPage {
             _FilterHeight = -1d;
         }
         #endregion
+
+        #region IsDetailVisible
+        public bool IsDetailVisible {
+            get {
+                if ((SelectedRow is null) || (SelectedDetailsListItem is null)) return false;
+                return (!string.IsNullOrEmpty(SelectedDetailsListItem.ForeignKeyDetails));
+            }
+        }
+        #endregion
+
+        #region SelectedDetailsListItem
+        protected IO2mListItemInterface _SelectedDetailsListItem = null;
+        public IO2mListItemInterface SelectedDetailsListItem 
+        {
+            get { return _SelectedDetailsListItem; }
+            set {
+                if(_SelectedDetailsListItem != value) {
+                    _SelectedDetailsListItem = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged("IsDetailVisible");
+                    NavigateToO2m();
+                }
+            }
+        }
+        #endregion
+
+        #region DetailsList
+        ObservableCollection<IO2mListItemInterface> _DetailsList;
+        public IEnumerable<IO2mListItemInterface> DetailsList { get { return _DetailsList; } }
+        ObservableCollection<IO2mListItemInterface> getDetailsList() {
+            ObservableCollection<IO2mListItemInterface> rslt = new ObservableCollection<IO2mListItemInterface>() {
+                    new O2mListItemViewModel() {Caption = "Hide Details", ForeignKeyDetails = "",  Region = "" }
+                };
+                if((GlblSettingsSrv.GetViewModelMask("aspnetrolemaskView") & 1) == 1)
+                    rslt.Add(new O2mListItemViewModel() {Caption = "Role Masks: AspNetRole", ForeignKeyDetails = "AspNetRole",  Region = "AspnetrolemaskViewRdlistUserControl" });
+            return rslt;
+        }
+        #endregion
+
+        #region NavigateToO2m
+        public void NavigateToO2m() {
+            if (IsDestroyed || (SelectedDetailsListItem is null) || (SelectedRow is null)) return;
+            if (string.IsNullOrEmpty(SelectedDetailsListItem.ForeignKeyDetails)) return;
+            var rgn = regionManager.Regions["AspnetroleViewRdlistPageDetailRegion"];
+            if(rgn != null) {
+                foreach (var vw in rgn.Views)
+                {
+                    if(vw.BindingContext != null)
+                    {
+                        var prop = vw.BindingContext.GetType().GetProperty("IsParentLoaded");
+                        if(prop != null)
+                            prop.SetValue(vw.BindingContext, false);
+                    }
+                }
+                rgn.NavigationService.Journal.Clear();
+            }
+            INavigationParameters navigationParameters = new NavigationParameters();
+            navigationParameters.Add("HiddenFilter", this.FrmSrvaspnetroleView.getHiddenFilterByRow(SelectedRow as IAspnetroleView, SelectedDetailsListItem.ForeignKeyDetails));  
+            regionManager.RequestNavigate("AspnetroleViewRdlistPageDetailRegion", SelectedDetailsListItem.Region, OnRegionNavigationResult, navigationParameters);
+        }
+        #endregion
+
+        #region OnRegionNavigationResult
+        protected void OnRegionNavigationResult(IRegionNavigationResult navResult) {
+                if(IsDestroyed) return;
+                if(navResult.Result.HasValue) { if(navResult.Result.Value) return; }
+                string navErrorMsg = "Unknown Navigation Error";
+                if (navResult.Error != null)
+                {
+                    navErrorMsg = navResult.Error.Message;
+                    Exception inner = navResult.Error.InnerException;
+                    while (inner != null)
+                    {
+                        navErrorMsg = navErrorMsg + ": " + inner.Message;
+                        inner = inner.InnerException;
+                    }
+                }
+                GlblSettingsSrv.ShowErrorMessage("Navigation Exception", navErrorMsg);
+        }
+        #endregion
+
 
     }
 }
