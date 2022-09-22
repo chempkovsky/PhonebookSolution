@@ -5,10 +5,17 @@
 
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             prism:DialogLayout.RelativeHeightRequest="0.99"
+             
              xmlns:efrm="clr-namespace:ModelServicesPrismModule.Phonebook.PhbkPhone.UserControls" 
              BackgroundColor="{DynamicResource ModifyItemDlgBackgroundColor}"
              x:Name="edlgUserControlRoot">
+    <prism:DialogLayout.RelativeHeightRequest>
+        <OnIdiom x:TypeArguments="x:Double" Desktop="0.7" Phone="0.99" Tablet="0.99" />
+    </prism:DialogLayout.RelativeHeightRequest>
+        
+
+        
+
     <ScrollView Orientation="Vertical" VerticalOptions="StartAndExpand">
         <efrm:PhbkPhoneViewAformUserControl VerticalOptions="FillAndExpand"
 

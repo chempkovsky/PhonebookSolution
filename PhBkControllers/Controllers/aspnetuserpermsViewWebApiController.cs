@@ -35,7 +35,7 @@ namespace PhBkControllers.Controllers {
         }
 
         [HttpGet]
-        [Route("api/[controller]/getall")]
+        [Route("[controller]/getall")]
         public async Task<ActionResult<IEnumerable<aspnetuserpermsView>>> getall()
         {
             string[] roles = _httpContextAccessor?.HttpContext?.User?.Claims.Where(c => c.Type == ClaimTypes.Role).Select(cl => cl.Value).ToArray();
