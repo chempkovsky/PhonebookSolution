@@ -29,6 +29,9 @@ namespace ModelServicesPrismModule.asp.aspnetmodelView.ViewModels.Lform {
             adialogName = "AspnetmodelViewAdlgViewModel";
             udialogName = "AspnetmodelViewUdlgViewModel";
             ddialogName = "AspnetmodelViewDdlgViewModel";
+            viewModelName = "aspnetmodelView";
+            _TableMenuItemsVM = GetDefaultTableMenuItemsVM();
+            _RowMenuItemsVM = GetDefaultRowMenuItemsVM();
         }
     }
 }

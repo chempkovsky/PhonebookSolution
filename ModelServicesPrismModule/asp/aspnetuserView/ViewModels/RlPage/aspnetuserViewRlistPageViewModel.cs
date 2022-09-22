@@ -609,6 +609,7 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
             _SformAfterAddItem = null;
             _SformAfterUpdItem = null;
             _SformAfterDelItem = null;
+
         }
         #endregion
 
@@ -656,8 +657,9 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
         public void NavigateToO2m() {
             if (IsDestroyed || (SelectedDetailsListItem is null) || (SelectedRow is null)) return;
             if (string.IsNullOrEmpty(SelectedDetailsListItem.ForeignKeyDetails)) return;
-            var rgn = regionManager.Regions["AspnetuserViewRlistPageDetailRegion"];
-            if(rgn != null) {
+            //var rgn = regionManager.Regions[AspnetuserViewRlistPageDetailRegion];
+            var rgn = regionManager.Regions.FirstOrDefault(r => r.Name == "AspnetuserViewRlistPageDetailRegion");
+            if (rgn != null) {
                 foreach (var vw in rgn.Views)
                 {
                     if(vw.BindingContext != null)
@@ -693,7 +695,6 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
                 GlblSettingsSrv.ShowErrorMessage("Navigation Exception", navErrorMsg);
         }
         #endregion
-
 
 
 

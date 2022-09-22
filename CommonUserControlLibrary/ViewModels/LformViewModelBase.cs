@@ -24,13 +24,14 @@ namespace CommonUserControlLibrary.ViewModels {
         protected string udialogName = "noname";
         protected string ddialogName = "noname";
         protected string vdialogName = "noname";
-
+        protected string viewModelName = "noname";
 
         public LformViewModelBase(IAppGlblSettingsService GlblSettingsSrv, IDialogService dialogService) {
             this.GlblSettingsSrv = GlblSettingsSrv;
             this._dialogService = dialogService;
-            _TableMenuItemsVM = GetDefaultTableMenuItemsVM();
-            _RowMenuItemsVM = GetDefaultRowMenuItemsVM();
+            // next two lines must be called inside inherited class after "viewModelName"-field defined
+            // _TableMenuItemsVM = GetDefaultTableMenuItemsVM();
+            // _RowMenuItemsVM = GetDefaultRowMenuItemsVM();
         }
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -107,8 +108,9 @@ namespace CommonUserControlLibrary.ViewModels {
         #endregion
         #region TableMenuItemsPropertyChanged
         protected ObservableCollection<IWebServiceFilterMenuInterface> GetDefaultTableMenuItemsVM() {
+            bool enbld = ((GlblSettingsSrv.GetViewModelMask(viewModelName) & 8) != 8);
             return new ObservableCollection<IWebServiceFilterMenuInterface>()  {
-                new WebServiceFilterMenuViewModel() { Id = "TableAddMI", Caption="Add Item", IconName="TablePlus", IconColor=Color.Default, Enabled=true, Data=null, Command = TableMenuItemsCommand},
+                new WebServiceFilterMenuViewModel() { Id = "TableAddMI", Caption="Add Item", IconName="TablePlus", IconColor=Color.Default, Enabled=enbld, Data=null, Command = TableMenuItemsCommand}
             };
         }
         public void TableMenuItemsPropertyChanged(object Sender, object OldValue, object NewValue) {
@@ -143,11 +145,14 @@ namespace CommonUserControlLibrary.ViewModels {
         #endregion
         #region RowMenuItemsPropertyChanged
         protected ObservableCollection<IWebServiceFilterMenuInterface> GetDefaultRowMenuItemsVM() {
-            return new ObservableCollection<IWebServiceFilterMenuInterface>()  {
-                new WebServiceFilterMenuViewModel() { Id = "RowUpdMI", Caption="Update item", IconName="TableEdit", IconColor=Color.Default, Enabled=true, Data=null, Command = RowMenuItemsCommand},
-                new WebServiceFilterMenuViewModel() { Id = "RowDelMI", Caption="Delete item", IconName="TableRemove", IconColor=Color.Default, Enabled=true, Data=null, Command = RowMenuItemsCommand},
-                new WebServiceFilterMenuViewModel() { Id = "RowViewMI", Caption="View item", IconName="TableEdit", IconColor=Color.Default, Enabled=true, Data=null, Command = RowMenuItemsCommand},
-            };
+            ObservableCollection<IWebServiceFilterMenuInterface> rslt = new ObservableCollection<IWebServiceFilterMenuInterface>();
+            bool enbld = ((GlblSettingsSrv.GetViewModelMask(viewModelName) & 4) != 4 );
+            rslt.Add(new WebServiceFilterMenuViewModel() { Id = "RowUpdMI", Caption="Update item", IconName="TableEdit", IconColor=Color.Default, Enabled=enbld, Data=null, Command = RowMenuItemsCommand});
+            enbld = ((GlblSettingsSrv.GetViewModelMask(viewModelName) & 2) != 2 );
+            rslt.Add(new WebServiceFilterMenuViewModel() { Id = "RowDelMI", Caption="Delete item", IconName="TableRemove", IconColor=Color.Default, Enabled=enbld, Data=null, Command = RowMenuItemsCommand});
+            enbld = true;
+            rslt.Add(new WebServiceFilterMenuViewModel() { Id = "RowViewMI", Caption="View item", IconName="TableEdit", IconColor=Color.Default, Enabled=enbld, Data=null, Command = RowMenuItemsCommand});
+            return rslt;
         }
         public void RowMenuItemsPropertyChanged(object Sender, object OldValue, object NewValue) {
             if(IsDestroyed) return;

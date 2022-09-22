@@ -32,17 +32,6 @@
             RowMenuItems="{Binding BindingContext.RowMenuItems, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
             IsParentLoaded="{Binding BindingContext.IsParentLoaded, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
             />
-            <prx:ProxyUserControl Grid.Row="1"
-                    prism:RegionManager.RegionName="MyRegion"
-                    IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
-                    ShowAddFilterBtn="True" 
-                    ShowFilter="True" 
-                    GridHeight="{Binding BindingContext.GridHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
-                    FilterHeight="{Binding BindingContext.FilterHeight, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
-                    CanAdd="True" 
-                    CanUpdate="True" 
-                    CanDelete="True" 
-                    />
 
         </Grid>
 

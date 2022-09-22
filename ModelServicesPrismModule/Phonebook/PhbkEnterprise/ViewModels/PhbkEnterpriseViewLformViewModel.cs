@@ -29,6 +29,9 @@ namespace ModelServicesPrismModule.Phonebook.PhbkEnterprise.ViewModels {
             adialogName = "PhbkEnterpriseViewAdlgViewModel";
             udialogName = "PhbkEnterpriseViewUdlgViewModel";
             ddialogName = "PhbkEnterpriseViewDdlgViewModel";
+            viewModelName = "PhbkEnterpriseView";
+            _TableMenuItemsVM = GetDefaultTableMenuItemsVM();
+            _RowMenuItemsVM = GetDefaultRowMenuItemsVM();
         }
     }
 }

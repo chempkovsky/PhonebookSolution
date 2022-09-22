@@ -509,10 +509,9 @@ namespace ModelServicesPrismModule.Phonebook.PhbkDivision.ViewModels {
        }
        protected void SelectedRowCommandExecute(object prm)
        {
-            _regionManager.RequestNavigate("MyRegion", "PhbkPhoneTypeViewRlistUserControl");
             // SelectedRow = prm;
-        }
-        protected bool SelectedRowCommandCanExecute(object prm)
+       }
+       protected bool SelectedRowCommandCanExecute(object prm)
        {
            return true; 
        }

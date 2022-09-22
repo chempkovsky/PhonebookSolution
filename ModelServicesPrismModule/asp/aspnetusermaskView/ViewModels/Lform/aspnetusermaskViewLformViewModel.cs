@@ -29,6 +29,9 @@ namespace ModelServicesPrismModule.asp.aspnetusermaskView.ViewModels.Lform {
             adialogName = "";
             udialogName = "";
             ddialogName = "";
+            viewModelName = "aspnetusermaskView";
+            _TableMenuItemsVM = GetDefaultTableMenuItemsVM();
+            _RowMenuItemsVM = GetDefaultRowMenuItemsVM();
         }
     }
 }
