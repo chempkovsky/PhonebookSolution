@@ -502,7 +502,7 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
        #endregion
        #region INavigationAware
        public bool IsNavigationTarget(INavigationParameters prms) {
-            return true;
+            return regionManager.Regions.ContainsRegionWithName(AspnetuserViewRlistPageDetailRegion);
        }
        public void OnNavigatedFrom(INavigationParameters prms) {
             
@@ -658,7 +658,14 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
             if (IsDestroyed || (SelectedDetailsListItem is null) || (SelectedRow is null)) return;
             if (string.IsNullOrEmpty(SelectedDetailsListItem.ForeignKeyDetails)) return;
             //var rgn = regionManager.Regions[AspnetuserViewRlistPageDetailRegion];
-            var rgn = regionManager.Regions.FirstOrDefault(r => r.Name == "AspnetuserViewRlistPageDetailRegion");
+            IRegion rgn = null;
+            if (regionManager.Regions.ContainsRegionWithName(AspnetuserViewRlistPageDetailRegion))
+                rgn = regionManager.Regions[AspnetuserViewRlistPageDetailRegion]; //.FirstOrDefault(r => r.Name == AspnetuserViewRlistPageDetailRegion);
+            if(rgn is null)
+            {
+//                regionManager.Regions.Add("AspnetuserViewRlistPageDetailRegion",null);
+//                rgn = regionManager.Regions.FirstOrDefault(r => r.Name == "AspnetuserViewRlistPageDetailRegion");
+            }
             if (rgn != null) {
                 foreach (var vw in rgn.Views)
                 {
@@ -673,7 +680,7 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
             }
             INavigationParameters navigationParameters = new NavigationParameters();
             navigationParameters.Add("HiddenFilter", this.FrmSrvaspnetuserView.getHiddenFilterByRow(SelectedRow as IAspnetuserView, SelectedDetailsListItem.ForeignKeyDetails));  
-            regionManager.RequestNavigate("AspnetuserViewRlistPageDetailRegion", SelectedDetailsListItem.Region, OnRegionNavigationResult, navigationParameters);
+            regionManager.RequestNavigate(AspnetuserViewRlistPageDetailRegion, SelectedDetailsListItem.Region, OnRegionNavigationResult, navigationParameters);
         }
         #endregion
 
@@ -696,6 +703,8 @@ namespace ModelServicesPrismModule.asp.aspnetuserView.ViewModels.RlPage {
         }
         #endregion
 
+        string _AspnetuserViewRlistPageDetailRegion = "A"+Guid.NewGuid().ToString("N");
+        public string AspnetuserViewRlistPageDetailRegion { get { return _AspnetuserViewRlistPageDetailRegion;  } }
 
 
     }

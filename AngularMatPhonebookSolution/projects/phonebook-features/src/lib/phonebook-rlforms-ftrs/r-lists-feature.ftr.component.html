@@ -1,0 +1,15 @@
+
+
+<div class="dashboard-grid-container">
+  <h4>Dashboard for RListsFeature</h4>
+  <div class="gridlistcls">
+    <div [style.grid-column-end]="'span '+ colSpan[0][0]"   [style.grid-row-end]="'span '+ rowSpan[0][0]"  [hidden]="colSpan[0][0] === 0"  *ngIf="isVisible[0]">
+        <mat-card>
+            <router-outlet (activate)="onActivate($event)"  (deactivate)= "onDeActivate($event)" ></router-outlet>
+        </mat-card>
+    </div>
+
+
+  </div>
+</div>
+

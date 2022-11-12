@@ -1,0 +1,67 @@
+
+     <div fxLayout="row" fxLayoutAlign="flex-end space-around" style="margin-bottom: 12px;"> 
+        <label fxFlex fxLayoutAlign="flex-start space-around">{{caption}}</label>
+        <ng-template ngFor let-item [ngForOf]="contMenuItems">
+            <span fxFlex="1%"></span>  
+            <button mat-icon-button (click)="onContMenuItemClicked(item)" 
+                [matTooltip]="item.caption"> 
+                <mat-icon  [color]="item.iconColor" >{{item.iconName}}</mat-icon>
+            </button>     
+        </ng-template>            
+        <span fxFlex="1%"></span>
+     </div> 
+    <div [formGroup]="mainFormGroup" (ngSubmit)="doSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between" style="margin: 0 15px;">
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="24" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['RName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['RName-placeholder']" formControlName="rName" [readonly]="true">
+                        <mat-error *ngIf="mainFormGroup.controls['rName'].invalid">{{getErrorMessage(mainFormGroup.controls['rName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['RName-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="24" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['RoleDescription-label']}}</mat-label>
+                        <input  matInput 
+                            [placeholder]="frases['RoleDescription-placeholder']" formControlName="roleDescription">
+                        <mat-error *ngIf="mainFormGroup.controls['roleDescription'].invalid">{{getErrorMessage(mainFormGroup.controls['roleDescription'])}}</mat-error>
+                        <mat-hint align="end">{{frases['RoleDescription-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="24" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['ModelPkRef-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['ModelPkRef-placeholder']" formControlName="modelPkRef" [readonly]="true">
+                        <mat-error *ngIf="mainFormGroup.controls['modelPkRef'].invalid">{{getErrorMessage(mainFormGroup.controls['modelPkRef'])}}</mat-error>
+                        <mat-hint align="end">{{frases['ModelPkRef-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="24" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['MModelName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['MModelName-placeholder']" formControlName="mModelName" [readonly]="true">
+                        <mat-error *ngIf="mainFormGroup.controls['mModelName'].invalid">{{getErrorMessage(mainFormGroup.controls['mModelName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['MModelName-hint']}}</mat-hint>
+                    </mat-form-field>
+                <hr fxFlex="100"/>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="19" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-checkbox formControlName="mask1" > {{frases['Mask1-label']}} </mat-checkbox>
+                        <mat-error *ngIf="mainFormGroup.controls['mask1'].invalid">{{getErrorMessage(mainFormGroup.controls['mask1'])}}</mat-error>
+                        <mat-hint align="end">{{frases['Mask1-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="19" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-checkbox formControlName="mask2" > {{frases['Mask2-label']}} </mat-checkbox>
+                        <mat-error *ngIf="mainFormGroup.controls['mask2'].invalid">{{getErrorMessage(mainFormGroup.controls['mask2'])}}</mat-error>
+                        <mat-hint align="end">{{frases['Mask2-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="19" fxFlex.gt-sm="32" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-checkbox formControlName="mask3" > {{frases['Mask3-label']}} </mat-checkbox>
+                        <mat-error *ngIf="mainFormGroup.controls['mask3'].invalid">{{getErrorMessage(mainFormGroup.controls['mask3'])}}</mat-error>
+                        <mat-hint align="end">{{frases['Mask3-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="19" fxFlex.gt-sm="32" fxFlex.gt-xs="49" fxFlex="99">
+                        <mat-checkbox formControlName="mask4" > {{frases['Mask4-label']}} </mat-checkbox>
+                        <mat-error *ngIf="mainFormGroup.controls['mask4'].invalid">{{getErrorMessage(mainFormGroup.controls['mask4'])}}</mat-error>
+                        <mat-hint align="end">{{frases['Mask4-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="19" fxFlex.gt-sm="32" fxFlex.gt-xs="49" fxFlex="99">
+                        <mat-checkbox formControlName="mask5" > {{frases['Mask5-label']}} </mat-checkbox>
+                        <mat-error *ngIf="mainFormGroup.controls['mask5'].invalid">{{getErrorMessage(mainFormGroup.controls['mask5'])}}</mat-error>
+                        <mat-hint align="end">{{frases['Mask5-hint']}}</mat-hint>
+                    </mat-form-field>
+ 
+    </div>
+

@@ -1,0 +1,43 @@
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>{{title}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content >
+
+    <div [formGroup]="registerFormGroup" (ngSubmit)="doSubmit()" fxLayout="column wrap">
+        <mat-form-field  [appearance]="appearance">
+            <mat-label i18n="Email@@AppGlblRegisterComponent.Email-label">Email</mat-label>
+            <input  matInput i18n-placeholder="Email placeholder@@AppGlblRegisterComponent.Email-placeholder" placeholder="Email" formControlName="email">
+            <mat-error *ngIf="registerFormGroup.controls['email'].invalid">{{getErrorMessage(registerFormGroup.controls['email'])}}</mat-error>
+            <mat-hint align="end" i18n="Enter Email@@AppGlblRegisterComponent.Enter-Email-hint">Enter Email</mat-hint>
+        </mat-form-field>
+        <mat-form-field  [appearance]="appearance" >
+            <mat-label i18n="Password@@AppGlblRegisterComponent.Password-label">Password</mat-label>
+            <input  matInput i18n-placeholder="Password placeholder@@AppGlblRegisterComponent.Password-placeholder"  placeholder="Password" formControlName="password" [type]="pwdhide ? 'password' : 'text'">
+
+            <button mat-icon-button matSuffix (click)="pwdhide = !pwdhide">
+                <mat-icon>{{pwdhide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerFormGroup.controls['password'].invalid">{{getErrorMessage(registerFormGroup.controls['password'])}}</mat-error>
+            <mat-hint align="end" i18n="Enter Password@@AppGlblRegisterComponent.Enter-Password-hint">Enter Password</mat-hint>
+        </mat-form-field>
+        <mat-form-field  [appearance]="appearance">
+            <mat-label i18n="Confirm Password@@AppGlblRegisterComponent.Confirm-Password-label">Confirm Password</mat-label>
+            <input  matInput i18n-placeholder="Confirm Password@@AppGlblRegisterComponent.Confirm-Password-placeholder" placeholder="Confirm Password" formControlName="confirmPassword" [type]="cnfPwdhide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="cnfPwdhide = !cnfPwdhide">
+                <mat-icon>{{cnfPwdhide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerFormGroup.controls['confirmPassword'].invalid">{{getErrorMessage(registerFormGroup.controls['confirmPassword'])}}</mat-error>
+            <mat-hint align="end" i18n="Confirm Password@@AppGlblRegisterComponent.Confirm-Password-hint">Confirm Password</mat-hint>
+
+        </mat-form-field>
+    </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="onCancel()" cdkFocusInitial i18n="Canceld@@Cancel.Cancel">Cancel</button>
+        <button mat-button (click)="doSubmit()" i18n="Ok@@Ok.Ok">Ok</button>
+    </mat-card-actions>
+</mat-card>
+

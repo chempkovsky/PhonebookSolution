@@ -1,0 +1,52 @@
+     <div fxLayout="row" fxLayoutAlign="flex-end space-around" style="margin-bottom: 12px;"> 
+        <label fxFlex fxLayoutAlign="flex-start space-around">{{caption}}</label>
+        <ng-template ngFor let-item [ngForOf]="contMenuItems">
+            <span fxFlex="1%"></span>  
+            <button mat-icon-button (click)="onContMenuItemClicked(item)" 
+                [matTooltip]="item.caption"> 
+                <mat-icon  [color]="item.iconColor" >{{item.iconName}}</mat-icon>
+            </button>     
+        </ng-template>            
+        <span fxFlex="1%"></span>
+     </div> 
+    <div [formGroup]="mainFormGroup" (ngSubmit)="doSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between" style="margin: 0 15px;">
+                <mat-form-field  [appearance]="appearance" fxFlex.gt-md="49" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['DivisionId-label']}}</mat-label>
+
+                    <input  matInput [placeholder]="frases['DivisionId-placeholder']" formControlName="divisionId" [readonly]="true">
+                    <mat-error *ngIf="mainFormGroup.controls['divisionId'].invalid">{{getErrorMessage(mainFormGroup.controls['divisionId'])}}</mat-error>
+                    <mat-hint align="end">{{frases['DivisionId-hint']}}</mat-hint>
+                </mat-form-field>
+                <mat-form-field  [appearance]="appearance" fxFlex.gt-md="49" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['DivisionName-label']}}</mat-label>
+
+                    <input  matInput [placeholder]="frases['DivisionName-placeholder']" formControlName="divisionName" [readonly]="true">
+                    <mat-error *ngIf="mainFormGroup.controls['divisionName'].invalid">{{getErrorMessage(mainFormGroup.controls['divisionName'])}}</mat-error>
+                    <mat-hint align="end">{{frases['DivisionName-hint']}}</mat-hint>
+                </mat-form-field>
+                <hr fxFlex="100"/>
+                <mat-form-field  [appearance]="appearance" fxFlex.gt-md="99" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['DivisionDesc-label']}}</mat-label>
+
+                    <input  matInput [placeholder]="frases['DivisionDesc-placeholder']" formControlName="divisionDesc" [readonly]="true">
+                    <mat-error *ngIf="mainFormGroup.controls['divisionDesc'].invalid">{{getErrorMessage(mainFormGroup.controls['divisionDesc'])}}</mat-error>
+                    <mat-hint align="end">{{frases['DivisionDesc-hint']}}</mat-hint>
+                </mat-form-field>
+                <hr fxFlex="100"/>
+                <mat-form-field  [appearance]="appearance" fxFlex.gt-md="49" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['EntrprsIdRef-label']}}</mat-label>
+
+                    <input  matInput [placeholder]="frases['EntrprsIdRef-placeholder']" formControlName="entrprsIdRef" [readonly]="true">
+                    <mat-error *ngIf="mainFormGroup.controls['entrprsIdRef'].invalid">{{getErrorMessage(mainFormGroup.controls['entrprsIdRef'])}}</mat-error>
+                    <mat-hint align="end">{{frases['EntrprsIdRef-hint']}}</mat-hint>
+                </mat-form-field>
+                <mat-form-field  [appearance]="appearance" fxFlex.gt-md="49" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['EEntrprsName-label']}}</mat-label>
+
+                    <input  matInput [placeholder]="frases['EEntrprsName-placeholder']" formControlName="eEntrprsName" [readonly]="true">
+                    <mat-error *ngIf="mainFormGroup.controls['eEntrprsName'].invalid">{{getErrorMessage(mainFormGroup.controls['eEntrprsName'])}}</mat-error>
+                    <mat-hint align="end">{{frases['EEntrprsName-hint']}}</mat-hint>
+                </mat-form-field>
+ 
+    </div>
+

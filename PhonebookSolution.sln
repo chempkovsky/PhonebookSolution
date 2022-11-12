@@ -33,27 +33,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LpPhBkPostgreSqlWebApp", "L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhBkPostgreSqlWebApp", "PhBkPostgreSqlWebApp\PhBkPostgreSqlWebApp.csproj", "{816458D1-15C1-42FA-A374-3B170AF4987C}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "src(1)", "..\..\Telerik\kendo-angular-app\src\", "{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_65383"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\Telerik\kendo-angular-app\src\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65383\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_65383"
-		Release.AspNetCompiler.PhysicalPath = "..\..\Telerik\kendo-angular-app\src\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65383\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "65383"
-		SlnRelativePath = "..\..\Telerik\kendo-angular-app\src\"
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{B29BB7C7-3FA4-41BA-89FD-7C46FB3BD825}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{EC4061A6-8BE3-4B47-9D89-4618F2F8C24B}"
@@ -82,7 +61,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismPhonebook.Android", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismPhonebook.UWP", "PrismPhonebook\PrismPhonebook.UWP\PrismPhonebook.UWP.csproj", "{972F676D-8C20-4323-882F-9E4125560773}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "O2mPrismModule", "O2mPrismModule\O2mPrismModule.csproj", "{4D35038A-4050-4204-930E-FD0280825846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "O2mPrismModule", "O2mPrismModule\O2mPrismModule.csproj", "{4D35038A-4050-4204-930E-FD0280825846}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "projects(3)", "AngularMatPhonebookSolution\projects\", "{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55260"
+		Debug.AspNetCompiler.PhysicalPath = "AngularMatPhonebookSolution\projects\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55260\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55260"
+		Release.AspNetCompiler.PhysicalPath = "AngularMatPhonebookSolution\projects\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55260\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55260"
+		SlnRelativePath = "AngularMatPhonebookSolution\projects\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -320,22 +320,6 @@ Global
 		{816458D1-15C1-42FA-A374-3B170AF4987C}.Release|x64.Build.0 = Release|Any CPU
 		{816458D1-15C1-42FA-A374-3B170AF4987C}.Release|x86.ActiveCfg = Release|Any CPU
 		{816458D1-15C1-42FA-A374-3B170AF4987C}.Release|x86.Build.0 = Release|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|ARM.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x64.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Debug|x86.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|ARM.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|ARM.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x64.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x64.Build.0 = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x86.ActiveCfg = Debug|Any CPU
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475}.Release|x86.Build.0 = Debug|Any CPU
 		{0F387960-A05E-4AE8-94F2-91DD7656870E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F387960-A05E-4AE8-94F2-91DD7656870E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F387960-A05E-4AE8-94F2-91DD7656870E}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -528,6 +512,22 @@ Global
 		{4D35038A-4050-4204-930E-FD0280825846}.Release|x64.Build.0 = Release|Any CPU
 		{4D35038A-4050-4204-930E-FD0280825846}.Release|x86.ActiveCfg = Release|Any CPU
 		{4D35038A-4050-4204-930E-FD0280825846}.Release|x86.Build.0 = Release|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|x64.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Debug|x86.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|ARM.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|ARM.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|x64.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|x64.Build.0 = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|x86.ActiveCfg = Debug|Any CPU
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -547,7 +547,6 @@ Global
 		{41035B7A-5992-4419-A11F-75AD7B0D35E7} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{EB4421BB-4402-4382-B95C-C9F1BC9F7D61} = {96259134-72D4-4092-AB64-1A2537CF008E}
 		{816458D1-15C1-42FA-A374-3B170AF4987C} = {96259134-72D4-4092-AB64-1A2537CF008E}
-		{A46F9AA1-E36E-494F-A3A1-7A2461A0C475} = {B29BB7C7-3FA4-41BA-89FD-7C46FB3BD825}
 		{5D92AFF4-E921-4800-9063-8C0D5B399DC3} = {EC4061A6-8BE3-4B47-9D89-4618F2F8C24B}
 		{AFA557B8-00F6-4AA9-BFDA-D7C3F2086326} = {EC4061A6-8BE3-4B47-9D89-4618F2F8C24B}
 		{0F387960-A05E-4AE8-94F2-91DD7656870E} = {5D92AFF4-E921-4800-9063-8C0D5B399DC3}
@@ -561,6 +560,7 @@ Global
 		{FF2E2835-E95F-4078-ABC8-3836D73287A0} = {EC4061A6-8BE3-4B47-9D89-4618F2F8C24B}
 		{972F676D-8C20-4323-882F-9E4125560773} = {EC4061A6-8BE3-4B47-9D89-4618F2F8C24B}
 		{4D35038A-4050-4204-930E-FD0280825846} = {AFA557B8-00F6-4AA9-BFDA-D7C3F2086326}
+		{A4AFD7DB-A82A-48B3-AEC3-E7E119EA1FAA} = {B29BB7C7-3FA4-41BA-89FD-7C46FB3BD825}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD63F0F1-8789-46FE-80D7-59C7A54FF165}

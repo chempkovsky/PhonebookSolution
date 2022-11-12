@@ -1,0 +1,64 @@
+
+
+<div class="dashboard-grid-container">
+  <h4>Dashboard for LformsFeature</h4>
+  <div class="gridlistcls">
+
+    <div [style.grid-column-end]="'span '+ colSpan[0][0]"   [style.grid-row-end]="'span '+ rowSpan[0][0]"  [hidden]="colSpan[0][0] === 0"  *ngIf="isVisible[0]">
+        <mat-card>
+            <app-phbk-phone-type-view-lform
+                [cont-menu-items]="contMenuItems[0]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[0][0]"  
+                [filter-max-height]="filterMaxHeight[0][0]"></app-phbk-phone-type-view-lform>
+        </mat-card>
+    </div>
+
+
+    <div [style.grid-column-end]="'span '+ colSpan[1][0]"   [style.grid-row-end]="'span '+ rowSpan[1][0]"  [hidden]="colSpan[1][0] === 0"  *ngIf="isVisible[1]">
+        <mat-card>
+            <app-phbk-enterprise-view-lform
+                [cont-menu-items]="contMenuItems[1]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[1][0]"  
+                [filter-max-height]="filterMaxHeight[1][0]"></app-phbk-enterprise-view-lform>
+        </mat-card>
+    </div>
+
+
+    <div [style.grid-column-end]="'span '+ colSpan[2][0]"   [style.grid-row-end]="'span '+ rowSpan[2][0]"  [hidden]="colSpan[2][0] === 0"  *ngIf="isVisible[2]">
+        <mat-card>
+            <app-phbk-division-view-lform
+                [cont-menu-items]="contMenuItems[2]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[2][0]"  
+                [filter-max-height]="filterMaxHeight[2][0]"></app-phbk-division-view-lform>
+        </mat-card>
+    </div>
+
+
+    <div [style.grid-column-end]="'span '+ colSpan[3][0]"   [style.grid-row-end]="'span '+ rowSpan[3][0]"  [hidden]="colSpan[3][0] === 0"  *ngIf="isVisible[3]">
+        <mat-card>
+            <app-phbk-employee-view-lform
+                [cont-menu-items]="contMenuItems[3]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[3][0]"  
+                [filter-max-height]="filterMaxHeight[3][0]"></app-phbk-employee-view-lform>
+        </mat-card>
+    </div>
+
+
+    <div [style.grid-column-end]="'span '+ colSpan[4][0]"   [style.grid-row-end]="'span '+ rowSpan[4][0]"  [hidden]="colSpan[4][0] === 0"  *ngIf="isVisible[4]">
+        <mat-card>
+            <app-phbk-phone-view-lform
+                [cont-menu-items]="contMenuItems[4]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[4][0]"  
+                [filter-max-height]="filterMaxHeight[4][0]"></app-phbk-phone-view-lform>
+        </mat-card>
+    </div>
+
+
+  </div>
+</div>
+

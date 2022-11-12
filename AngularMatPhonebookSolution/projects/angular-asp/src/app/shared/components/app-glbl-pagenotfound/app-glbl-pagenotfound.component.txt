@@ -1,0 +1,25 @@
+
+{
+    "FileModifierItems": [
+        {
+            "Description": [
+                'update public-api.ts or webpack.config.js',
+                'with export data'
+            ],
+            "MethodName": "UpdateExport",
+            "InvocationParams": ['00185-app-glbl-pagenotfound.component.ts']
+        }
+    ]
+}==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+Reading updaters code
+Reading updaters code: Done
+Setting Babel Folder Path
+Setting Babel Folder Path: Done
+
+update public-api.ts or webpack.config.js
+with export data
+Result:
+The file 'E:\Development\PhonebookSolution\AngularMatPhonebookSolution\projects\angular-asp\webpack.config.js' does not exist.
+

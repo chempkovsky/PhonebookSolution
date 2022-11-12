@@ -1,0 +1,12 @@
+<h3 mat-dialog-title>{{data.title}}</h3>
+<div mat-dialog-content>
+    <app-phbk-employee-view-lform (selected-row)="onSelectedRow($event)"
+    [hidden-filter] = "data.hiddenFilter" [show-filter]="data.showFilter"
+    [can-add]= "data.canAdd" [can-update]= "data.canUpdate" [can-delete]= "data.canDelete"
+    ></app-phbk-employee-view-lform>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()" cdkFocusInitial i18n="Cancel@@Cancel.Cancel">Cancel</button>
+  <button mat-button (click)="onOk()" i18n="Ok@@Ok.Ok">Ok</button>
+</div>
+

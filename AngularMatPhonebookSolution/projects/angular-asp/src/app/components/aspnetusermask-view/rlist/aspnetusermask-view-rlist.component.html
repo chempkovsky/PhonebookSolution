@@ -1,0 +1,37 @@
+
+<app-aspnetusermask-view-sform
+    [caption]="caption" 
+    (on-back-btn)="onBackBtn($event)"
+    [show-back-btn]="showBackBtn"
+    [row-commands]="rowMenuItemsData" 
+    [table-commands]="tableMenuItemsData"
+    [show-filter]="showFilter"
+    [hidden-filter] ="hiddenFilter"
+    (on-row-command)="rowCommand($event)"
+    (on-table-command)="tableCommand($event)"
+    (apply-filter)="applyFilter($event)"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+
+    (before-squery)="onBeforeSquery($event)"
+    [external-filter]="externalFilter"
+    
+    (selected-row)="onSelectRow($event)"
+    [show-multi-selected-row]="showMultiSelectedRow"  
+    (multi-selected-row)="onMultiSelectedRow($event)"  
+
+    [max-height]="maxHeight"  
+    [filter-max-height]="filterMaxHeight"  
+ ></app-aspnetusermask-view-sform>
+
+ <div fxLayout="row"  *ngIf="showDetails">
+  <mat-form-field [appearance]="appearance" fxFlex="100" >
+    <mat-select (selectionChange)="onDetailChanged($event)" [value]="selectedDetail">
+        <mat-option *ngFor="let v of  detailViews;" [value]="v">{{ v.caption }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+ <!-- <router-outlet name='loltnmaspnetusermaskView'></router-outlet>  -->
+ <router-outlet></router-outlet>
+

@@ -1,0 +1,13 @@
+
+<h3 mat-dialog-title i18n="Columns To Show@@ColumnSelectorDlgComponent.Columns-To-Show">Columns To Show</h3>
+
+<div mat-dialog-content>
+    <app-column-selector 
+        [colums-to-select]="data"
+    ></app-column-selector>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()" cdkFocusInitial i18n="Cancel@@Cancel.Cancel">Cancel</button>
+  <button mat-button (click)="onOk()" i18n="Ok@@Ok.Ok">Ok</button>
+</div>
+

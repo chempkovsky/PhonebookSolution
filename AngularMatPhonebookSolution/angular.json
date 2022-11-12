@@ -1,0 +1,901 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"AngularPhonebook": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/angular-phonebook",
+			"sourceRoot": "projects/angular-phonebook/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/angular-phonebook",
+						"index": "projects/angular-phonebook/src/index.html",
+						"main": "projects/angular-phonebook/src/main.ts",
+						"polyfills": "projects/angular-phonebook/src/polyfills.ts",
+						"tsConfig": "projects/angular-phonebook/tsconfig.app.json",
+						"assets": [
+							"projects/angular-phonebook/src/favicon.ico",
+							"projects/angular-phonebook/src/assets"
+						],
+						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"projects/angular-phonebook/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/angular-phonebook/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/angular-phonebook/src/environments/environment.ts",
+									"with": "projects/angular-phonebook/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/angular-phonebook/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "AngularPhonebook:build:production",
+							"extraWebpackConfig": "projects/angular-phonebook/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "AngularPhonebook:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/angular-phonebook/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "AngularPhonebook:build",
+						"extraWebpackConfig": "projects/angular-phonebook/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/angular-phonebook/src/test.ts",
+						"polyfills": "projects/angular-phonebook/src/polyfills.ts",
+						"tsConfig": "projects/angular-phonebook/tsconfig.spec.json",
+						"karmaConfig": "projects/angular-phonebook/karma.conf.js",
+						"assets": [
+							"projects/angular-phonebook/src/favicon.ico",
+							"projects/angular-phonebook/src/assets"
+						],
+						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"projects/angular-phonebook/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"common-modules": {
+			"projectType": "library",
+			"root": "projects/common-modules",
+			"sourceRoot": "projects/common-modules/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/common-modules/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common-modules/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/common-modules/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/common-modules/src/test.ts",
+						"tsConfig": "projects/common-modules/tsconfig.spec.json",
+						"karmaConfig": "projects/common-modules/karma.conf.js"
+					}
+				}
+			}
+		},
+		"common-interfaces": {
+			"projectType": "library",
+			"root": "projects/common-interfaces",
+			"sourceRoot": "projects/common-interfaces/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/common-interfaces/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common-interfaces/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/common-interfaces/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/common-interfaces/src/test.ts",
+						"tsConfig": "projects/common-interfaces/tsconfig.spec.json",
+						"karmaConfig": "projects/common-interfaces/karma.conf.js"
+					}
+				}
+			}
+		},
+		"common-services": {
+			"projectType": "library",
+			"root": "projects/common-services",
+			"sourceRoot": "projects/common-services/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/common-services/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common-services/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/common-services/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/common-services/src/test.ts",
+						"tsConfig": "projects/common-services/tsconfig.spec.json",
+						"karmaConfig": "projects/common-services/karma.conf.js"
+					}
+				}
+			}
+		},
+		"common-formatters": {
+			"projectType": "library",
+			"root": "projects/common-formatters",
+			"sourceRoot": "projects/common-formatters/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/common-formatters/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common-formatters/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/common-formatters/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/common-formatters/src/test.ts",
+						"tsConfig": "projects/common-formatters/tsconfig.spec.json",
+						"karmaConfig": "projects/common-formatters/karma.conf.js"
+					}
+				}
+			}
+		},
+		"common-components": {
+			"projectType": "library",
+			"root": "projects/common-components",
+			"sourceRoot": "projects/common-components/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/common-components/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common-components/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/common-components/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/common-components/src/test.ts",
+						"tsConfig": "projects/common-components/tsconfig.spec.json",
+						"karmaConfig": "projects/common-components/karma.conf.js"
+					}
+				}
+			}
+		},
+		"common-auth": {
+			"projectType": "library",
+			"root": "projects/common-auth",
+			"sourceRoot": "projects/common-auth/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/common-auth/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/common-auth/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/common-auth/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/common-auth/src/test.ts",
+						"tsConfig": "projects/common-auth/tsconfig.spec.json",
+						"karmaConfig": "projects/common-auth/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-interfaces": {
+			"projectType": "library",
+			"root": "projects/phonebook-interfaces",
+			"sourceRoot": "projects/phonebook-interfaces/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-interfaces/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-interfaces/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-interfaces/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-interfaces/src/test.ts",
+						"tsConfig": "projects/phonebook-interfaces/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-interfaces/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-services": {
+			"projectType": "library",
+			"root": "projects/phonebook-services",
+			"sourceRoot": "projects/phonebook-services/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-services/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-services/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-services/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-services/src/test.ts",
+						"tsConfig": "projects/phonebook-services/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-services/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-sforms": {
+			"projectType": "library",
+			"root": "projects/phonebook-sforms",
+			"sourceRoot": "projects/phonebook-sforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-sforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-sforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-sforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-sforms/src/test.ts",
+						"tsConfig": "projects/phonebook-sforms/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-sforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-updforms": {
+			"projectType": "library",
+			"root": "projects/phonebook-updforms",
+			"sourceRoot": "projects/phonebook-updforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-updforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-updforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-updforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-updforms/src/test.ts",
+						"tsConfig": "projects/phonebook-updforms/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-updforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-lforms": {
+			"projectType": "library",
+			"root": "projects/phonebook-lforms",
+			"sourceRoot": "projects/phonebook-lforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-lforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-lforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-lforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-lforms/src/test.ts",
+						"tsConfig": "projects/phonebook-lforms/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-lforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-rlforms": {
+			"projectType": "library",
+			"root": "projects/phonebook-rlforms",
+			"sourceRoot": "projects/phonebook-rlforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-rlforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-rlforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-rlforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-rlforms/src/test.ts",
+						"tsConfig": "projects/phonebook-rlforms/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-rlforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-rdlforms": {
+			"projectType": "library",
+			"root": "projects/phonebook-rdlforms",
+			"sourceRoot": "projects/phonebook-rdlforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-rdlforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-rdlforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-rdlforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-rdlforms/src/test.ts",
+						"tsConfig": "projects/phonebook-rdlforms/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-rdlforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"phonebook-scforms": {
+			"projectType": "library",
+			"root": "projects/phonebook-scforms",
+			"sourceRoot": "projects/phonebook-scforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/phonebook-scforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/phonebook-scforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/phonebook-scforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/phonebook-scforms/src/test.ts",
+						"tsConfig": "projects/phonebook-scforms/tsconfig.spec.json",
+						"karmaConfig": "projects/phonebook-scforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"asp-interfaces": {
+			"projectType": "library",
+			"root": "projects/asp-interfaces",
+			"sourceRoot": "projects/asp-interfaces/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/asp-interfaces/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/asp-interfaces/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/asp-interfaces/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/asp-interfaces/src/test.ts",
+						"tsConfig": "projects/asp-interfaces/tsconfig.spec.json",
+						"karmaConfig": "projects/asp-interfaces/karma.conf.js"
+					}
+				}
+			}
+		},
+		"asp-sforms": {
+			"projectType": "library",
+			"root": "projects/asp-sforms",
+			"sourceRoot": "projects/asp-sforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/asp-sforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/asp-sforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/asp-sforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/asp-sforms/src/test.ts",
+						"tsConfig": "projects/asp-sforms/tsconfig.spec.json",
+						"karmaConfig": "projects/asp-sforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"asp-services": {
+			"projectType": "library",
+			"root": "projects/asp-services",
+			"sourceRoot": "projects/asp-services/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/asp-services/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/asp-services/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/asp-services/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/asp-services/src/test.ts",
+						"tsConfig": "projects/asp-services/tsconfig.spec.json",
+						"karmaConfig": "projects/asp-services/karma.conf.js"
+					}
+				}
+			}
+		},
+		"asp-updforms": {
+			"projectType": "library",
+			"root": "projects/asp-updforms",
+			"sourceRoot": "projects/asp-updforms/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/asp-updforms/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/asp-updforms/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/asp-updforms/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/asp-updforms/src/test.ts",
+						"tsConfig": "projects/asp-updforms/tsconfig.spec.json",
+						"karmaConfig": "projects/asp-updforms/karma.conf.js"
+					}
+				}
+			}
+		},
+		"AngularAsp": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/angular-asp",
+			"sourceRoot": "projects/angular-asp/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/angular-asp",
+						"index": "projects/angular-asp/src/index.html",
+						"main": "projects/angular-asp/src/main.ts",
+						"polyfills": "projects/angular-asp/src/polyfills.ts",
+						"tsConfig": "projects/angular-asp/tsconfig.app.json",
+						"assets": [
+							"projects/angular-asp/src/favicon.ico",
+							"projects/angular-asp/src/assets"
+						],
+						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"projects/angular-asp/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/angular-asp/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/angular-asp/src/environments/environment.ts",
+									"with": "projects/angular-asp/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/angular-asp/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "AngularAsp:build:production",
+							"extraWebpackConfig": "projects/angular-asp/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "AngularAsp:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/angular-asp/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "AngularAsp:build",
+						"extraWebpackConfig": "projects/angular-asp/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/angular-asp/src/test.ts",
+						"polyfills": "projects/angular-asp/src/polyfills.ts",
+						"tsConfig": "projects/angular-asp/tsconfig.spec.json",
+						"karmaConfig": "projects/angular-asp/karma.conf.js",
+						"assets": [
+							"projects/angular-asp/src/favicon.ico",
+							"projects/angular-asp/src/assets"
+						],
+						"styles": [
+							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"projects/angular-asp/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+    },
+    "phonebook-features": {
+      "projectType": "library",
+      "root": "projects/phonebook-features",
+      "sourceRoot": "projects/phonebook-features/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/phonebook-features/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/phonebook-features/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/phonebook-features/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/phonebook-features/src/test.ts",
+            "tsConfig": "projects/phonebook-features/tsconfig.spec.json",
+            "karmaConfig": "projects/phonebook-features/karma.conf.js"
+          }
+        }
+      }
+    },
+    "asp-lforms": {
+      "projectType": "library",
+      "root": "projects/asp-lforms",
+      "sourceRoot": "projects/asp-lforms/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/asp-lforms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/asp-lforms/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/asp-lforms/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/asp-lforms/src/test.ts",
+            "tsConfig": "projects/asp-lforms/tsconfig.spec.json",
+            "karmaConfig": "projects/asp-lforms/karma.conf.js"
+          }
+        }
+      }
+    },
+    "asp-lforms-ftr": {
+      "projectType": "library",
+      "root": "projects/asp-lforms-ftr",
+      "sourceRoot": "projects/asp-lforms-ftr/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/asp-lforms-ftr/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/asp-lforms-ftr/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/asp-lforms-ftr/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/asp-lforms-ftr/src/test.ts",
+            "tsConfig": "projects/asp-lforms-ftr/tsconfig.spec.json",
+            "karmaConfig": "projects/asp-lforms-ftr/karma.conf.js"
+          }
+        }
+      }
+    },
+    "asp-rlforms-ftr": {
+      "projectType": "library",
+      "root": "projects/asp-rlforms-ftr",
+      "sourceRoot": "projects/asp-rlforms-ftr/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/asp-rlforms-ftr/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/asp-rlforms-ftr/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/asp-rlforms-ftr/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/asp-rlforms-ftr/src/test.ts",
+            "tsConfig": "projects/asp-rlforms-ftr/tsconfig.spec.json",
+            "karmaConfig": "projects/asp-rlforms-ftr/karma.conf.js"
+          }
+        }
+      }
+    }
+	}
+}

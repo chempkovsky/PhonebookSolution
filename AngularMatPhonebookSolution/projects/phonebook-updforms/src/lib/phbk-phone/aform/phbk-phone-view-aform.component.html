@@ -1,0 +1,82 @@
+
+     <div fxLayout="row" fxLayoutAlign="flex-end space-around" style="margin-bottom: 12px;"> 
+        <label fxFlex fxLayoutAlign="flex-start space-around">{{caption}}</label>
+        <ng-template ngFor let-item [ngForOf]="contMenuItems">
+            <span fxFlex="1%"></span>  
+            <button mat-icon-button (click)="onContMenuItemClicked(item)" 
+                [matTooltip]="item.caption"> 
+                <mat-icon  [color]="item.iconColor" >{{item.iconName}}</mat-icon>
+            </button>     
+        </ng-template>            
+        <span fxFlex="1%"></span>
+     </div> 
+    <div  [formGroup]="mainFormGroup" (ngSubmit)="doSubmit()" fxLayout="row wrap" fxLayoutAlign="space-between" style="margin: 0 15px;">
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="32" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['PhoneId-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['PhoneId-placeholder']" formControlName="phoneId" [readonly]="true">
+                        <mat-error *ngIf="mainFormGroup.controls['phoneId'].invalid">{{getErrorMessage(mainFormGroup.controls['phoneId'])}}</mat-error>
+                        <mat-hint align="end">{{frases['PhoneId-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="32" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['Phone-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['Phone-placeholder']" formControlName="phone">
+                        <mat-error *ngIf="mainFormGroup.controls['phone'].invalid">{{getErrorMessage(mainFormGroup.controls['phone'])}}</mat-error>
+                        <mat-hint align="end">{{frases['Phone-hint']}}</mat-hint>
+                    </mat-form-field>
+
+                <input type="hidden"  formControlName="pPhoneTypeName">
+                <mat-form-field  [appearance]="appearance" fxFlex.gt-md="32" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                    <mat-label>{{frases['PPhoneTypeName-label']}}</mat-label>
+                    <mat-select [formControl]="pPhoneTypeNameCmbCntrl">
+                        <mat-option *ngFor="let aVal of pPhoneTypeNameCmbCntrlVals;" [value]="aVal">{{ aVal.phoneTypeName }}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="pPhoneTypeNameCmbCntrl.invalid">{{getErrorMessage(pPhoneTypeNameCmbCntrl)}}</mat-error> -->
+                    <mat-error *ngIf="pPhoneTypeNameCmbCntrl.invalid">{{getErrorMessage(mainFormGroup.controls['pPhoneTypeName'])}}</mat-error>
+                    <mat-hint align="end">{{frases['PPhoneTypeName-hint']}}</mat-hint>
+                </mat-form-field>
+                <hr fxFlex="100"/>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="32" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['EEmpLastName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['EEmpLastName-placeholder']" formControlName="eEmpLastName" [readonly]="true">
+                        <button color="primary" mat-icon-button matSuffix (click)="eEmpLastNameSrchClck()" [disabled]="eEmpLastNameBttnDsnbl"  >
+                          <mat-icon>search</mat-icon>
+                        </button>
+                        <mat-error *ngIf="mainFormGroup.controls['eEmpLastName'].invalid">{{getErrorMessage(mainFormGroup.controls['eEmpLastName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['EEmpLastName-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="32" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['EEmpFirstName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['EEmpFirstName-placeholder']" formControlName="eEmpFirstName" [readonly]="true">
+                        <mat-error *ngIf="mainFormGroup.controls['eEmpFirstName'].invalid">{{getErrorMessage(mainFormGroup.controls['eEmpFirstName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['EEmpFirstName-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="32" fxFlex.gt-sm="49" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['EEmpSecondName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['EEmpSecondName-placeholder']" formControlName="eEmpSecondName" [readonly]="true">
+                        <mat-error *ngIf="mainFormGroup.controls['eEmpSecondName'].invalid">{{getErrorMessage(mainFormGroup.controls['eEmpSecondName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['EEmpSecondName-hint']}}</mat-hint>
+                    </mat-form-field>
+                <hr fxFlex="100"/>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="49" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['EDDivisionName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['EDDivisionName-placeholder']" formControlName="eDDivisionName" [readonly]="true">
+                        <button color="primary" mat-icon-button matSuffix (click)="eDDivisionNameSrchClck()" [disabled]="eDDivisionNameBttnDsnbl"  >
+                          <mat-icon>search</mat-icon>
+                        </button>
+                        <mat-error *ngIf="mainFormGroup.controls['eDDivisionName'].invalid">{{getErrorMessage(mainFormGroup.controls['eDDivisionName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['EDDivisionName-hint']}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field  [appearance]="appearance" fxFlex.gt-md="49" fxFlex.gt-sm="99" fxFlex.gt-xs="99" fxFlex="99">
+                        <mat-label>{{frases['EDEEntrprsName-label']}}</mat-label>
+                        <input  matInput [placeholder]="frases['EDEEntrprsName-placeholder']" formControlName="eDEEntrprsName" [readonly]="true">
+                        <button color="primary" mat-icon-button matSuffix (click)="eDEEntrprsNameSrchClck()" [disabled]="eDEEntrprsNameBttnDsnbl"  >
+                          <mat-icon>search</mat-icon>
+                        </button>
+                        <mat-error *ngIf="mainFormGroup.controls['eDEEntrprsName'].invalid">{{getErrorMessage(mainFormGroup.controls['eDEEntrprsName'])}}</mat-error>
+                        <mat-hint align="end">{{frases['EDEEntrprsName-hint']}}</mat-hint>
+                    </mat-form-field>
+                <input type="hidden"  formControlName="employeeIdRef">
+                <input type="hidden"  formControlName="phoneTypeIdRef">
+ 
+    </div>
+

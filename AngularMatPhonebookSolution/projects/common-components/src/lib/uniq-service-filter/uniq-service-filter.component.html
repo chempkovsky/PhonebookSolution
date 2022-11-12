@@ -1,0 +1,125 @@
+
+<div fxLayout="row" fxLayoutAlign="flex-end space-around"> 
+    <label fxFlex fxLayoutAlign="flex-start space-around">{{caption}}</label>
+    <button mat-icon-button color="primary" (click)="onBackBtnMd()" *ngIf="showBackBtn"
+    i18n-matTooltip="Navigate back to master@@UniqServiceFilterComponent.Navigate-back-to-master"  matTooltip="Navigate back to master"> 
+    <mat-icon>arrow_back</mat-icon>
+</button>         
+<span fxFlex="4%"></span>  
+<button mat-icon-button color="primary" (click)="onApplyFilterClicked()" 
+    i18n-matTooltip="Apply filter@@UniqServiceFilterComponent.Apply-filter"  matTooltip="Apply filter"> 
+
+    
+    <mat-icon   >refresh</mat-icon>
+</button>      
+<span fxFlex="2%"></span>     
+<ng-template ngFor let-item [ngForOf]="contMenuItems">
+    <span fxFlex="1%"></span>  
+    <button mat-icon-button [color]="item.iconColor" (click)="onContMenuItemClicked(item)" 
+        [matTooltip]="item.caption"> 
+        <mat-icon>{{item.iconName}}</mat-icon>
+    </button>     
+</ng-template>            
+<span fxFlex="1%"></span>
+</div> 
+
+<div *ngIf="showFilterEx" [style.maxHeight.em]="maxHeightEx" [style.overflow]="ovrflw"> 
+    <div fxLayout="row wrap" fxLayoutAlign="space-between" style="margin: 0 15px;">
+        <div *ngFor="let flt of webServiceFilters;let i = index" [fxFlex.gt-md]="flt.fltrMd" [fxFlex.gt-sm]="flt.fltrSm" [fxFlex.gt-xs]="flt.fltrXs" [fxFlex]="flt.fltrFlx">
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 0)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead0">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead0="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars0 | async);" [value]="v">{{ tpAheadCptn(v,0) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 1)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead1">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead1="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars1 | async);" [value]="v">{{ tpAheadCptn(v,1) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 2)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead2">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead2="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars2 | async);" [value]="v">{{ tpAheadCptn(v,2) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 3)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead3">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead3="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars3 | async);" [value]="v">{{ tpAheadCptn(v,3) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 4)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead4">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead4="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars4 | async);" [value]="v">{{ tpAheadCptn(v,4) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 5)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead5">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead5="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars5 | async);" [value]="v">{{ tpAheadCptn(v,5) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+            <ng-template [ngIf]="(flt.fltrDataType !==  'datetime') && (flt.fltrDataType !==  'bool')  && (flt.fltrDataType !==  'boolean')  && (i === 6)">
+                <mat-form-field  [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input type="text" placeholder="{{flt.fltrCaption}}" matInput [formControl]="flt.fltrValue" [matAutocomplete]="tpAhead6">
+                    <mat-autocomplete autoActiveFirstOption #tpAhead6="matAutocomplete" >
+                        <mat-option *ngFor="let v of (tpAheadVars6 | async);" [value]="v">{{ tpAheadCptn(v,6) }}</mat-option>
+                    </mat-autocomplete>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                    <mat-hint align="end" *ngIf="flt.fltrMaxLen">{{flt.fltrValue.value?.length || 0}}/{{flt.fltrMaxLen}}</mat-hint>
+                </mat-form-field>
+            </ng-template>
+
+            <ng-template [ngIf]="flt.fltrDataType === 'boolean' || flt.fltrDataType === 'bool'">
+                <mat-form-field [appearance]="appearance" fxFlex="100">
+                    <mat-checkbox [formControl]="flt.fltrValue"> {{flt.fltrCaption}} </mat-checkbox>
+                </mat-form-field>
+            </ng-template>
+
+            <ng-template [ngIf]="flt.fltrDataType === 'datetime'">
+                <mat-form-field [appearance]="appearance" fxFlex="100">
+                    <mat-label>{{flt.fltrCaption}}</mat-label>
+                    <input matNativeControl [matDatepicker]="apicker"  placeholder="{{flt.fltrCaption}}" [formControl]="flt.fltrValue" [min]="flt.fltrMin" [max]="flt.fltrMax" > 
+                    <mat-datepicker-toggle matSuffix [for]="apicker"></mat-datepicker-toggle>
+                    <mat-datepicker #apicker></mat-datepicker>
+                    <mat-error *ngIf="flt.fltrValue.invalid">{{getErrorMessage(flt.fltrValue)}}</mat-error>
+                </mat-form-field>
+            </ng-template>
+        </div>
+    </div>
+</div>
+

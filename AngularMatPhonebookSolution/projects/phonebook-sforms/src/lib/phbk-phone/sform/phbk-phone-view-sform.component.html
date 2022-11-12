@@ -1,0 +1,243 @@
+
+
+<app-uniq-service-filter *ngIf="crIMIDid === 'LprPhone01View'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs"  [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    [tp-ahead-val]="tpAheadValLprPhone01View"
+    [tp-ahead-fnc]="tpAheadFncLprPhone01View"
+    [tp-ahead-cptn]="tpAheadCptnLprPhone01View"
+    (after-obj-sel)="afterObjSelLprPhone01View($event)"
+    [notify-all]="false"
+    ></app-uniq-service-filter>
+<app-uniq-service-filter *ngIf="crIMIDid === 'LprPhone02View'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs"  [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    [tp-ahead-val]="tpAheadValLprPhone02View"
+    [tp-ahead-fnc]="tpAheadFncLprPhone02View"
+    [tp-ahead-cptn]="tpAheadCptnLprPhone02View"
+    (after-obj-sel)="afterObjSelLprPhone02View($event)"
+    [notify-all]="false"
+    ></app-uniq-service-filter>
+<app-uniq-service-filter *ngIf="crIMIDid === 'LprPhone03View'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs"  [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    [tp-ahead-val]="tpAheadValLprPhone03View"
+    [tp-ahead-fnc]="tpAheadFncLprPhone03View"
+    [tp-ahead-cptn]="tpAheadCptnLprPhone03View"
+    (after-obj-sel)="afterObjSelLprPhone03View($event)"
+    [notify-all]="false"
+    ></app-uniq-service-filter>
+<app-uniq-service-filter *ngIf="crIMIDid === 'LprPhone04View'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs"  [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    [tp-ahead-val]="tpAheadValLprPhone04View"
+    [tp-ahead-fnc]="tpAheadFncLprPhone04View"
+    [tp-ahead-cptn]="tpAheadCptnLprPhone04View"
+    (after-obj-sel)="afterObjSelLprPhone04View($event)"
+    [notify-all]="false"
+    ></app-uniq-service-filter>
+<app-uniq-service-filter *ngIf="crIMIDid === 'scannByPrimary'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs"  [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    [tp-ahead-val]="tpAheadValPrimary"
+    [tp-ahead-fnc]="tpAheadFncPrimary"
+    [tp-ahead-cptn]="tpAheadCptnPrimary"
+    (after-obj-sel)="afterObjSelPrimary($event)"
+    [notify-all]="true"
+    ></app-uniq-service-filter>
+
+<app-web-service-filter *ngIf="crIMIDid === 'fullscann'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [show-add-flt-item]="showAddFltItem"  
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs" [hidden-filter]="hiddenFilterEx" [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    ></app-web-service-filter>
+
+<mat-progress-bar *ngIf="inQuery" mode="query"></mat-progress-bar>
+<div [style.maxHeight.px]="maxHeightEx" [style.overflow-y]="ovrflw" class="mat-tbl-container">
+
+<mat-radio-group>
+<table mat-table [dataSource]="dataSource" matSort  >
+
+  <ng-container matColumnDef="selectAction" sticky>
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let e">
+      <mat-radio-button (change)="onSelectRow(e)" [value]="e" [checked]="e === currentRow" ></mat-radio-button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="selectMultAction" sticky>
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="multSelection.hasValue() && isAllSelected()"
+                    [indeterminate]="multSelection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let e">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? multSelection.toggle(e) : null"
+                    [checked]="multSelection.isSelected(e)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+
+    <ng-container matColumnDef="phoneId" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="Phone Id@@PhbkPhoneViewSformComponent.phoneId-ColumnDef">Phone Id</th>
+        <td mat-cell *matCellDef="let e"> {{e.phoneId  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="phone" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="Phone@@PhbkPhoneViewSformComponent.phone-ColumnDef">Phone</th>
+        <td mat-cell *matCellDef="let e"> {{e.phone  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="pPhoneTypeName" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Phone Type Name@@PhbkPhoneViewSformComponent.pPhoneTypeName-ColumnDef">Phone Type Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.pPhoneTypeName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="eEmpLastName" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Last Name@@PhbkPhoneViewSformComponent.eEmpLastName-ColumnDef">Last Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.eEmpLastName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="eEmpFirstName" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="First Name@@PhbkPhoneViewSformComponent.eEmpFirstName-ColumnDef">First Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.eEmpFirstName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="eDDivisionName" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Division Name@@PhbkPhoneViewSformComponent.eDDivisionName-ColumnDef">Division Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.eDDivisionName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="eDEEntrprsName" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Enterprise Name@@PhbkPhoneViewSformComponent.eDEEntrprsName-ColumnDef">Enterprise Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.eDEEntrprsName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="eEmpSecondName" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Second Name@@PhbkPhoneViewSformComponent.eEmpSecondName-ColumnDef">Second Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.eEmpSecondName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="phoneTypeIdRef" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="Phone Type Id@@PhbkPhoneViewSformComponent.phoneTypeIdRef-ColumnDef">Phone Type Id</th>
+        <td mat-cell *matCellDef="let e"> {{e.phoneTypeIdRef  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="employeeIdRef" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="Employee Id@@PhbkPhoneViewSformComponent.employeeIdRef-ColumnDef">Employee Id</th>
+        <td mat-cell *matCellDef="let e"> {{e.employeeIdRef  }} </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="menuAction" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button [matMenuTriggerFor]="tblMenu" >
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #tblMenu="matMenu">
+
+
+              <button mat-menu-item  (click)="onFilter()">
+                <mat-icon>refresh</mat-icon>
+                <span i18n="Refresh table@@PhbkPhoneViewSformComponent.Refreshtable-menu">Refresh table</span>
+              </button>
+              <button mat-menu-item  (click)="onSettings()">
+                <mat-icon>settings</mat-icon>
+                <span i18n="Table columns@@PhbkPhoneViewSformComponent.Tablecolumns-menu">Table columns</span>
+                <span>Table columns</span>
+              </button>
+              <button mat-menu-item *ngFor="let m of tableMenuItemsData;"  [disabled]="!m.enabled" (click)="tableCommand(m.id)">
+                <mat-icon color="{{m.iconColor}}">{{m.iconName}}</mat-icon>
+                <span>{{m.caption}}</span>
+              </button>
+            </mat-menu>            
+        </th>
+        <td mat-cell *matCellDef="let e">
+            <button mat-icon-button [matMenuTriggerFor]="rowMenu" >
+                <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #rowMenu="matMenu">
+              <button mat-menu-item *ngFor="let m of rowCommands;"  [disabled]="!m.enabled" (click)="rowCommand(e, m.id)">
+                <mat-icon color="{{m.iconColor}}">{{m.iconName}}</mat-icon>
+                <span>{{m.caption}}</span>
+              </button>
+
+            </mat-menu>  
+          
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</mat-radio-group>
+</div>
+<mat-paginator (page)="onPage($event)"  [pageIndex]="currentPageIndex" [pageSize]="currentPageSize" [length]="matPaginatorLen" [pageSize]="matPaginatorPageSize" [pageSizeOptions]="matPaginatorPageSizeOptions"> </mat-paginator> 
+
+

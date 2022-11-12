@@ -1,0 +1,14 @@
+<!-- <h3 mat-dialog-title>{{data.title}}</h3> -->
+<div mat-dialog-content>
+    <app-aspnetmodel-view-aform 
+        [caption]="data.title" 
+        [hidden-filter]="data.hiddenFilter"
+        [eform-control-model]="data.eformControlModel"
+        (after-submit)="onAfterSubmit($event)"
+    ></app-aspnetmodel-view-aform>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()" cdkFocusInitial i18n="Cancel@@Cancel.Cancel">Cancel</button>
+  <button mat-button (click)="onOk()" i18n="Ok@@Ok.Ok">Ok</button>
+</div>
+

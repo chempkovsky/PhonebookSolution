@@ -7,90 +7,26 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LinqKit;
-using MassTransit;
-
-/*
-according to https://masstransit-project.com/usage/configuration.html#configuration
-make sure Program.cs file contains the following code:
-
-#region MassTransit config
-using MassTransit;
-#endregion
-...
-var builder = WebApplication.CreateBuilder(args);
-...
-
-
-#region MassTransit config
-builder.Services.AddMassTransit(x => {
-    x.UsingRabbitMq((context, configurator) => {
-        configurator.Host("192.168.100.4", "RabbitMq_virtual_host_name", h =>
-        {
-            h.Username("RabbitMq_admin_name");
-            h.Password("RabbitMq_admin_password");
-            // 
-            // Cluster settings
-            //
-            // h.UseCluster((configureCluster) =>
-            // {
-            //   configureCluster.Node("192.168.100.5");
-            //   configureCluster.Node("192.168.100.6");
-            //   ...
-            //   configureCluster.Node("192.168.100.10");
-            // });
-            // h.PublisherConfirmation = true;
-            //h.ConfigureBatchPublish(configure =>
-            //{
-            //});
-        });
-        // 
-        // Quorum Queue settings
-        //
-        // configurator.SetQuorumQueue(3);
-        //
-    });
-});
-builder.Services.AddOptions<MassTransitHostOptions>()
-                .Configure(options =>
-                {
-                    // if specified, waits until the bus is started before
-                    // returning from IHostedService.StartAsync
-                    // default is false
-                    options.WaitUntilStarted = true;
-
-                    // if specified, limits the wait time when starting the bus
-                    options.StartTimeout = TimeSpan.FromSeconds(10);
-
-                    // if specified, limits the wait time when stopping the bus
-                    options.StopTimeout = TimeSpan.FromSeconds(30);
-
-                });
-#endregion
-*/
-
-
 
 using PhBkContext.PhBk;
 using PhBkViews.PhBk;
 using PhBkEntity.PhBk;
-using LpPhBkViews.PhBk;
 
 namespace PhBkControllers.Controllers {
 
 //    [RoutePrefix("phbkphoneviewwebapi")]
     [ApiController]
+    [Route("")]
     public class PhbkPhoneViewWebApiController: ControllerBase
     {
         private int defaultPageSize = 50;
         private int minPageSize = 5;
         private int maxPageSize = 150;
         private readonly PhbkDbContext db;
-        private readonly IPublishEndpoint pe;
 
-        public PhbkPhoneViewWebApiController(PhbkDbContext context, IPublishEndpoint publishEndpoint)
+        public PhbkPhoneViewWebApiController(PhbkDbContext context)
         {
             db = context;
-            pe = publishEndpoint;
         }
 
         [HttpGet]
@@ -547,22 +483,6 @@ namespace PhBkControllers.Controllers {
             {
                 return BadRequest(ModelState);
             }
-
-            PhbkPhoneView oldObjVer = await db.PhbkPhoneDbSet
-                    .Where(p => p.PhoneId == viewToUpdate.PhoneId)
-                    .Select(itm => new PhbkPhoneView() {
-                            PhoneId = itm.PhoneId,
-                            Phone = itm.Phone,
-                            PhoneTypeIdRef = itm.PhoneTypeIdRef,
-                            EmployeeIdRef = itm.EmployeeIdRef,
-                            PPhoneTypeName = itm.PhoneType.PhoneTypeName,
-                            EEmpFirstName = itm.Employee.EmpFirstName,
-                            EEmpLastName = itm.Employee.EmpLastName,
-                            EEmpSecondName = itm.Employee.EmpSecondName,
-                            EDDivisionName = itm.Employee.Division.DivisionName,
-                            EDEEntrprsName = itm.Employee.Division.Enterprise.EntrprsName
-                    }).FirstOrDefaultAsync();
-
             PhbkPhone resultEntity = await db.PhbkPhoneDbSet
                     .Where(p => p.PhoneId == viewToUpdate.PhoneId)
                     .FirstOrDefaultAsync();
@@ -593,21 +513,6 @@ namespace PhBkControllers.Controllers {
             {
                 return NotFound();
             }
-
-            IPhbkPhoneViewExtForLkUp newcln = LpPhBkViews.PhBk.PhbkPhoneViewCloneForLkUp.DoClone(result);
-            IPhbkPhoneViewExtForLkUp oldcln = LpPhBkViews.PhBk.PhbkPhoneViewCloneForLkUp.DoClone(oldObjVer);
-            
-            // 
-            // Please define additional props of the IPhbkPhoneViewExtForLkUp newcln object before  UpdateForXXX-method calls 
-            //
-            
-            await pe.Publish<IPhbkPhoneViewExtForLkUpMsg>(new
-            {
-                action = 2,
-                OldVals = oldcln,
-                NewVals = newcln
-            });
-
             return Ok(result);
         }
 
@@ -645,19 +550,6 @@ namespace PhBkControllers.Controllers {
             {
                 return NotFound();
             }
-
-
-            IPhbkPhoneViewExtForLkUp newcln = LpPhBkViews.PhBk.PhbkPhoneViewCloneForLkUp.DoClone(result);
-            // 
-            // Please define additional props of the IPhbkPhoneViewExtForLkUp newcln object before  UpdateForXXX-method calls 
-            //
-            await pe.Publish<IPhbkPhoneViewExtForLkUpMsg>(new
-            {
-                action = 1,
-                // OldVals = null,
-                NewVals = newcln
-            });
-
             return Ok(result);
         }
 
@@ -697,20 +589,7 @@ namespace PhBkControllers.Controllers {
                 }
                 db.PhbkPhoneDbSet.Remove(entityToDelete);
                 await db.SaveChangesAsync();
-
-
-            IPhbkPhoneViewExtForLkUp oldcln = LpPhBkViews.PhBk.PhbkPhoneViewCloneForLkUp.DoClone(result);
-            // 
-            // Please define additional props of the IPhbkPhoneViewExtForLkUp oldcln object before  UpdateForXXX-method calls 
-            //
-
-            await pe.Publish<IPhbkPhoneViewExtForLkUpMsg>(new
-            {
-                action = 3,
-                OldVals = oldcln
-                // NewVals = null
-            });
-            return Ok(result);
+                return Ok(result);
         }
 
     }

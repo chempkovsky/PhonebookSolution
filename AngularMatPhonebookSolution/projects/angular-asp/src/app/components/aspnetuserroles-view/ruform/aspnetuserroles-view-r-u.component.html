@@ -1,0 +1,19 @@
+<mat-card>
+        <!-- <mat-card-subtitle>{{title}}</mat-card-subtitle> -->
+
+    <mat-card-content>
+        <app-aspnetuserroles-view-uform 
+            [caption]="title" 
+            [hidden-filter]="hiddenFilter"
+            [eform-control-model]="eformControlModel"
+            (after-submit)="onAfterSubmit($event)"
+            [cont-menu-items]="contMenuItems"
+            (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+        ></app-aspnetuserroles-view-uform>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="onCancel()" cdkFocusInitial i18n="Cancel@@Cancel.Cancel">Cancel</button>
+      <button mat-button (click)="onOk()" i18n="Ok@@Ok.Ok">Ok</button>
+    </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,13 @@
+
+
+{
+    "webApiUrl": "https://localhost:7163/",
+    "securityUrl": "https://localhost:7163/",
+    "permissionWebApi": "https://localhost:7163/",
+    "divisionLpWebApi": "https://localhost:7079/",
+    "employeeLpWebApi": "https://localhost:7079/",
+    "phoneLpWebApi": "https://localhost:7079/"
+  
+}
+
+

@@ -1,0 +1,102 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "asp-interfaces": [
+        "dist/asp-interfaces"
+      ],
+      "asp-lforms": [
+        "dist/asp-lforms"
+      ],
+      "asp-lforms-ftr": [
+        "dist/asp-lforms-ftr"
+      ],
+      "asp-rlforms-ftr": [
+        "dist/asp-rlforms-ftr"
+      ],
+      "asp-services": [
+        "dist/asp-services"
+      ],
+      "asp-sforms": [
+        "dist/asp-sforms"
+      ],
+      "asp-updforms": [
+        "dist/asp-updforms"
+      ],
+      "common-auth": [
+        "dist/common-auth"
+      ],
+      "common-components": [
+        "dist/common-components"
+      ],
+      "common-formatters": [
+        "dist/common-formatters"
+      ],
+      "common-interfaces": [
+        "dist/common-interfaces"
+      ],
+      "common-modules": [
+        "dist/common-modules"
+      ],
+      "common-services": [
+        "dist/common-services"
+      ],
+      "phonebook-features": [
+        "dist/phonebook-features"
+      ],
+      "phonebook-interfaces": [
+        "dist/phonebook-interfaces"
+      ],
+      "phonebook-lforms": [
+        "dist/phonebook-lforms"
+      ],
+      "phonebook-rdlforms": [
+        "dist/phonebook-rdlforms"
+      ],
+      "phonebook-rlforms": [
+        "dist/phonebook-rlforms"
+      ],
+      "phonebook-rlforms-ftrs": [
+        "dist/phonebook-rlforms-ftrs"
+      ],
+      "phonebook-scforms": [
+        "dist/phonebook-scforms"
+      ],
+      "phonebook-services": [
+        "dist/phonebook-services"
+      ],
+      "phonebook-sforms": [
+        "dist/phonebook-sforms"
+      ],
+      "phonebook-updforms": [
+        "dist/phonebook-updforms"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

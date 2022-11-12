@@ -1,0 +1,10 @@
+
+{
+    "webApiUrl": "${WA_URL}",
+    "securityUrl": "${SEC_URL}",
+    "permissionWebApi": "${PERM_URL}",
+    "divisionLpWebApi": "${DIVLP_URL}",
+    "employeeLpWebApi": "${EMPLP_URL}",
+    "phoneLpWebApi": "${PHNLP_URL}"
+}
+

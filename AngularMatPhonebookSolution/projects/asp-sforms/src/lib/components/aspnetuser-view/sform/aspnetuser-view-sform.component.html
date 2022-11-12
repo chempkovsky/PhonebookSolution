@@ -1,0 +1,172 @@
+
+
+<app-uniq-service-filter *ngIf="crIMIDid === 'scannByPrimary'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs"  [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    [tp-ahead-val]="tpAheadValPrimary"
+    [tp-ahead-fnc]="tpAheadFncPrimary"
+    [tp-ahead-cptn]="tpAheadCptnPrimary"
+    (after-obj-sel)="afterObjSelPrimary($event)"
+    [notify-all]="true"
+    ></app-uniq-service-filter>
+
+<app-web-service-filter *ngIf="crIMIDid === 'fullscann'"
+    [caption]="caption" 
+    (on-back-btn)="onBackBtnMd($event)"
+    [show-back-btn]="showBackBtn"
+    (on-apply-filter)="onApplyFilter($event)" 
+    [external-filter]="externalFilterRslt"
+    [show-add-flt-item]="showAddFltItem"  
+    [max-height]="filterMaxHeight"  
+    [filter-defs]="filterDefs" [hidden-filter]="hiddenFilterEx" [show-filter]="showFilter"
+    [cont-menu-items]="contMenuItems"
+    (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+    ></app-web-service-filter>
+
+<mat-progress-bar *ngIf="inQuery" mode="query"></mat-progress-bar>
+<div [style.maxHeight.px]="maxHeightEx" [style.overflow-y]="ovrflw" class="mat-tbl-container">
+
+<mat-radio-group>
+<table mat-table [dataSource]="dataSource" matSort  >
+
+  <ng-container matColumnDef="selectAction" sticky>
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let e">
+      <mat-radio-button (change)="onSelectRow(e)" [value]="e" [checked]="e === currentRow" ></mat-radio-button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="selectMultAction" sticky>
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="multSelection.hasValue() && isAllSelected()"
+                    [indeterminate]="multSelection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let e">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? multSelection.toggle(e) : null"
+                    [checked]="multSelection.isSelected(e)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+
+    <ng-container matColumnDef="email" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="User Email@@AspnetuserViewSformComponent.email-ColumnDef">User Email</th>
+        <td mat-cell *matCellDef="let e"> {{e.email  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="userName" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="User Name@@AspnetuserViewSformComponent.userName-ColumnDef">User Name</th>
+        <td mat-cell *matCellDef="let e"> {{e.userName  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="emailConfirmed" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Email Confirmed@@AspnetuserViewSformComponent.emailConfirmed-ColumnDef">Email Confirmed</th>
+        <td mat-cell *matCellDef="let e"> {{e.emailConfirmed  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="phoneNumber" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="Phone Number@@AspnetuserViewSformComponent.phoneNumber-ColumnDef">Phone Number</th>
+        <td mat-cell *matCellDef="let e"> {{e.phoneNumber  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="phoneNumberConfirmed" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Phone Number Confirmed@@AspnetuserViewSformComponent.phoneNumberConfirmed-ColumnDef">Phone Number Confirmed</th>
+        <td mat-cell *matCellDef="let e"> {{e.phoneNumberConfirmed  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="twoFactorEnabled" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Two Factor Enabled@@AspnetuserViewSformComponent.twoFactorEnabled-ColumnDef">Two Factor Enabled</th>
+        <td mat-cell *matCellDef="let e"> {{e.twoFactorEnabled  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="lockoutEnabled" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Lockout Enabled@@AspnetuserViewSformComponent.lockoutEnabled-ColumnDef">Lockout Enabled</th>
+        <td mat-cell *matCellDef="let e"> {{e.lockoutEnabled  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="accessFailedCount" >
+        <th mat-header-cell *matHeaderCellDef  
+        i18n="Access Failed Count@@AspnetuserViewSformComponent.accessFailedCount-ColumnDef">Access Failed Count</th>
+        <td mat-cell *matCellDef="let e"> {{e.accessFailedCount  }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="id" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header 
+        i18n="User Id@@AspnetuserViewSformComponent.id-ColumnDef">User Id</th>
+        <td mat-cell *matCellDef="let e"> {{e.id  }} </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="menuAction" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button [matMenuTriggerFor]="tblMenu" >
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #tblMenu="matMenu">
+
+
+              <button mat-menu-item  (click)="onFilter()">
+                <mat-icon>refresh</mat-icon>
+                <span i18n="Refresh table@@AspnetuserViewSformComponent.Refreshtable-menu">Refresh table</span>
+              </button>
+              <button mat-menu-item  (click)="onSettings()">
+                <mat-icon>settings</mat-icon>
+                <span i18n="Table columns@@AspnetuserViewSformComponent.Tablecolumns-menu">Table columns</span>
+                <span>Table columns</span>
+              </button>
+              <button mat-menu-item *ngFor="let m of tableMenuItemsData;"  [disabled]="!m.enabled" (click)="tableCommand(m.id)">
+                <mat-icon color="{{m.iconColor}}">{{m.iconName}}</mat-icon>
+                <span>{{m.caption}}</span>
+              </button>
+            </mat-menu>            
+        </th>
+        <td mat-cell *matCellDef="let e">
+            <button mat-icon-button [matMenuTriggerFor]="rowMenu" >
+                <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #rowMenu="matMenu">
+              <button mat-menu-item *ngFor="let m of rowCommands;"  [disabled]="!m.enabled" (click)="rowCommand(e, m.id)">
+                <mat-icon color="{{m.iconColor}}">{{m.iconName}}</mat-icon>
+                <span>{{m.caption}}</span>
+              </button>
+
+            </mat-menu>  
+          
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</mat-radio-group>
+</div>
+<mat-paginator (page)="onPage($event)"  [pageIndex]="currentPageIndex" [pageSize]="currentPageSize" [length]="matPaginatorLen" [pageSize]="matPaginatorPageSize" [pageSizeOptions]="matPaginatorPageSizeOptions"> </mat-paginator> 
+
+

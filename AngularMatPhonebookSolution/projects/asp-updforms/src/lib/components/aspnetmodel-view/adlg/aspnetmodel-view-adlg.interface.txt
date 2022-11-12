@@ -1,0 +1,25 @@
+
+{
+    "FileModifierItems": [
+        {
+            "Description": [
+                'update public-api.ts or webpack.config.js',
+                'with export data'
+            ],
+            "MethodName": "UpdateExport",
+            "InvocationParams": ['01512-Adlg.interface.ts']
+        }
+    ]
+}==============================================================================
+Deserialize json Script
+Deserialize json Script: Done
+Reading updaters code
+Reading updaters code: Done
+Setting Babel Folder Path
+Setting Babel Folder Path: Done
+
+update public-api.ts or webpack.config.js
+with export data
+Result:
+The file 'E:\Development\PhonebookSolution\AngularMatPhonebookSolution\projects\asp-updforms\src\public-api.ts' has been updated.
+

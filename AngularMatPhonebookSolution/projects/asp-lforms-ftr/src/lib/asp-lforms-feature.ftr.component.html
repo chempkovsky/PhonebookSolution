@@ -1,0 +1,42 @@
+
+
+<div class="dashboard-grid-container">
+  <h4>Dashboard for AspLformsFeature</h4>
+  <div class="gridlistcls">
+
+    <div [style.grid-column-end]="'span '+ colSpan[0][0]"   [style.grid-row-end]="'span '+ rowSpan[0][0]"  [hidden]="colSpan[0][0] === 0"  *ngIf="isVisible[0]">
+        <mat-card>
+            <app-aspnetmodel-view-lform
+                [cont-menu-items]="contMenuItems[0]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[0][0]"  
+                [filter-max-height]="filterMaxHeight[0][0]"></app-aspnetmodel-view-lform>
+        </mat-card>
+    </div>
+
+
+    <div [style.grid-column-end]="'span '+ colSpan[1][0]"   [style.grid-row-end]="'span '+ rowSpan[1][0]"  [hidden]="colSpan[1][0] === 0"  *ngIf="isVisible[1]">
+        <mat-card>
+            <app-aspnetrole-view-lform
+                [cont-menu-items]="contMenuItems[1]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[1][0]"  
+                [filter-max-height]="filterMaxHeight[1][0]"></app-aspnetrole-view-lform>
+        </mat-card>
+    </div>
+
+
+    <div [style.grid-column-end]="'span '+ colSpan[2][0]"   [style.grid-row-end]="'span '+ rowSpan[2][0]"  [hidden]="colSpan[2][0] === 0"  *ngIf="isVisible[2]">
+        <mat-card>
+            <app-aspnetuser-view-lform
+                [cont-menu-items]="contMenuItems[2]"
+                (on-cont-menu-item-click)="onContMenuItemClicked($event)"
+                [max-height]="maxHeight[2][0]"  
+                [filter-max-height]="filterMaxHeight[2][0]"></app-aspnetuser-view-lform>
+        </mat-card>
+    </div>
+
+
+  </div>
+</div>
+

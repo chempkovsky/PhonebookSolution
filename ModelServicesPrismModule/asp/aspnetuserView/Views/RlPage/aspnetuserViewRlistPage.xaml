@@ -40,7 +40,7 @@
             </StackLayout>
 
             <prx:ProxyUserControl Grid.Row="2" Grid.Column="0"
-                prism:RegionManager.RegionName="AspnetuserViewRlistPageDetailRegion"
+                prism:RegionManager.RegionName="{Binding BindingContext.AspnetuserViewRlistPageDetailRegion, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
                 IsVisible="{Binding BindingContext.IsDetailVisible, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}"
                 IsDestroyed="{Binding IsDestroyed, Mode=OneWay, Source={x:Reference rlistUsrCntrlRootNode}}" 
                 ShowAddFilterBtn="True" 

@@ -1,0 +1,34 @@
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>{{title}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content >
+
+        <div [formGroup]="loginFormGroup" (ngSubmit)="doSubmit()" fxLayout="column wrap">
+            <mat-form-field  [appearance]="appearance">
+                <mat-label i18n="User name@@AppGlblLoginComponent.User-name-label">User name</mat-label>
+                <input  matInput i18n-placeholder="Email@@AppGlblLoginComponent.User-name-placeholder" placeholder="User name" formControlName="username">
+                <mat-error *ngIf="loginFormGroup.controls['username'].invalid">{{getErrorMessage(loginFormGroup.controls['username'])}}</mat-error>
+                <mat-hint align="end" i18n="Enter User name@@AppGlblLoginComponent.Enter-User-name-hint">Enter User name</mat-hint>
+            </mat-form-field>
+            <mat-form-field  [appearance]="appearance" >
+                <mat-label i18n="Password@@AppGlblLoginComponent.Password-label">Password</mat-label>
+                <input  matInput i18n-placeholder="Password@@AppGlblLoginComponent.Password-placeholder" placeholder="Password" formControlName="password" [type]="pwdhide ? 'password' : 'text'">
+
+                <button mat-icon-button matSuffix (click)="pwdhide = !pwdhide">
+                    <mat-icon>{{pwdhide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginFormGroup.controls['password'].invalid">{{getErrorMessage(loginFormGroup.controls['password'])}}</mat-error>
+                <mat-hint align="end" i18n="Enter Password@@AppGlblLoginComponent.Enter-Password-hint">Enter Password</mat-hint>
+            </mat-form-field>
+        </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="onCancel()" cdkFocusInitial i18n="Canceld@@Cancel.Cancel">Cancel</button>
+        <button mat-button (click)="doSubmit()" i18n="Ok@@Ok.Ok">Ok</button>
+
+    </mat-card-actions>
+</mat-card>
+

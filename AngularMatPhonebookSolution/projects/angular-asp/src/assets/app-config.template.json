@@ -1,0 +1,7 @@
+
+{
+    "webApiUrl": "${WA_URL}",
+    "securityUrl": "${SEC_URL}",
+    "permissionWebApi": "${PERM_URL}"
+}
+
